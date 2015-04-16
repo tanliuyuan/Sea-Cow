@@ -141,7 +141,23 @@
                     <view key="view" contentMode="scaleToFill" id="6Mr-uQ-J85">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QhJ-i7-PaA">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="yfc-dg-7z3">
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="yZa-7a-PhR"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Reading List" id="dGb-Ua-xiH"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QhJ-i7-PaA" firstAttribute="top" secondItem="eEj-Zk-cqf" secondAttribute="bottom" id="5vl-OV-A8R"/>
+                            <constraint firstItem="QhJ-i7-PaA" firstAttribute="leading" secondItem="6Mr-uQ-J85" secondAttribute="leading" id="Y4t-8p-6db"/>
+                            <constraint firstAttribute="trailing" secondItem="QhJ-i7-PaA" secondAttribute="trailing" id="bNn-vs-rh6"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kj2-me-cKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -159,10 +175,40 @@
                     <view key="view" contentMode="scaleToFill" id="N6M-gO-Bcq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LE4-6z-dUv">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="y9e-rn-0jJ">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="JZd-eT-aVt">
+                                            <connections>
+                                                <action selector="back:" destination="dD6-Gj-7mF" id="vtR-sT-ZfN"/>
+                                                <segue destination="4iQ-bc-QBA" kind="unwind" unwindAction="returnToReadingList:" id="MYn-vV-dq3"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Share" id="e37-TB-7nB"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCi-9z-Kqp">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LE4-6z-dUv" firstAttribute="leading" secondItem="N6M-gO-Bcq" secondAttribute="leading" id="497-9Y-pbp"/>
+                            <constraint firstAttribute="trailing" secondItem="LE4-6z-dUv" secondAttribute="trailing" id="A3W-lF-sVY"/>
+                            <constraint firstItem="mCi-9z-Kqp" firstAttribute="leading" secondItem="N6M-gO-Bcq" secondAttribute="leading" id="DIB-dP-RQ4"/>
+                            <constraint firstAttribute="bottom" secondItem="mCi-9z-Kqp" secondAttribute="bottom" id="Qdd-DH-Kgj"/>
+                            <constraint firstItem="mCi-9z-Kqp" firstAttribute="top" secondItem="LE4-6z-dUv" secondAttribute="bottom" id="n7K-jW-naF"/>
+                            <constraint firstAttribute="trailing" secondItem="mCi-9z-Kqp" secondAttribute="trailing" id="oGB-5a-Dgi"/>
+                            <constraint firstItem="LE4-6z-dUv" firstAttribute="top" secondItem="WDl-ov-hus" secondAttribute="bottom" id="qtu-zb-DwD"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOi-L9-qlg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4iQ-bc-QBA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1802" y="277"/>
         </scene>

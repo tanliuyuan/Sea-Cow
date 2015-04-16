@@ -25,5 +25,9 @@ class ReadingListViewController: UIViewController {
     @IBAction func back(sender: AnyObject) {
         performSegueWithIdentifier("returnToCards", sender: self)
     }
+    
+    @IBAction func returnToReadingList(segue: UIStoryboardSegue) {
+        
+    }
 
 }
