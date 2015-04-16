@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import FBSDKCoreKit/FBSDKCoreKit.h
+import FBSDKLoginKit/FBSDKLoginKit.h
+
+
 
 class SettingsViewController: UIViewController {
 
