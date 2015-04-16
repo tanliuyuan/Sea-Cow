@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2100314C1ADD965F00E1DD6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2100314B1ADD965F00E1DD6D /* AppDelegate.swift */; };
+		210031511ADD966000E1DD6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2100314F1ADD966000E1DD6D /* Main.storyboard */; };
+		210031531ADD966000E1DD6D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 210031521ADD966000E1DD6D /* Images.xcassets */; };
+		210031561ADD966000E1DD6D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 210031541ADD966000E1DD6D /* LaunchScreen.xib */; };
+		210031621ADD966000E1DD6D /* seaCowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210031611ADD966000E1DD6D /* seaCowTests.swift */; };
+		2100316C1ADD968400E1DD6D /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2100316B1ADD968400E1DD6D /* CardViewController.swift */; };
+		2100316E1ADD975700E1DD6D /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 2100316D1ADD975700E1DD6D /* gear.png */; };
+		2148088B1AE015EF008EB6C0 /* ReadingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */; };
+		2148088D1AE01792008EB6C0 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088C1AE01792008EB6C0 /* ArticleViewController.swift */; };
+		2148088F1AE017C1008EB6C0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088E1AE017C1008EB6C0 /* SettingsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2100315C1ADD966000E1DD6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2100313E1ADD965F00E1DD6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 210031451ADD965F00E1DD6D;
+			remoteInfo = seaCow;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		210031461ADD965F00E1DD6D /* seaCow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = seaCow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2100314A1ADD965F00E1DD6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2100314B1ADD965F00E1DD6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		210031501ADD966000E1DD6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		210031521ADD966000E1DD6D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		210031551ADD966000E1DD6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2100315B1ADD966000E1DD6D /* seaCowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = seaCowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		210031601ADD966000E1DD6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		210031611ADD966000E1DD6D /* seaCowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seaCowTests.swift; sourceTree = "<group>"; };
+		2100316B1ADD968400E1DD6D /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		2100316D1ADD975700E1DD6D /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
+		2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListViewController.swift; sourceTree = "<group>"; };
+		2148088C1AE01792008EB6C0 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		2148088E1AE017C1008EB6C0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		210031431ADD965F00E1DD6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		210031581ADD966000E1DD6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2100313D1ADD965F00E1DD6D = {
+			isa = PBXGroup;
+			children = (
+				210031481ADD965F00E1DD6D /* seaCow */,
+				2100315E1ADD966000E1DD6D /* seaCowTests */,
+				210031471ADD965F00E1DD6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		210031471ADD965F00E1DD6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				210031461ADD965F00E1DD6D /* seaCow.app */,
+				2100315B1ADD966000E1DD6D /* seaCowTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		210031481ADD965F00E1DD6D /* seaCow */ = {
+			isa = PBXGroup;
+			children = (
+				2100314B1ADD965F00E1DD6D /* AppDelegate.swift */,
+				2100314F1ADD966000E1DD6D /* Main.storyboard */,
+				210031521ADD966000E1DD6D /* Images.xcassets */,
+				210031541ADD966000E1DD6D /* LaunchScreen.xib */,
+				210031491ADD965F00E1DD6D /* Supporting Files */,
+				2100316B1ADD968400E1DD6D /* CardViewController.swift */,
+				2100316D1ADD975700E1DD6D /* gear.png */,
+				2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */,
+				2148088C1AE01792008EB6C0 /* ArticleViewController.swift */,
+				2148088E1AE017C1008EB6C0 /* SettingsViewController.swift */,
+			);
+			path = seaCow;
+			sourceTree = "<group>";
+		};
+		210031491ADD965F00E1DD6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2100314A1ADD965F00E1DD6D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2100315E1ADD966000E1DD6D /* seaCowTests */ = {
+			isa = PBXGroup;
+			children = (
+				210031611ADD966000E1DD6D /* seaCowTests.swift */,
+				2100315F1ADD966000E1DD6D /* Supporting Files */,
+			);
+			path = seaCowTests;
+			sourceTree = "<group>";
+		};
+		2100315F1ADD966000E1DD6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				210031601ADD966000E1DD6D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		210031451ADD965F00E1DD6D /* seaCow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 210031651ADD966000E1DD6D /* Build configuration list for PBXNativeTarget "seaCow" */;
+			buildPhases = (
+				210031421ADD965F00E1DD6D /* Sources */,
+				210031431ADD965F00E1DD6D /* Frameworks */,
+				210031441ADD965F00E1DD6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = seaCow;
+			productName = seaCow;
+			productReference = 210031461ADD965F00E1DD6D /* seaCow.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2100315A1ADD966000E1DD6D /* seaCowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 210031681ADD966000E1DD6D /* Build configuration list for PBXNativeTarget "seaCowTests" */;
+			buildPhases = (
+				210031571ADD966000E1DD6D /* Sources */,
+				210031581ADD966000E1DD6D /* Frameworks */,
+				210031591ADD966000E1DD6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2100315D1ADD966000E1DD6D /* PBXTargetDependency */,
+			);
+			name = seaCowTests;
+			productName = seaCowTests;
+			productReference = 2100315B1ADD966000E1DD6D /* seaCowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2100313E1ADD965F00E1DD6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Scott G Gavin";
+				TargetAttributes = {
+					210031451ADD965F00E1DD6D = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					2100315A1ADD966000E1DD6D = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 210031451ADD965F00E1DD6D;
+					};
+				};
+			};
+			buildConfigurationList = 210031411ADD965F00E1DD6D /* Build configuration list for PBXProject "seaCow" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2100313D1ADD965F00E1DD6D;
+			productRefGroup = 210031471ADD965F00E1DD6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				210031451ADD965F00E1DD6D /* seaCow */,
+				2100315A1ADD966000E1DD6D /* seaCowTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		210031441ADD965F00E1DD6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				210031511ADD966000E1DD6D /* Main.storyboard in Resources */,
+				210031561ADD966000E1DD6D /* LaunchScreen.xib in Resources */,
+				2100316E1ADD975700E1DD6D /* gear.png in Resources */,
+				210031531ADD966000E1DD6D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		210031591ADD966000E1DD6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		210031421ADD965F00E1DD6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2100316C1ADD968400E1DD6D /* CardViewController.swift in Sources */,
+				2148088D1AE01792008EB6C0 /* ArticleViewController.swift in Sources */,
+				2148088B1AE015EF008EB6C0 /* ReadingListViewController.swift in Sources */,
+				2148088F1AE017C1008EB6C0 /* SettingsViewController.swift in Sources */,
+				2100314C1ADD965F00E1DD6D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		210031571ADD966000E1DD6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				210031621ADD966000E1DD6D /* seaCowTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2100315D1ADD966000E1DD6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 210031451ADD965F00E1DD6D /* seaCow */;
+			targetProxy = 2100315C1ADD966000E1DD6D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2100314F1ADD966000E1DD6D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				210031501ADD966000E1DD6D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		210031541ADD966000E1DD6D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				210031551ADD966000E1DD6D /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		210031631ADD966000E1DD6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		210031641ADD966000E1DD6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		210031661ADD966000E1DD6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = seaCow/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		210031671ADD966000E1DD6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = seaCow/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		210031691ADD966000E1DD6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = seaCowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/seaCow.app/seaCow";
+			};
+			name = Debug;
+		};
+		2100316A1ADD966000E1DD6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = seaCowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/seaCow.app/seaCow";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		210031411ADD965F00E1DD6D /* Build configuration list for PBXProject "seaCow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				210031631ADD966000E1DD6D /* Debug */,
+				210031641ADD966000E1DD6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		210031651ADD966000E1DD6D /* Build configuration list for PBXNativeTarget "seaCow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				210031661ADD966000E1DD6D /* Debug */,
+				210031671ADD966000E1DD6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		210031681ADD966000E1DD6D /* Build configuration list for PBXNativeTarget "seaCowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				210031691ADD966000E1DD6D /* Debug */,
+				2100316A1ADD966000E1DD6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2100313E1ADD965F00E1DD6D /* Project object */;
+}

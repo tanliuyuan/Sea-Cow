@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--Card View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CardViewController" customModule="seaCow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5o8-d2-2B5">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Sea Cow" id="BzO-uv-Ozw">
+                                        <barButtonItem key="leftBarButtonItem" image="gear.png" id="D7X-qd-ZrB">
+                                            <connections>
+                                                <segue destination="ETm-xq-A4K" kind="show" id="qIQ-Qg-oeD"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="4mm-7U-E9x">
+                                            <connections>
+                                                <segue destination="4iN-nl-xPa" kind="show" identifier="CowToList" id="cxC-a2-ufn"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44d-Fm-aSy">
+                                <rect key="frame" x="214" y="285" width="172" height="30"/>
+                                <state key="normal" title="Continue To Reading List">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="4iN-nl-xPa" kind="show" identifier="CowToList" id="UrR-SK-XBP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5o8-d2-2B5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="7rx-5P-8ou"/>
+                            <constraint firstItem="5o8-d2-2B5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OQf-8g-aUA"/>
+                            <constraint firstItem="5o8-d2-2B5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PIO-kg-i3G"/>
+                            <constraint firstAttribute="trailing" secondItem="5o8-d2-2B5" secondAttribute="trailing" id="bTr-ak-C6Y"/>
+                            <constraint firstAttribute="centerX" secondItem="44d-Fm-aSy" secondAttribute="centerX" id="cmt-88-dPr"/>
+                            <constraint firstAttribute="centerY" secondItem="44d-Fm-aSy" secondAttribute="centerY" id="uJK-UI-MsH"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OQf-8g-aUA"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="settingsButton" destination="D7X-qd-ZrB" id="fjP-H5-kQ7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="360" y="277"/>
+        </scene>
+        <!--Reading List View Controller-->
+        <scene sceneID="WYX-aj-3gA">
+            <objects>
+                <viewController id="4iN-nl-xPa" customClass="ReadingListViewController" customModule="seaCow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EgA-G3-sii"/>
+                        <viewControllerLayoutGuide type="bottom" id="yxC-yq-S3Z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lXT-hM-oek">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGJ-aG-Q6S">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="8BK-12-h2P">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="e0J-98-WnA">
+                                            <connections>
+                                                <action selector="back:" destination="4iN-nl-xPa" id="zYf-Uv-KIJ"/>
+                                                <segue destination="RJ5-kr-WoY" kind="unwind" unwindAction="returnToCards:" id="mnE-xv-MR5"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="gear.png" id="6iZ-Rb-Wsn">
+                                            <connections>
+                                                <segue destination="ETm-xq-A4K" kind="show" id="4N3-x2-SX2"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kno-Se-pze">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hWR-Tk-73B">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hWR-Tk-73B" id="mGf-H7-KBa">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="dD6-Gj-7mF" kind="show" id="FCs-eP-d1r"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cGJ-aG-Q6S" secondAttribute="trailing" id="FBw-Tj-9RD"/>
+                            <constraint firstAttribute="trailing" secondItem="kno-Se-pze" secondAttribute="trailing" id="Qz3-SM-Bss"/>
+                            <constraint firstAttribute="bottom" secondItem="kno-Se-pze" secondAttribute="bottom" id="XII-Uy-a4S"/>
+                            <constraint firstItem="cGJ-aG-Q6S" firstAttribute="top" secondItem="EgA-G3-sii" secondAttribute="bottom" id="XZx-cu-fd9"/>
+                            <constraint firstItem="kno-Se-pze" firstAttribute="leading" secondItem="lXT-hM-oek" secondAttribute="leading" id="Zk8-rI-NWr"/>
+                            <constraint firstItem="cGJ-aG-Q6S" firstAttribute="leading" secondItem="lXT-hM-oek" secondAttribute="leading" id="hUx-nY-xdq"/>
+                            <constraint firstItem="kno-Se-pze" firstAttribute="top" secondItem="cGJ-aG-Q6S" secondAttribute="bottom" id="pGc-uf-UUD"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3s-UU-l2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RJ5-kr-WoY" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1086" y="277"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="biE-sg-aZy">
+            <objects>
+                <viewController id="ETm-xq-A4K" customClass="SettingsViewController" customModule="seaCow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eEj-Zk-cqf"/>
+                        <viewControllerLayoutGuide type="bottom" id="8sy-pP-qGK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Mr-uQ-J85">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kj2-me-cKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="727" y="1082"/>
+        </scene>
+        <!--Article View Controller-->
+        <scene sceneID="Ofk-Ql-Jjp">
+            <objects>
+                <viewController id="dD6-Gj-7mF" customClass="ArticleViewController" customModule="seaCow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WDl-ov-hus"/>
+                        <viewControllerLayoutGuide type="bottom" id="EhE-y8-WmK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N6M-gO-Bcq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aOi-L9-qlg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1802" y="277"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gear.png" width="32" height="32"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="UrR-SK-XBP"/>
+        <segue reference="4N3-x2-SX2"/>
+    </inferredMetricsTieBreakers>
+</document>
