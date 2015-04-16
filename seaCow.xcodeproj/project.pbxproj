@@ -17,11 +17,7 @@
 		2148088B1AE015EF008EB6C0 /* ReadingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */; };
 		2148088D1AE01792008EB6C0 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088C1AE01792008EB6C0 /* ArticleViewController.swift */; };
 		2148088F1AE017C1008EB6C0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088E1AE017C1008EB6C0 /* SettingsViewController.swift */; };
-<<<<<<< Updated upstream
 		549639E51AE0305C00BF5866 /* SwipeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549639E41AE0305C00BF5866 /* SwipeCardsView.swift */; };
-=======
-		21E487261AE03181001C6342 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E487251AE03181001C6342 /* Twitter.framework */; };
->>>>>>> Stashed changes
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,11 +45,7 @@
 		2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListViewController.swift; sourceTree = "<group>"; };
 		2148088C1AE01792008EB6C0 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		2148088E1AE017C1008EB6C0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-<<<<<<< Updated upstream
 		549639E41AE0305C00BF5866 /* SwipeCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardsView.swift; sourceTree = "<group>"; };
-=======
-		21E487251AE03181001C6342 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
->>>>>>> Stashed changes
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +53,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21E487261AE03181001C6342 /* Twitter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +69,6 @@
 		2100313D1ADD965F00E1DD6D = {
 			isa = PBXGroup;
 			children = (
-				21E487251AE03181001C6342 /* Twitter.framework */,
 				210031481ADD965F00E1DD6D /* seaCow */,
 				2100315E1ADD966000E1DD6D /* seaCowTests */,
 				210031471ADD965F00E1DD6D /* Products */,
