@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Scott G Gavin. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class CardViewController: UIViewController {
@@ -14,8 +15,8 @@ class CardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
+        var swipeCardsViewBackground = SwipeCardsViewBackground(frame: self.view.frame)
+        self.view.addSubview(swipeCardsViewBackground)
     }
 
     override func didReceiveMemoryWarning() {
