@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dD6-Gj-7mF">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -27,7 +27,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="4mm-7U-E9x">
                                             <connections>
-                                                <segue destination="4iN-nl-xPa" kind="show" identifier="CowToList" id="cxC-a2-ufn"/>
+                                                <segue destination="4iN-nl-xPa" kind="show" identifier="CowToList2" id="cxC-a2-ufn"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -170,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kj2-me-cKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713" y="1082"/>
+            <point key="canvasLocation" x="701" y="1064"/>
         </scene>
         <!--Article View Controller-->
         <scene sceneID="Ofk-Ql-Jjp">
@@ -214,6 +214,9 @@
                             <constraint firstItem="LE4-6z-dUv" firstAttribute="top" secondItem="WDl-ov-hus" secondAttribute="bottom" id="qtu-zb-DwD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="share" destination="e37-TB-7nB" id="Sps-NJ-hUp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOi-L9-qlg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4iQ-bc-QBA" userLabel="Exit" sceneMemberID="exit"/>
@@ -225,7 +228,7 @@
         <image name="gear.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QBT-4O-aax"/>
         <segue reference="4N3-x2-SX2"/>
+        <segue reference="cxC-a2-ufn"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import TwitterKit
+
 
 class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let logInButton = TWTRLogInButton(logInCompletion: {
+            (session: TWTRSession!, error: NSError!) in
+            // play with Twitter session
+        })
+        logInButton.center = self.view.center
+        self.view.addSubview(logInButton)
 
+        
+    
         // Do any additional setup after loading the view.
     }
 
@@ -22,14 +32,6 @@ class SettingsViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

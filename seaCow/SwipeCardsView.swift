@@ -17,7 +17,7 @@ let ROTATION_MAX = 1 /// Maximum rotation allowed in radians. Higher = longer ro
 let ROTATION_ANGLE = M_PI/8 // Higher = larger rotation angle
 
 class SwipeCardsView: UIView {
-    
+ /*
     var xFromCenter: CGFloat
     var yFromCenter: CGFloat
     var panGestureRecognizer: UIPanGestureRecognizer
@@ -89,4 +89,5 @@ class SwipeCardsView: UIView {
             
         }
     }
+*/
 }

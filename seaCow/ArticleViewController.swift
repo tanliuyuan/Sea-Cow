@@ -10,9 +10,11 @@ import UIKit
 
 class ArticleViewController: UIViewController {
 
+    @IBOutlet weak var share: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.share.target = self
+        self.share.action = "shareIt"
         // Do any additional setup after loading the view.
     }
 
@@ -25,6 +27,10 @@ class ArticleViewController: UIViewController {
     
     @IBAction func back(sender: AnyObject) {
         performSegueWithIdentifier("returnToReadingList", sender: self)
+    }
+    
+    func shareIt() {
+        print("hello share")
     }
 
 }

@@ -14,6 +14,12 @@
 		210031621ADD966000E1DD6D /* seaCowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210031611ADD966000E1DD6D /* seaCowTests.swift */; };
 		2100316C1ADD968400E1DD6D /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2100316B1ADD968400E1DD6D /* CardViewController.swift */; };
 		2100316E1ADD975700E1DD6D /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 2100316D1ADD975700E1DD6D /* gear.png */; };
+		212974C51AE6C63800E3597C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974C41AE6C63800E3597C /* FBSDKCoreKit.framework */; };
+		212974C71AE6C64600E3597C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974C61AE6C64600E3597C /* FBSDKLoginKit.framework */; };
+		212974C91AE6C65300E3597C /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974C81AE6C65300E3597C /* FBSDKMessengerShareKit.framework */; };
+		212974CE1AE6C9F600E3597C /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974CB1AE6C9F600E3597C /* TwitterKit.framework */; };
+		212974CF1AE6C9F700E3597C /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 212974CC1AE6C9F600E3597C /* TwitterKitResources.bundle */; };
+		212974D01AE6C9F700E3597C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974CD1AE6C9F600E3597C /* Fabric.framework */; };
 		2148088B1AE015EF008EB6C0 /* ReadingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */; };
 		2148088D1AE01792008EB6C0 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088C1AE01792008EB6C0 /* ArticleViewController.swift */; };
 		2148088F1AE017C1008EB6C0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088E1AE017C1008EB6C0 /* SettingsViewController.swift */; };
@@ -42,6 +48,12 @@
 		210031611ADD966000E1DD6D /* seaCowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seaCowTests.swift; sourceTree = "<group>"; };
 		2100316B1ADD968400E1DD6D /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		2100316D1ADD975700E1DD6D /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
+		212974C41AE6C63800E3597C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		212974C61AE6C64600E3597C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		212974C81AE6C65300E3597C /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = ../../../../FacebookSDK/FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		212974CB1AE6C9F600E3597C /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		212974CC1AE6C9F600E3597C /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
+		212974CD1AE6C9F600E3597C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListViewController.swift; sourceTree = "<group>"; };
 		2148088C1AE01792008EB6C0 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		2148088E1AE017C1008EB6C0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +65,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212974C51AE6C63800E3597C /* FBSDKCoreKit.framework in Frameworks */,
+				212974D01AE6C9F700E3597C /* Fabric.framework in Frameworks */,
+				212974C91AE6C65300E3597C /* FBSDKMessengerShareKit.framework in Frameworks */,
+				212974C71AE6C64600E3597C /* FBSDKLoginKit.framework in Frameworks */,
+				212974CE1AE6C9F600E3597C /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +104,12 @@
 		210031481ADD965F00E1DD6D /* seaCow */ = {
 			isa = PBXGroup;
 			children = (
+				212974C81AE6C65300E3597C /* FBSDKMessengerShareKit.framework */,
+				212974C61AE6C64600E3597C /* FBSDKLoginKit.framework */,
+				212974C41AE6C63800E3597C /* FBSDKCoreKit.framework */,
+				212974CB1AE6C9F600E3597C /* TwitterKit.framework */,
+				212974CC1AE6C9F600E3597C /* TwitterKitResources.bundle */,
+				212974CD1AE6C9F600E3597C /* Fabric.framework */,
 				2100314B1ADD965F00E1DD6D /* AppDelegate.swift */,
 				2100314F1ADD966000E1DD6D /* Main.storyboard */,
 				210031521ADD966000E1DD6D /* Images.xcassets */,
@@ -137,6 +160,7 @@
 				210031421ADD965F00E1DD6D /* Sources */,
 				210031431ADD965F00E1DD6D /* Frameworks */,
 				210031441ADD965F00E1DD6D /* Resources */,
+				212974CA1AE6C99E00E3597C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -211,6 +235,7 @@
 				210031561ADD966000E1DD6D /* LaunchScreen.xib in Resources */,
 				2100316E1ADD975700E1DD6D /* gear.png in Resources */,
 				210031531ADD966000E1DD6D /* Images.xcassets in Resources */,
+				212974CF1AE6C9F700E3597C /* TwitterKitResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +247,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		212974CA1AE6C99E00E3597C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 2ea6ebf2073d676edccd5402d696356b5b1034f0 a7bad79c6e7375ad2230a35bff92a5d03f928725f97f86f68951ed2210679755";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		210031421ADD965F00E1DD6D /* Sources */ = {
@@ -362,6 +403,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/sggtgb/Documents/FacebookSDK,
+					"$(PROJECT_DIR)/seaCow",
+				);
 				INFOPLIST_FILE = seaCow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -372,6 +418,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/sggtgb/Documents/FacebookSDK,
+					"$(PROJECT_DIR)/seaCow",
+				);
 				INFOPLIST_FILE = seaCow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
