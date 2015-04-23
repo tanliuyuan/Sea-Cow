@@ -3,13 +3,13 @@
 //  Seacow
 //
 //  Created by Liuyuan Tan on 4/16/15.
-//  Copyright (c) 2015 Seacow. All rights reserved.
+//  Copyright (c) 2015 Liuyuan Tan. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-let ACTION_MARGIN = 120 // Distance from center where the action applies. Higher = swipe further for the action to be called
+let ACTION_MARGIN = 120 // Distance from center when action is triggered. Higher = swipe further for the action to be called
 let SCALE_STRENGTH = 4 // How quick the card shrinks. Higher = slower shrinkng
 let SCALE_MAX: CGFloat = 0.93 // How much the card can shrink. Higher = shrinks less
 let ROTATION_STRENGTH = 320 // Strength of rotation. Higher = weaker rotation
@@ -25,7 +25,7 @@ class SwipeCardsView: UIView {
     var overlayView: OverlayView
     var label: UILabel
     
-    required init(coder aDecoder:NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         xFromCenter = 0.0
         yFromCenter = 0.0
         panGestureRecognizer = UIPanGestureRecognizer()
@@ -57,7 +57,7 @@ class SwipeCardsView: UIView {
         self.addGestureRecognizer(panGestureRecognizer)
         self.addSubview(label)
         
-        overlayView = OverlayView(frame: CGRectMake(self.frame.size.width/2-100, 0, 100, 100)
+        overlayView = OverlayView(frame: CGRectMake(self.frame.size.width/2-100, 0, 100, 100))
             overlayView.alpha = 0
             self.addSubview(overlayView)
             
@@ -86,8 +86,97 @@ class SwipeCardsView: UIView {
             
         case UIGestureRecognizerState.Changed:
             var rotationStrength = min(CGFloat(xFromCenter) / CGFloat(ROTATION_STRENGTH), CGFloat(ROTATION_MAX)) as CGFloat
+            var rotationAngle: CGFloat = (CGFloat(ROTATION_ANGLE) * rotationStrength)
+            var scale = max((CGFloat(1) - CGFloat(rotationStrength) / CGFloat(SCALE_STRENGTH)), SCALE_MAX) as CGFloat
+            self.center = CGPointMake(self.originalPoint.x + xFromCenter, self.originalPoint.y + yFromCenter)
+            var transform: CGAffineTransform = CGAffineTransformMakeRotation(rotationAngle)
+            var scaleTransform: CGAffineTransform = CGAffineTransformScale(transform, scale, scale)
+            self.transform = scaleTransform
+            self.updateOverlay(xFromCenter)
             
+        case UIGestureRecognizerState.Ended:
+            self.afterSwipeAction()
+            
+        case UIGestureRecognizerState.Possible:break
+        case UIGestureRecognizerState.Cancelled:break
+        case UIGestureRecognizerState.Failed:break
         }
+    }
+    
+    // Checks to see if user's moving right or left and applies the corresponding overlay image
+    func updateOverlay(distance: CGFloat) {
+        
+        // If card is being dragged to the right
+        if distance > 0 {
+            overlayView.mode = OverlayViewMode.OverlayViewRight
+        } else { // If card is being dragged to the left
+            overlayView.mode = OverlayViewMode.OverlayViewLeft
+        }
+        
+        overlayView.alpha = min(CGFloat(distance)/100, 0.4)
+    }
+    
+    // Called when the card is let go
+    func afterSwipeAction() {
+        if xFromCenter > CGFloat(ACTION_MARGIN) {
+            self.rightAction()
+        }
+        else if xFromCenter < CGFloat(-ACTION_MARGIN) {
+            self.leftAction()
+        }
+        else {
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.center = self.originalPoint
+                self.transform = CGAffineTransformMakeRotation(0)
+                self.overlayView.alpha = 0
+            })
+        }
+    }
+    
+    // Called when user swipes right
+    func rightAction() {
+        var finishPoint: CGPoint = CGPointMake(500, 2 * yFromCenter + self.originalPoint.y)
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.center = finishPoint
+            }) { (complete) -> Void in
+                self.removeFromSuperview()
+            }
+        println("YES")
+    }
+    
+    // Called when user swipes left
+    func leftAction() {
+        var finishPoint: CGPoint = CGPointMake(-500, 2 * yFromCenter + self.originalPoint.y)
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.center = finishPoint
+            }) { (complete) -> Void in
+                self.removeFromSuperview()
+        }
+        println("NO")
+    }
+    
+    // Called when user clicks "yes" button
+    func yesClickAction() {
+        var finishPoint: CGPoint = CGPointMake(600, self.center.y)
+        UIView.animateWithDuration(0.3, animations: {() -> Void in
+            self.center = finishPoint
+            self.transform = CGAffineTransformMakeRotation(1)
+            }) { (complete) -> Void in
+                self.removeFromSuperview()
+        }
+        println("YES")
+    }
+    
+    // Called when user clicks "no" button
+    func noClickAction() {
+        var finishPoint: CGPoint = CGPointMake(-600, self.center.y)
+        UIView.animateWithDuration(0.3, animations: {() -> Void in
+            self.center = finishPoint
+            self.transform = CGAffineTransformMakeRotation(-1)
+            }) { (complete) -> Void in
+                self.removeFromSuperview()
+        }
+        println("NO")
     }
 */
 }
