@@ -12,11 +12,14 @@ import UIKit
 class CardViewController: UIViewController {
 
     @IBOutlet weak var settingsButton: UIBarButtonItem!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         var swipeCardsViewBackground = SwipeCardsViewBackground(frame: self.view.frame)
         self.view.addSubview(swipeCardsViewBackground)
+        
     }
 
     override func didReceiveMemoryWarning() {

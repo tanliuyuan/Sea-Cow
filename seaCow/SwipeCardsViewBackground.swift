@@ -9,6 +9,14 @@
 import Foundation
 import UIKit
 
+// A set of constant and variable strings for making up the URL for article searching using NYT's API
+let articleSearchBaseUrl = "http://api.nytimes.com/svc/mostpopular/v2"
+let articleSearchResourceType = "mostviewed" // mostemailed | mostshared | mostviewed
+let articleSearchSections = "all-sections"
+let articlesSearchNumOfDays = 1 // 1 | 7 | 30
+let articleSearchReturnFormat = ".json"
+let articleSearchAPIKey = "b772e34fc2a53d05fe60d6c63d0c0e4c:9:71573042"
+
 class SwipeCardsViewBackground: UIView {
 
     required init(coder aDecoder: NSCoder) {
@@ -30,6 +38,11 @@ class SwipeCardsViewBackground: UIView {
     var exampleCardLabels: AnyObject = [] // temp
     var allCards = [SwipeCardsView]() // temp
     
+    var nytArticles = NYTArticles()
+    var articleRequest: NSURLRequest?
+    var selectedArticle: ArticleData?
+    
+
     override init(frame: CGRect) {
         
         settingsButton = UIButton()
@@ -38,9 +51,25 @@ class SwipeCardsViewBackground: UIView {
         noButton = UIButton()
         super.init(frame:frame)
         self.setupView()
-        exampleCardLabels = ["first news", "second news", "third news", "fourth news", "fifth news"]
-        loaded = 0
-        self.loadCards()
+        
+        // Make up search url
+        var articleSearchUrl = articleSearchBaseUrl + "/" + articleSearchResourceType + "/" + articleSearchSections + "/" + "\(articlesSearchNumOfDays)" + articleSearchReturnFormat + "?" + "&API-Key=" + articleSearchAPIKey
+        
+        // load articles from the NYT API
+        nytArticles.load(articleSearchUrl, loadCompletionHandler: {
+            (nytArticles, errorString) -> Void in
+            if let unwrappedErrorString = errorString {
+                println(unwrappedErrorString)
+            } else {
+                for article in nytArticles.articles {
+                    println(article);
+                }
+                self.loaded = 0
+                self.loadCards()
+            }
+        })
+        
+        //exampleCardLabels = ["first news", "second news", "third news", "fourth news", "fifth news"]
         
     }
     
