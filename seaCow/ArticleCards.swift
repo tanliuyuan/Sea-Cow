@@ -10,7 +10,7 @@ import UIKit
 
 class ArticleCards: NSObject {
     
-    var articles = Array<Article>()
+    var cardArticles = Array<Article>()
 
 
 }
