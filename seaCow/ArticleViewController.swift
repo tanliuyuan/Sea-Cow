@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import TwitterKit
+import Fabric
 
 class ArticleViewController: UIViewController {
 
     @IBOutlet weak var share: UIBarButtonItem!
+    var articleURL: String? = "google.com"
     override func viewDidLoad() {
         super.viewDidLoad()
         self.share.target = self
@@ -30,7 +33,21 @@ class ArticleViewController: UIViewController {
     }
     
     func shareIt() {
-        print("hello share")
+
+        let composer = TWTRComposer()
+        
+        composer.setText("Check out this awesome article!\n\n" + articleURL! + "\n\n#seaCow #articleTags? #whatever")
+        composer.setImage(UIImage(named: "fabric"))
+        
+        composer.showWithCompletion { (result) -> Void in
+            if (result == TWTRComposerResult.Cancelled) {
+                println("Tweet composition cancelled")
+            }
+            else {
+                println("Sending tweet!")
+            }
+        }
+
     }
 
 }
