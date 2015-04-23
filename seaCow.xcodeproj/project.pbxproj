@@ -14,9 +14,6 @@
 		210031621ADD966000E1DD6D /* seaCowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210031611ADD966000E1DD6D /* seaCowTests.swift */; };
 		2100316C1ADD968400E1DD6D /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2100316B1ADD968400E1DD6D /* CardViewController.swift */; };
 		2100316E1ADD975700E1DD6D /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 2100316D1ADD975700E1DD6D /* gear.png */; };
-		212974C51AE6C63800E3597C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974C41AE6C63800E3597C /* FBSDKCoreKit.framework */; };
-		212974C71AE6C64600E3597C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974C61AE6C64600E3597C /* FBSDKLoginKit.framework */; };
-		212974C91AE6C65300E3597C /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974C81AE6C65300E3597C /* FBSDKMessengerShareKit.framework */; };
 		212974CE1AE6C9F600E3597C /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974CB1AE6C9F600E3597C /* TwitterKit.framework */; };
 		212974CF1AE6C9F700E3597C /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 212974CC1AE6C9F600E3597C /* TwitterKitResources.bundle */; };
 		212974D01AE6C9F700E3597C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974CD1AE6C9F600E3597C /* Fabric.framework */; };
@@ -48,9 +45,6 @@
 		210031611ADD966000E1DD6D /* seaCowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seaCowTests.swift; sourceTree = "<group>"; };
 		2100316B1ADD968400E1DD6D /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		2100316D1ADD975700E1DD6D /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
-		212974C41AE6C63800E3597C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		212974C61AE6C64600E3597C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		212974C81AE6C65300E3597C /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = ../../../../FacebookSDK/FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
 		212974CB1AE6C9F600E3597C /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		212974CC1AE6C9F600E3597C /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
 		212974CD1AE6C9F600E3597C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -65,10 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				212974C51AE6C63800E3597C /* FBSDKCoreKit.framework in Frameworks */,
 				212974D01AE6C9F700E3597C /* Fabric.framework in Frameworks */,
-				212974C91AE6C65300E3597C /* FBSDKMessengerShareKit.framework in Frameworks */,
-				212974C71AE6C64600E3597C /* FBSDKLoginKit.framework in Frameworks */,
 				212974CE1AE6C9F600E3597C /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,9 +95,6 @@
 		210031481ADD965F00E1DD6D /* seaCow */ = {
 			isa = PBXGroup;
 			children = (
-				212974C81AE6C65300E3597C /* FBSDKMessengerShareKit.framework */,
-				212974C61AE6C64600E3597C /* FBSDKLoginKit.framework */,
-				212974C41AE6C63800E3597C /* FBSDKCoreKit.framework */,
 				212974CB1AE6C9F600E3597C /* TwitterKit.framework */,
 				212974CC1AE6C9F600E3597C /* TwitterKitResources.bundle */,
 				212974CD1AE6C9F600E3597C /* Fabric.framework */,
