@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>3A9675A7-98DD-4CE5-8F6E-0038654C3735</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>seaCow</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>F115179FA7FF956CE60B4D09553A384E317C7E32</key>
 		<string>https://github.com/sggtgb/Sea-Cow.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>seaCow.xcodeproj/project.xcworkspace</string>
+	<string>seaCow.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>F115179FA7FF956CE60B4D09553A384E317C7E32</key>
