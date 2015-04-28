@@ -39,17 +39,29 @@ class NYTArticles: NSObject {
     func parse(jsonData: NSData, parseCompletionHandler: (NYTArticles, String?) -> Void) {
         println("In parse")
         var jsonError: NSError?
+<<<<<<< HEAD
         var i = 0;
+=======
+        
+>>>>>>> origin/master
         if let jsonResult = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as? NSDictionary {
             if (jsonResult.count > 0) {
                 if let status = jsonResult["status"] as? NSString {
                     if status == "OK" {
+<<<<<<< HEAD
                         println("Status = OK")
+=======
+>>>>>>> origin/master
                         if let results = jsonResult["results"] as? [NSDictionary] {
                             for result in results {
                                 if let resultUrl = result["url"] as? NSString {
                                     if let resultTitle = result["title"] as? NSString {
+<<<<<<< HEAD
                                         println("Have a title - " + resultTitle.description)
+=======
+                                        // In case some articles don't have the image we want, make an ArticleData object with title and url first
+                                        var articleData = ArticleData(forTitle: resultTitle as String, forUrl: resultUrl as String, forImageUrl: "")
+>>>>>>> origin/master
                                         if let media = result["media"] as? [NSDictionary] {
                                             for medium in media {
                                                 if let mediumType = medium["type"] as? NSString{
@@ -64,16 +76,26 @@ class NYTArticles: NSObject {
                                                                     // for image on swipe card, look for normal sized image only
                                                                     if dataFormat == "Normal" {
                                                                         if let imageUrl = data["url"] as? NSString {
+<<<<<<< HEAD
                                                                             println(imageUrl)
                                                                             articles.append(ArticleData(forTitle: resultTitle as String, forUrl: resultUrl as String, forImageUrl: imageUrl as String))
                                                                             break
                                                                         }
+=======
+                                                                            articleData.imageUrl = imageUrl as String
+                                                                            articles.append(articleData)
+                                                                            break
+                                                                        }
+                                                                    } else {
+                                                                        continue
+>>>>>>> origin/master
                                                                     }
+                                                                    articles.append(articleData)
                                                                 }
                                                             }
                                                         }
                                                     } else {
-                                                        break
+                                                        continue
                                                     }
                                                 }
                                             }

@@ -155,7 +155,7 @@ class SwipeCardsView: UIView {
         println(label.text! + " to trash")
     }
     
-    // Called when user clicks "yes" button
+    /*// Called when user clicks "yes" button
     func yesClickAction() {
         var finishPoint: CGPoint = CGPointMake(600, self.center.y)
         UIView.animateWithDuration(0.3, animations: {() -> Void in
@@ -177,5 +177,5 @@ class SwipeCardsView: UIView {
                 self.removeFromSuperview()
         }
         println("NO")
-    }
+    }*/
 }
