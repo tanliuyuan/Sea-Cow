@@ -51,7 +51,7 @@ class SwipeCardsViewBackground: UIView {
         noButton = UIButton()
         super.init(frame:frame)
         self.setupView()
-        
+        var stringTitles: [String] = []
         // Make up search url
         var articleSearchUrl = articleSearchBaseUrl + "/" + articleSearchResourceType + "/" + articleSearchSections + "/" + "\(articlesSearchNumOfDays)" + articleSearchReturnFormat + "?" + "&API-Key=" + articleSearchAPIKey
         
@@ -62,7 +62,10 @@ class SwipeCardsViewBackground: UIView {
                 println(unwrappedErrorString)
             } else {
                 for article in nytArticles.articles {
-                    println(article);
+                    println(article.title)
+                    stringTitles.append(article.title)
+                    self.exampleCardLabels = stringTitles
+                    
                 }
                 self.loaded = 0
                 self.loadCards()

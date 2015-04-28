@@ -59,9 +59,10 @@ class NYTArticles: NSObject {
                                                                     if dataFormat == "Normal" {
                                                                         if let imageUrl = data["url"] as? NSString {
                                                                             articles.append(ArticleData(forTitle: resultTitle as String, forUrl: resultUrl as String, forImageUrl: imageUrl as String))
+                                                                                break
                                                                         }
                                                                     } else {
-                                                                        break
+                                                                        //break
                                                                     }
                                                                 }
                                                             }
