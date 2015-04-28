@@ -36,17 +36,17 @@ class NYTArticles: NSObject {
     
     func parse(jsonData: NSData, parseCompletionHandler: (NYTArticles, String?) -> Void) {
         var jsonError: NSError?
-        print("0")
         
         if let jsonResult = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as? NSDictionary {
             if (jsonResult.count > 0) {
                 if let status = jsonResult["status"] as? NSString {
                     if status == "OK" {
-                        print("1")
                         if let results = jsonResult["results"] as? [NSDictionary] {
                             for result in results {
                                 if let resultUrl = result["url"] as? NSString {
                                     if let resultTitle = result["title"] as? NSString {
+                                        // In case some articles don't have the image we want, make an ArticleData object with title and url first
+                                        var articleData = ArticleData(forTitle: resultTitle as String, forUrl: resultUrl as String, forImageUrl: "")
                                         if let media = result["media"] as? [NSDictionary] {
                                             for medium in media {
                                                 if let mediumType = medium["type"] as? NSString{
@@ -58,16 +58,19 @@ class NYTArticles: NSObject {
                                                                     // for image on swipe card, look for normal sized image only
                                                                     if dataFormat == "Normal" {
                                                                         if let imageUrl = data["url"] as? NSString {
-                                                                            articles.append(ArticleData(forTitle: resultTitle as String, forUrl: resultUrl as String, forImageUrl: imageUrl as String))
+                                                                            articleData.imageUrl = imageUrl as String
+                                                                            articles.append(articleData)
+                                                                            break
                                                                         }
                                                                     } else {
-                                                                        break
+                                                                        continue
                                                                     }
+                                                                    articles.append(articleData)
                                                                 }
                                                             }
                                                         }
                                                     } else {
-                                                        break
+                                                        continue
                                                     }
                                                 }
                                             }
