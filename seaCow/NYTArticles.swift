@@ -12,6 +12,7 @@ class NYTArticles: NSObject {
     var articles = Array<ArticleData>()
     
     func load(fromURLString:String, loadCompletionHandler: (NYTArticles, String?) -> Void) {
+        println("In nyt load")
         if let url = NSURL(string: fromURLString) {
             let urlRequest = NSMutableURLRequest(URL: url)
             let session = NSURLSession.sharedSession()
@@ -22,6 +23,7 @@ class NYTArticles: NSObject {
                         loadCompletionHandler(self, error.localizedDescription)
                     })
                 } else {
+                    println("Preparing to parse")
                     self.parse(data, parseCompletionHandler: loadCompletionHandler)
                 }
             })
@@ -35,33 +37,37 @@ class NYTArticles: NSObject {
     }
     
     func parse(jsonData: NSData, parseCompletionHandler: (NYTArticles, String?) -> Void) {
+        println("In parse")
         var jsonError: NSError?
-        print("0")
-        
+        var i = 0;
         if let jsonResult = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as? NSDictionary {
             if (jsonResult.count > 0) {
                 if let status = jsonResult["status"] as? NSString {
                     if status == "OK" {
-                        print("1")
+                        println("Status = OK")
                         if let results = jsonResult["results"] as? [NSDictionary] {
                             for result in results {
                                 if let resultUrl = result["url"] as? NSString {
                                     if let resultTitle = result["title"] as? NSString {
+                                        println("Have a title - " + resultTitle.description)
                                         if let media = result["media"] as? [NSDictionary] {
                                             for medium in media {
                                                 if let mediumType = medium["type"] as? NSString{
                                                     // look for image to put on card
                                                     if mediumType == "image" {
                                                         if let metadata = medium["media-metadata"] as? [NSDictionary] {
-                                                            for data in metadata {
+                                                            println(metadata.count)
+                                                            for (i = 0; i < metadata.count; i++)  {
+                                                                var data = metadata[i]
                                                                 if let dataFormat = data["format"] as? NSString {
+                                                                    println(dataFormat)
                                                                     // for image on swipe card, look for normal sized image only
                                                                     if dataFormat == "Normal" {
                                                                         if let imageUrl = data["url"] as? NSString {
+                                                                            println(imageUrl)
                                                                             articles.append(ArticleData(forTitle: resultTitle as String, forUrl: resultUrl as String, forImageUrl: imageUrl as String))
+                                                                            break
                                                                         }
-                                                                    } else {
-                                                                        break
                                                                     }
                                                                 }
                                                             }
@@ -89,5 +95,6 @@ class NYTArticles: NSObject {
                 }
             }
         }
+        println("Through parse")
     }
 }

@@ -9,15 +9,17 @@
 import Foundation
 import UIKit
 
-// A set of constant and variable strings for making up the URL for article searching using NYT's API
-let articleSearchBaseUrl = "http://api.nytimes.com/svc/mostpopular/v2"
-let articleSearchResourceType = "mostviewed" // mostemailed | mostshared | mostviewed
-let articleSearchSections = "all-sections"
-let articlesSearchNumOfDays = 1 // 1 | 7 | 30
-let articleSearchReturnFormat = ".json"
-let articleSearchAPIKey = "b772e34fc2a53d05fe60d6c63d0c0e4c:9:71573042"
+
 
 class SwipeCardsViewBackground: UIView {
+    
+    // A set of constant and variable strings for making up the URL for article searching using NYT's API
+    let articleSearchBaseUrl = "http://api.nytimes.com/svc/mostpopular/v2"
+    let articleSearchResourceType = "mostviewed" // mostemailed | mostshared | mostviewed
+    let articleSearchSections = "all-sections"
+    let articlesSearchNumOfDays = 1 // 1 | 7 | 30
+    let articleSearchReturnFormat = ".json"
+    let articleSearchAPIKey = "b772e34fc2a53d05fe60d6c63d0c0e4c:9:71573042"
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -61,16 +63,24 @@ class SwipeCardsViewBackground: UIView {
             if let unwrappedErrorString = errorString {
                 println(unwrappedErrorString)
             } else {
+                sleep(1)
+                println("in else of nytLoad completion handler")
+                var i = 0;
+                var articlesString : [String] = []
                 for article in nytArticles.articles {
-                    println(article);
+                    println(article.title)
+                    articlesString.append(article.title)
+                    i++;
                 }
+                println("should have printed " + String (i) + " articles")
+                self.exampleCardLabels = articlesString
                 self.loaded = 0
                 self.loadCards()
             }
         })
         
-        //exampleCardLabels = ["first news", "second news", "third news", "fourth news", "fifth news"]
-        
+       // exampleCardLabels = ["first news", "second news", "third news", "fourth news", "fifth news"]
+       // self.loadCards()
     }
     
     func setupView() {

@@ -141,7 +141,7 @@ class SwipeCardsView: UIView {
             }) { (complete) -> Void in
                 self.removeFromSuperview()
             }
-        println("YES")
+        println(label.text! + " to reading list")
     }
     
     // Called when user swipes left
@@ -152,7 +152,7 @@ class SwipeCardsView: UIView {
             }) { (complete) -> Void in
                 self.removeFromSuperview()
         }
-        println("NO")
+        println(label.text! + " to trash")
     }
     
     // Called when user clicks "yes" button
@@ -164,7 +164,7 @@ class SwipeCardsView: UIView {
             }) { (complete) -> Void in
                 self.removeFromSuperview()
         }
-        println("YES")
+        println(label)
     }
     
     // Called when user clicks "no" button
