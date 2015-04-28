@@ -141,7 +141,7 @@ class SwipeCardsView: UIView {
             }) { (complete) -> Void in
                 self.removeFromSuperview()
             }
-        println(label.text! + " to reading list")
+        println("YES")
     }
     
     // Called when user swipes left
@@ -152,10 +152,10 @@ class SwipeCardsView: UIView {
             }) { (complete) -> Void in
                 self.removeFromSuperview()
         }
-        println(label.text! + " to trash")
+        println("NO")
     }
     
-    /*// Called when user clicks "yes" button
+    // Called when user clicks "yes" button
     func yesClickAction() {
         var finishPoint: CGPoint = CGPointMake(600, self.center.y)
         UIView.animateWithDuration(0.3, animations: {() -> Void in
@@ -164,7 +164,7 @@ class SwipeCardsView: UIView {
             }) { (complete) -> Void in
                 self.removeFromSuperview()
         }
-        println(label)
+        println("YES")
     }
     
     // Called when user clicks "no" button
@@ -177,5 +177,5 @@ class SwipeCardsView: UIView {
                 self.removeFromSuperview()
         }
         println("NO")
-    }*/
+    }
 }

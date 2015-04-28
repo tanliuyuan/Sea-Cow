@@ -9,17 +9,15 @@
 import Foundation
 import UIKit
 
-
+// A set of constant and variable strings for making up the URL for article searching using NYT's API
+let articleSearchBaseUrl = "http://api.nytimes.com/svc/mostpopular/v2"
+let articleSearchResourceType = "mostviewed" // mostemailed | mostshared | mostviewed
+let articleSearchSections = "all-sections"
+let articlesSearchNumOfDays = 1 // 1 | 7 | 30
+let articleSearchReturnFormat = ".json"
+let articleSearchAPIKey = "b772e34fc2a53d05fe60d6c63d0c0e4c:9:71573042"
 
 class SwipeCardsViewBackground: UIView {
-    
-    // A set of constant and variable strings for making up the URL for article searching using NYT's API
-    let articleSearchBaseUrl = "http://api.nytimes.com/svc/mostpopular/v2"
-    let articleSearchResourceType = "mostviewed" // mostemailed | mostshared | mostviewed
-    let articleSearchSections = "all-sections"
-    let articlesSearchNumOfDays = 1 // 1 | 7 | 30
-    let articleSearchReturnFormat = ".json"
-    let articleSearchAPIKey = "b772e34fc2a53d05fe60d6c63d0c0e4c:9:71573042"
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -34,8 +32,8 @@ class SwipeCardsViewBackground: UIView {
     
     var settingsButton: UIButton
     var readingListButton: UIButton
-    /*var yesButton: UIButton
-    var noButton: UIButton*/
+    var yesButton: UIButton
+    var noButton: UIButton
     
     var exampleCardLabels: AnyObject = [] // temp
     var allCards = [SwipeCardsView]() // temp
@@ -49,8 +47,8 @@ class SwipeCardsViewBackground: UIView {
         
         settingsButton = UIButton()
         readingListButton = UIButton()
-        /*yesButton = UIButton()
-        noButton = UIButton()*/
+        yesButton = UIButton()
+        noButton = UIButton()
         super.init(frame:frame)
         self.setupView()
         
@@ -63,24 +61,16 @@ class SwipeCardsViewBackground: UIView {
             if let unwrappedErrorString = errorString {
                 println(unwrappedErrorString)
             } else {
-                sleep(1)
-                println("in else of nytLoad completion handler")
-                var i = 0;
-                var articlesString : [String] = []
                 for article in nytArticles.articles {
-                    println(article.title)
-                    articlesString.append(article.title)
-                    i++;
+                    println(article);
                 }
-                println("should have printed " + String (i) + " articles")
-                self.exampleCardLabels = articlesString
                 self.loaded = 0
                 self.loadCards()
             }
         })
         
-       // exampleCardLabels = ["first news", "second news", "third news", "fourth news", "fifth news"]
-       // self.loadCards()
+        //exampleCardLabels = ["first news", "second news", "third news", "fourth news", "fifth news"]
+        
     }
     
     func setupView() {
@@ -93,18 +83,18 @@ class SwipeCardsViewBackground: UIView {
         readingListButton = UIButton(frame: CGRectMake(284, 34, 18, 18))
         readingListButton.setImage(UIImage(named: "readingListButton"), forState: UIControlState.Normal)
         
-        /*yesButton = UIButton(frame: CGRectMake(60, 485, 59, 59))
+        yesButton = UIButton(frame: CGRectMake(60, 485, 59, 59))
         yesButton.setImage(UIImage(named: "yesButton"), forState: UIControlState.Normal)
         yesButton.addTarget(self, action: "swipeRight", forControlEvents: UIControlEvents.TouchUpInside)
         
         noButton = UIButton(frame: CGRectMake(200, 485, 59, 59))
         noButton.setImage(UIImage(named: "noButton"), forState: UIControlState.Normal)
-        noButton.addTarget(self, action: "swipeLeft", forControlEvents: UIControlEvents.TouchUpInside)*/
+        yesButton.addTarget(self, action: "swipeLeft", forControlEvents: UIControlEvents.TouchUpInside)
         
         self.addSubview(settingsButton)
         self.addSubview(readingListButton)
-        /*self.addSubview(yesButton)
-        self.addSubview(noButton)*/
+        self.addSubview(yesButton)
+        self.addSubview(noButton)
         
     }
     

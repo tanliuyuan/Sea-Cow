@@ -14,7 +14,7 @@ class ArticleData: NSObject {
     var imageUrl: String
     var url: String
     
-    init(forTitle: String, forUrl: String, forImageUrl: String) {
+    init(forTitle: String, forUrl: String, forImageUrl: String){
         self.title = forTitle
         self.imageUrl = forImageUrl
         self.url = forUrl
