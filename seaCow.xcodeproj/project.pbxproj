@@ -20,6 +20,10 @@
 		2148088B1AE015EF008EB6C0 /* ReadingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */; };
 		2148088D1AE01792008EB6C0 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088C1AE01792008EB6C0 /* ArticleViewController.swift */; };
 		2148088F1AE017C1008EB6C0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088E1AE017C1008EB6C0 /* SettingsViewController.swift */; };
+		5431260A1AEFED6B007BE36E /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543126091AEFED6B007BE36E /* OverlayView.swift */; };
+		5431260C1AEFED9C007BE36E /* SwipeCardsViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5431260B1AEFED9C007BE36E /* SwipeCardsViewBackground.swift */; };
+		5431260E1AEFEDD7007BE36E /* NYTArticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5431260D1AEFEDD7007BE36E /* NYTArticles.swift */; };
+		543126101AEFEE04007BE36E /* ArticleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5431260F1AEFEE04007BE36E /* ArticleData.swift */; };
 		549639E51AE0305C00BF5866 /* SwipeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549639E41AE0305C00BF5866 /* SwipeCardsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +55,10 @@
 		2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListViewController.swift; sourceTree = "<group>"; };
 		2148088C1AE01792008EB6C0 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		2148088E1AE017C1008EB6C0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		543126091AEFED6B007BE36E /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		5431260B1AEFED9C007BE36E /* SwipeCardsViewBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardsViewBackground.swift; sourceTree = "<group>"; };
+		5431260D1AEFEDD7007BE36E /* NYTArticles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYTArticles.swift; sourceTree = "<group>"; };
+		5431260F1AEFEE04007BE36E /* ArticleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleData.swift; sourceTree = "<group>"; };
 		549639E41AE0305C00BF5866 /* SwipeCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +117,10 @@
 				2148088C1AE01792008EB6C0 /* ArticleViewController.swift */,
 				2148088E1AE017C1008EB6C0 /* SettingsViewController.swift */,
 				549639E41AE0305C00BF5866 /* SwipeCardsView.swift */,
+				543126091AEFED6B007BE36E /* OverlayView.swift */,
+				5431260B1AEFED9C007BE36E /* SwipeCardsViewBackground.swift */,
+				5431260D1AEFEDD7007BE36E /* NYTArticles.swift */,
+				5431260F1AEFEE04007BE36E /* ArticleData.swift */,
 			);
 			path = seaCow;
 			sourceTree = "<group>";
@@ -257,8 +269,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5431260E1AEFEDD7007BE36E /* NYTArticles.swift in Sources */,
 				2100316C1ADD968400E1DD6D /* CardViewController.swift in Sources */,
+				543126101AEFEE04007BE36E /* ArticleData.swift in Sources */,
+				5431260C1AEFED9C007BE36E /* SwipeCardsViewBackground.swift in Sources */,
 				2148088D1AE01792008EB6C0 /* ArticleViewController.swift in Sources */,
+				5431260A1AEFED6B007BE36E /* OverlayView.swift in Sources */,
 				2148088B1AE015EF008EB6C0 /* ReadingListViewController.swift in Sources */,
 				549639E51AE0305C00BF5866 /* SwipeCardsView.swift in Sources */,
 				2148088F1AE017C1008EB6C0 /* SettingsViewController.swift in Sources */,
