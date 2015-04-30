@@ -24,8 +24,8 @@ class SwipeCardsViewBackground: UIView {
     }
     
     let MAX_CARD_NUM = 20 // maximum number of cards loaded at any given time, must be greater than 1
-    let CARD_HEIGHT: CGFloat = 386
-    let CARD_WIDTH: CGFloat = 290
+    let CARD_HEIGHT: CGFloat = UIScreen.mainScreen().bounds.size.height * 0.8
+    let CARD_WIDTH: CGFloat = UIScreen.mainScreen().bounds.size.width * 0.85
     
     var loaded: Int = 0 // number of cards loaded
     var deck = [SwipeCardsView]() // array of loaded cards

@@ -10,11 +10,19 @@ import UIKit
 
 class CardViewController: UIViewController {
 
+    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
+    @IBOutlet weak var readingListButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var swipeCardsViewBackground = SwipeCardsViewBackground(frame: self.view.frame)
+        let subViewFrame: CGRect = CGRectMake(0, self.navBar.frame.height+UIApplication.sharedApplication().statusBarFrame.height, self.view.frame.width, self.view.frame.height-self.navBar.frame.height)
+        /*var subView: UIView = UIView(frame: subViewFrame)
+        subView.alpha = 1
+        self.view.addSubview(subView)*/
+        
+        var swipeCardsViewBackground = SwipeCardsViewBackground(frame: subViewFrame)
         self.view.addSubview(swipeCardsViewBackground)
         
     }

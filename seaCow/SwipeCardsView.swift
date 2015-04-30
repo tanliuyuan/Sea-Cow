@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-let ACTION_MARGIN = 120 // Distance from center when action is triggered. Higher = swipe further for the action to be called
+let ACTION_MARGIN = 50 // Distance from center when action is triggered. Higher = swipe further for the action to be called
 let SCALE_STRENGTH = 4 // How quick the card shrinks. Higher = slower shrinkng
 let SCALE_MAX: CGFloat = 0.93 // How much the card can shrink. Higher = shrinks less
 let ROTATION_STRENGTH = 320 // Strength of rotation. Higher = weaker rotation
