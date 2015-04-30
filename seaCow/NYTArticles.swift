@@ -36,13 +36,11 @@ class NYTArticles: NSObject {
     
     func parse(jsonData: NSData, parseCompletionHandler: (NYTArticles, String?) -> Void) {
         var jsonError: NSError?
-        print("0")
         
         if let jsonResult = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as? NSDictionary {
             if (jsonResult.count > 0) {
                 if let status = jsonResult["status"] as? NSString {
                     if status == "OK" {
-                        print("1")
                         if let results = jsonResult["results"] as? [NSDictionary] {
                             for result in results {
                                 if let resultUrl = result["url"] as? NSString {
@@ -62,7 +60,7 @@ class NYTArticles: NSObject {
                                                                                 break
                                                                         }
                                                                     } else {
-                                                                        //break
+                                                                        continue
                                                                     }
                                                                 }
                                                             }

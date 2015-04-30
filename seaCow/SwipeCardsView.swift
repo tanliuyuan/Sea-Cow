@@ -45,6 +45,8 @@ class SwipeCardsView: UIView {
         
         super.init(frame: frame)
         
+        setupView()
+        
         label = UILabel(frame: CGRectMake(0, 50, self.frame.size.width, 100))
         label.text = "There's nothing here"
         label.textAlignment = NSTextAlignment.Center
@@ -57,7 +59,7 @@ class SwipeCardsView: UIView {
         self.addGestureRecognizer(panGestureRecognizer)
         self.addSubview(label)
         
-        overlayView = OverlayView(frame: CGRectMake(self.frame.size.width/2-100, 0, 100, 100))
+        overlayView = OverlayView(frame: CGRectMake(0, 0, self.frame.size.width, self.frame.size.height))
             overlayView.alpha = 0
             self.addSubview(overlayView)
             
@@ -65,8 +67,8 @@ class SwipeCardsView: UIView {
     }
     
     func setupView() {
-        self.layer.cornerRadius = 4
-        self.layer.shadowRadius = 3
+        self.layer.cornerRadius = 10
+        self.layer.shadowRadius = 1
         self.layer.shadowOpacity = 0.2
         self.layer.shadowOffset = CGSizeMake(1, 1)
     }
@@ -154,7 +156,7 @@ class SwipeCardsView: UIView {
         }
         println("NO")
     }
-    
+    /*
     // Called when user clicks "yes" button
     func yesClickAction() {
         var finishPoint: CGPoint = CGPointMake(600, self.center.y)
@@ -178,4 +180,5 @@ class SwipeCardsView: UIView {
         }
         println("NO")
     }
+    */
 }

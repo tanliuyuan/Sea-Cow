@@ -23,7 +23,7 @@ class SwipeCardsViewBackground: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let MAX_CARD_NUM = 5 // maximum number of cards loaded at any given time, must be greater than 1
+    let MAX_CARD_NUM = 20 // maximum number of cards loaded at any given time, must be greater than 1
     let CARD_HEIGHT: CGFloat = 386
     let CARD_WIDTH: CGFloat = 290
     
@@ -32,8 +32,8 @@ class SwipeCardsViewBackground: UIView {
     
     var settingsButton: UIButton
     var readingListButton: UIButton
-    var yesButton: UIButton
-    var noButton: UIButton
+    /*var yesButton: UIButton
+    var noButton: UIButton*/
     
     var exampleCardLabels: AnyObject = [] // temp
     var allCards = [SwipeCardsView]() // temp
@@ -47,8 +47,8 @@ class SwipeCardsViewBackground: UIView {
         
         settingsButton = UIButton()
         readingListButton = UIButton()
-        yesButton = UIButton()
-        noButton = UIButton()
+        /*yesButton = UIButton()
+        noButton = UIButton()*/
         super.init(frame:frame)
         self.setupView()
         var stringTitles: [String] = []
@@ -86,18 +86,18 @@ class SwipeCardsViewBackground: UIView {
         readingListButton = UIButton(frame: CGRectMake(284, 34, 18, 18))
         readingListButton.setImage(UIImage(named: "readingListButton"), forState: UIControlState.Normal)
         
-        yesButton = UIButton(frame: CGRectMake(60, 485, 59, 59))
+        /*yesButton = UIButton(frame: CGRectMake(60, 485, 59, 59))
         yesButton.setImage(UIImage(named: "yesButton"), forState: UIControlState.Normal)
         yesButton.addTarget(self, action: "swipeRight", forControlEvents: UIControlEvents.TouchUpInside)
         
         noButton = UIButton(frame: CGRectMake(200, 485, 59, 59))
         noButton.setImage(UIImage(named: "noButton"), forState: UIControlState.Normal)
-        yesButton.addTarget(self, action: "swipeLeft", forControlEvents: UIControlEvents.TouchUpInside)
+        noButton.addTarget(self, action: "swipeLeft", forControlEvents: UIControlEvents.TouchUpInside)*/
         
         self.addSubview(settingsButton)
         self.addSubview(readingListButton)
-        self.addSubview(yesButton)
-        self.addSubview(noButton)
+        /*self.addSubview(yesButton)
+        self.addSubview(noButton)*/
         
     }
     
