@@ -107,15 +107,14 @@ class SwipeCardsView: UIView {
     
     // Checks to see if user's moving right or left and applies the corresponding overlay image
     func updateOverlay(distance: CGFloat) {
-        
         // If card is being dragged to the right
         if distance > 0 {
-            overlayView.mode = OverlayViewMode.OverlayViewRight
-        } else { // If card is being dragged to the left
-            overlayView.mode = OverlayViewMode.OverlayViewLeft
+            overlayView.setMode(OverlayViewMode.OverlayViewRight)
+        } else if distance < 0 { // If card is being dragged to the left
+            overlayView.setMode(OverlayViewMode.OverlayViewLeft)
         }
         
-        overlayView.alpha = min(CGFloat(distance)/100, 0.4)
+        overlayView.alpha = min(CGFloat(abs(distance))/100, 0.4)
     }
     
     // Called when the card is let go
