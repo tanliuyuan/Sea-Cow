@@ -121,10 +121,10 @@ class SwipeCardsView: UIView {
     // Called when the card is let go
     func afterSwipeAction() {
         if xFromCenter > CGFloat(ACTION_MARGIN) {
-            self.rightAction()
+            self.rightAction(self.superview as! SwipeCardsViewBackground)
         }
         else if xFromCenter < CGFloat(-ACTION_MARGIN) {
-            self.leftAction()
+            self.leftAction(self.superview as! SwipeCardsViewBackground)
         }
         else {
             UIView.animateWithDuration(0.3, animations: { () -> Void in
@@ -136,24 +136,26 @@ class SwipeCardsView: UIView {
     }
     
     // Called when user swipes right
-    func rightAction() {
+    func rightAction(background: SwipeCardsViewBackground) {
         var finishPoint: CGPoint = CGPointMake(500, 2 * yFromCenter + self.originalPoint.y)
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.center = finishPoint
             }) { (complete) -> Void in
                 self.removeFromSuperview()
             }
+        background.swipeRight()
         println("YES")
     }
     
     // Called when user swipes left
-    func leftAction() {
+    func leftAction(background: SwipeCardsViewBackground) {
         var finishPoint: CGPoint = CGPointMake(-500, 2 * yFromCenter + self.originalPoint.y)
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.center = finishPoint
             }) { (complete) -> Void in
                 self.removeFromSuperview()
         }
+        background.swipeLeft()
         println("NO")
     }
     /*

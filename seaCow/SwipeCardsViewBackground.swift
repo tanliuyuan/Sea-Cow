@@ -23,19 +23,19 @@ class SwipeCardsViewBackground: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let MAX_CARD_NUM = 20 // maximum number of cards loaded at any given time, must be greater than 1
+    let MAX_CARD_NUM = 5 // maximum number of cards loaded at any given time, must be greater than 1
     let CARD_HEIGHT: CGFloat = UIScreen.mainScreen().bounds.size.height * 0.8
     let CARD_WIDTH: CGFloat = UIScreen.mainScreen().bounds.size.width * 0.85
     
     var loaded: Int = 0 // number of cards loaded
     var deck = [SwipeCardsView]() // array of loaded cards
     
-    var settingsButton: UIButton
+    /*var settingsButton: UIButton
     var readingListButton: UIButton
-    /*var yesButton: UIButton
+    var yesButton: UIButton
     var noButton: UIButton*/
     
-    var exampleCardLabels: AnyObject = [] // temp
+    var exampleCardLabels = [String]() // temp
     var allCards = [SwipeCardsView]() // temp
     
     var nytArticles = NYTArticles()
@@ -45,9 +45,9 @@ class SwipeCardsViewBackground: UIView {
     
     override init(frame: CGRect) {
         
-        settingsButton = UIButton()
+        /*settingsButton = UIButton()
         readingListButton = UIButton()
-        /*yesButton = UIButton()
+        yesButton = UIButton()
         noButton = UIButton()*/
         super.init(frame:frame)
         self.setupView()
@@ -62,9 +62,12 @@ class SwipeCardsViewBackground: UIView {
                 println(unwrappedErrorString)
             } else {
                 for article in nytArticles.articles {
-                    println(article.title)
-                    stringTitles.append(article.title)
-                    self.exampleCardLabels = stringTitles
+                    //println(article.title)
+                    //stringTitles.append(article.title)
+                    var card = SwipeCardsView()
+                    card.label.text = article.title
+                    self.allCards.append(card)
+                    self.exampleCardLabels.append(card.label.text!)
                     
                 }
                 self.loaded = 0
@@ -80,23 +83,23 @@ class SwipeCardsViewBackground: UIView {
         
         self.backgroundColor = UIColor.whiteColor()
         
-        settingsButton = UIButton(frame: CGRectMake(17, 34, 22, 15))
+        /*settingsButton = UIButton(frame: CGRectMake(17, 34, 22, 15))
         settingsButton.setImage(UIImage(named: "settingsButton"), forState: UIControlState.Normal)
         
         readingListButton = UIButton(frame: CGRectMake(284, 34, 18, 18))
         readingListButton.setImage(UIImage(named: "readingListButton"), forState: UIControlState.Normal)
         
-        /*yesButton = UIButton(frame: CGRectMake(60, 485, 59, 59))
+        yesButton = UIButton(frame: CGRectMake(60, 485, 59, 59))
         yesButton.setImage(UIImage(named: "yesButton"), forState: UIControlState.Normal)
         yesButton.addTarget(self, action: "swipeRight", forControlEvents: UIControlEvents.TouchUpInside)
         
         noButton = UIButton(frame: CGRectMake(200, 485, 59, 59))
         noButton.setImage(UIImage(named: "noButton"), forState: UIControlState.Normal)
-        noButton.addTarget(self, action: "swipeLeft", forControlEvents: UIControlEvents.TouchUpInside)*/
+        noButton.addTarget(self, action: "swipeLeft", forControlEvents: UIControlEvents.TouchUpInside)
         
         self.addSubview(settingsButton)
         self.addSubview(readingListButton)
-        /*self.addSubview(yesButton)
+        self.addSubview(yesButton)
         self.addSubview(noButton)*/
         
     }
@@ -132,6 +135,7 @@ class SwipeCardsViewBackground: UIView {
     
     func cardSwipedAway(card: UIView) {
         deck.removeAtIndex(0)
+        println("Card swiped away")
         
         // if all cards haven't been gone through, load another card into the deck
         if loaded < allCards.count {
@@ -147,7 +151,7 @@ class SwipeCardsViewBackground: UIView {
         UIView.animateWithDuration(0.2, animations: { () -> Void in
             cardView.overlayView.alpha = 1
         })
-        // cardView.yesClickAction
+        cardSwipedAway(cardView)
     }
     
     func swipeLeft() {
@@ -156,12 +160,12 @@ class SwipeCardsViewBackground: UIView {
         UIView.animateWithDuration(0.2, animations: { () -> Void in
             cardView.overlayView.alpha = 1
         })
-        // cardView.noClickAction
+        cardSwipedAway(cardView)
     }
     
     func createSwipeCardsViewWithDataAtIndex(index: Int) -> SwipeCardsView {
         var swipeCardsView: SwipeCardsView = SwipeCardsView(frame: CGRectMake((self.frame.size.width - CARD_WIDTH) / 2, (self.frame.size.height - CARD_HEIGHT) / 2, CARD_WIDTH, CARD_HEIGHT))
-        swipeCardsView.label.text = exampleCardLabels.objectAtIndex(index) as? String
+        swipeCardsView.label.text = exampleCardLabels[index]
         return swipeCardsView
     }
 }
