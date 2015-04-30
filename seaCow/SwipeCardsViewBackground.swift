@@ -23,7 +23,7 @@ class SwipeCardsViewBackground: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let MAX_CARD_NUM = 5 // maximum number of cards loaded at any given time, must be greater than 1
+    let MAX_CARD_NUM = 2 // maximum number of cards loaded at any given time, must be greater than 1
     let CARD_HEIGHT: CGFloat = UIScreen.mainScreen().bounds.size.height * 0.8
     let CARD_WIDTH: CGFloat = UIScreen.mainScreen().bounds.size.width * 0.85
     
@@ -66,6 +66,7 @@ class SwipeCardsViewBackground: UIView {
                     //stringTitles.append(article.title)
                     var card = SwipeCardsView()
                     card.label.text = article.title
+                    card.articleData = article
                     self.allCards.append(card)
                     self.exampleCardLabels.append(card.label.text!)
                     

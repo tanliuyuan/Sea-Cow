@@ -24,6 +24,8 @@ class SwipeCardsView: UIView {
     var originalPoint: CGPoint
     var overlayView: OverlayView
     var label: UILabel
+    var image: UIImage
+    var articleData: ArticleData
     
     required init(coder aDecoder: NSCoder) {
         xFromCenter = 0.0
@@ -32,6 +34,8 @@ class SwipeCardsView: UIView {
         originalPoint = CGPoint()
         overlayView = OverlayView(coder: aDecoder)
         label = UILabel()
+        image = UIImage()
+        articleData = ArticleData()
         super.init(coder: aDecoder)
     }
     
@@ -42,6 +46,8 @@ class SwipeCardsView: UIView {
         originalPoint = CGPoint()
         overlayView = OverlayView(coder: NSCoder())
         label = UILabel()
+        image = UIImage()
+        articleData = ArticleData()
         
         super.init(frame: frame)
         
@@ -52,7 +58,14 @@ class SwipeCardsView: UIView {
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor.blackColor()
         
+        if let imageUrl = NSURL(string: articleData.imageUrl) {
+            if let imageData = NSData(contentsOfURL: imageUrl) {
+                image = UIImage(data: imageData)!
+            }
+        }
+        
         self.backgroundColor = UIColor(red: 72/255, green: 145/255, blue: 206/255, alpha: 1)
+        
         
         panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "beingDragged:")
         
