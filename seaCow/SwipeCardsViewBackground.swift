@@ -70,6 +70,7 @@ class SwipeCardsViewBackground: UIView {
                     self.exampleCardLabels.append(card.label.text!)
                     
                 }
+                println(nytArticles.articles.count)
                 self.loaded = 0
                 self.loadCards()
             }
@@ -113,7 +114,6 @@ class SwipeCardsViewBackground: UIView {
             // loop through the exampleCardsLabels array to create a card for each label. This should be customerized by removing "exampleCardLabels" with another array of data
             for var i = 0 ; i < exampleCardLabels.count; i++ {
                 var newCard: SwipeCardsView = self.createSwipeCardsViewWithDataAtIndex(i)
-                allCards.append(newCard)
                 
                 if i < numLoadedCardsCap {
                     // add some extra cards to be loaded
@@ -131,15 +131,17 @@ class SwipeCardsViewBackground: UIView {
             }
             loaded++
         }
+        println("Number of cards loaded: \(loaded)")
     }
     
     func cardSwipedAway(card: UIView) {
         deck.removeAtIndex(0)
         println("Card swiped away")
-        
         // if all cards haven't been gone through, load another card into the deck
         if loaded < allCards.count {
-            deck.append(allCards[loaded])
+            var newCard: SwipeCardsView = createSwipeCardsViewWithDataAtIndex(loaded)
+            deck.append(newCard)
+            //deck.append(allCards[loaded])
             loaded++
             self.insertSubview(deck[MAX_CARD_NUM-1] as UIView, belowSubview: deck[MAX_CARD_NUM-2] as UIView)
         }
