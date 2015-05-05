@@ -12,26 +12,18 @@ import Fabric
 
 class ArticleViewController: UIViewController {
 
-    @IBOutlet weak var navBar: UINavigationItem!
-    @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var share: UIBarButtonItem!
-    
     var articleURL: String? = "google.com"
-    var article: ArticleData?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.share.target = self
         self.share.action = "shareIt"
         // Do any additional setup after loading the view.
-        
-        if(article != nil){
-            navBar.title = article!.section
-            let url = NSURL(string: article!.url)
-            let request = NSURLRequest(URL: url!)
-            webView.loadRequest(request)
-        }
-        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
 

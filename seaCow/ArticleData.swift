@@ -13,20 +13,17 @@ class ArticleData: NSObject {
     var title: String
     var imageUrl: String
     var url: String
-    var section: String
     
     override init() {
         self.title = ""
         self.imageUrl = ""
         self.url = ""
-        self.section = ""
     }
     
-    init(forTitle: String, forUrl: String, forImageUrl: String, forSection: String) {
+    init(forTitle: String, forUrl: String, forImageUrl: String) {
         self.title = forTitle
         self.imageUrl = forImageUrl
         self.url = forUrl
-        self.section = forSection
     }
     
 }
