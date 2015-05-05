@@ -16,7 +16,7 @@ class ArticleViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var share: UIBarButtonItem!
     
-    var articleURL: String? = "google.com"
+    var articleURL: String?
     var article: ArticleData?
     
     override func viewDidLoad() {
@@ -30,6 +30,7 @@ class ArticleViewController: UIViewController {
             let url = NSURL(string: article!.url)
             let request = NSURLRequest(URL: url!)
             webView.loadRequest(request)
+            articleURL = article?.url
         }
         
     }

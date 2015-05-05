@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "seaCow/ArticleViewController.swift"
-            timestampString = "451506307.991131"
+            timestampString = "452550187.139764"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "ArticleViewController"
             landmarkType = "3">
          </BreakpointContent>
