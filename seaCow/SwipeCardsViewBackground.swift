@@ -40,7 +40,7 @@ class SwipeCardsViewBackground: UIView {
     var nytArticles = NYTArticles()
     var articleRequest: NSURLRequest?
     var selectedArticle: ArticleData?
-    
+    var toReadingList: [ArticleData] = []
     
     override init(frame: CGRect) {
         
@@ -83,26 +83,6 @@ class SwipeCardsViewBackground: UIView {
     func setupView() {
         
         self.backgroundColor = UIColor.whiteColor()
-        
-        /*settingsButton = UIButton(frame: CGRectMake(17, 34, 22, 15))
-        settingsButton.setImage(UIImage(named: "settingsButton"), forState: UIControlState.Normal)
-        
-        readingListButton = UIButton(frame: CGRectMake(284, 34, 18, 18))
-        readingListButton.setImage(UIImage(named: "readingListButton"), forState: UIControlState.Normal)
-        
-        yesButton = UIButton(frame: CGRectMake(60, 485, 59, 59))
-        yesButton.setImage(UIImage(named: "yesButton"), forState: UIControlState.Normal)
-        yesButton.addTarget(self, action: "swipeRight", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        noButton = UIButton(frame: CGRectMake(200, 485, 59, 59))
-        noButton.setImage(UIImage(named: "noButton"), forState: UIControlState.Normal)
-        noButton.addTarget(self, action: "swipeLeft", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        self.addSubview(settingsButton)
-        self.addSubview(readingListButton)
-        self.addSubview(yesButton)
-        self.addSubview(noButton)*/
-        
     }
     
     func loadCards() {
@@ -133,10 +113,16 @@ class SwipeCardsViewBackground: UIView {
         }
         println("Number of cards loaded: \(loaded)")
     }
-    
-    func cardSwipedAway(card: UIView) {
+    var swiped: Int = 0
+    func cardSwipedAway(card: UIView, direction: String) {
+        swiped++
+        let article: ArticleData = deck[0].articleData
         deck.removeAtIndex(0)
         println("Card swiped away")
+        if(direction == "right") {
+            println("Saving to reading list array")
+            toReadingList.append(article)
+        }
         // if all cards haven't been gone through, load another card into the deck
         if loaded < allCards.count {
             var newCard: SwipeCardsView = createSwipeCardsViewWithDataAtIndex(loaded)
@@ -144,6 +130,12 @@ class SwipeCardsViewBackground: UIView {
             //deck.append(allCards[loaded])
             loaded++
             self.insertSubview(deck[MAX_CARD_NUM-1] as UIView, belowSubview: deck[MAX_CARD_NUM-2] as UIView)
+        }
+        if(swiped == allCards.count) {
+            println("Last card has been swiped")
+            println(toReadingList.count)
+            //try to segue to the reading list here.
+            
         }
     }
     
@@ -153,7 +145,7 @@ class SwipeCardsViewBackground: UIView {
         UIView.animateWithDuration(0.2, animations: { () -> Void in
             cardView.overlayView.alpha = 1
         })
-        cardSwipedAway(cardView)
+        cardSwipedAway(cardView, direction: "right")
     }
     
     func swipeLeft() {
@@ -162,7 +154,7 @@ class SwipeCardsViewBackground: UIView {
         UIView.animateWithDuration(0.2, animations: { () -> Void in
             cardView.overlayView.alpha = 1
         })
-        cardSwipedAway(cardView)
+        cardSwipedAway(cardView, direction: "left")
     }
     
     func createSwipeCardsViewWithDataAtIndex(index: Int) -> SwipeCardsView {

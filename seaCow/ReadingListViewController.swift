@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+
 
 class ReadingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -15,7 +17,6 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
     
     var readingList = NYTArticles()
     var selectedArticle: ArticleData?
-
     // A set of constant and variable strings for making up the URL for article searching using NYT's API
     let articleSearchBaseUrl = "http://api.nytimes.com/svc/mostpopular/v2"
     let articleSearchResourceType = "mostviewed" // mostemailed | mostshared | mostviewed

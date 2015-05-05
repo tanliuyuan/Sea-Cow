@@ -14,6 +14,8 @@
 		210031621ADD966000E1DD6D /* seaCowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210031611ADD966000E1DD6D /* seaCowTests.swift */; };
 		2100316C1ADD968400E1DD6D /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2100316B1ADD968400E1DD6D /* CardViewController.swift */; };
 		2100316E1ADD975700E1DD6D /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 2100316D1ADD975700E1DD6D /* gear.png */; };
+		2110FD981AF93D990072B21A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2110FD971AF93D990072B21A /* CoreData.framework */; };
+		2110FDCC1AF93E300072B21A /* seaCow.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2110FDCA1AF93E300072B21A /* seaCow.xcdatamodeld */; };
 		212974CE1AE6C9F600E3597C /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974CB1AE6C9F600E3597C /* TwitterKit.framework */; };
 		212974CF1AE6C9F700E3597C /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 212974CC1AE6C9F600E3597C /* TwitterKitResources.bundle */; };
 		212974D01AE6C9F700E3597C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974CD1AE6C9F600E3597C /* Fabric.framework */; };
@@ -50,6 +52,8 @@
 		210031611ADD966000E1DD6D /* seaCowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seaCowTests.swift; sourceTree = "<group>"; };
 		2100316B1ADD968400E1DD6D /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		2100316D1ADD975700E1DD6D /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
+		2110FD971AF93D990072B21A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2110FDCB1AF93E300072B21A /* seaCow.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = seaCow.xcdatamodel; sourceTree = "<group>"; };
 		212974CB1AE6C9F600E3597C /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		212974CC1AE6C9F600E3597C /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
 		212974CD1AE6C9F600E3597C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2110FD981AF93D990072B21A /* CoreData.framework in Frameworks */,
 				212974D01AE6C9F700E3597C /* Fabric.framework in Frameworks */,
 				212974CE1AE6C9F600E3597C /* TwitterKit.framework in Frameworks */,
 			);
@@ -87,6 +92,7 @@
 		2100313D1ADD965F00E1DD6D = {
 			isa = PBXGroup;
 			children = (
+				2110FD971AF93D990072B21A /* CoreData.framework */,
 				210031481ADD965F00E1DD6D /* seaCow */,
 				2100315E1ADD966000E1DD6D /* seaCowTests */,
 				210031471ADD965F00E1DD6D /* Products */,
@@ -124,6 +130,7 @@
 				5431260B1AEFED9C007BE36E /* SwipeCardsViewBackground.swift */,
 				5431260D1AEFEDD7007BE36E /* NYTArticles.swift */,
 				5431260F1AEFEE04007BE36E /* ArticleData.swift */,
+				2110FDCA1AF93E300072B21A /* seaCow.xcdatamodeld */,
 			);
 			path = seaCow;
 			sourceTree = "<group>";
@@ -277,6 +284,7 @@
 				540331AB1AF9308200B96818 /* CustomCell.swift in Sources */,
 				543126101AEFEE04007BE36E /* ArticleData.swift in Sources */,
 				5431260C1AEFED9C007BE36E /* SwipeCardsViewBackground.swift in Sources */,
+				2110FDCC1AF93E300072B21A /* seaCow.xcdatamodeld in Sources */,
 				2148088D1AE01792008EB6C0 /* ArticleViewController.swift in Sources */,
 				5431260A1AEFED6B007BE36E /* OverlayView.swift in Sources */,
 				2148088B1AE015EF008EB6C0 /* ReadingListViewController.swift in Sources */,
@@ -417,6 +425,7 @@
 					"$(PROJECT_DIR)/seaCow",
 				);
 				INFOPLIST_FILE = seaCow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -432,6 +441,7 @@
 					"$(PROJECT_DIR)/seaCow",
 				);
 				INFOPLIST_FILE = seaCow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -502,6 +512,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2110FDCA1AF93E300072B21A /* seaCow.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2110FDCB1AF93E300072B21A /* seaCow.xcdatamodel */,
+			);
+			currentVersion = 2110FDCB1AF93E300072B21A /* seaCow.xcdatamodel */;
+			path = seaCow.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2100313E1ADD965F00E1DD6D /* Project object */;
 }
