@@ -45,29 +45,33 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
                 
             }
         })
-        println(allArticles![0].title)
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return readingList.articles.count
+        return allArticles!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell: CustomCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
+        if(allArticles!.count > 0) {
+            
         
-        cell.title?.text = readingList.articles[indexPath.row].title
+            //cell.title?.text = readingList.articles[indexPath.row].title
+            cell.title?.text = allArticles![indexPath.row].title
+            //let url = NSURL(string: readingList.articles[indexPath.row].imageUrl)
+            let url = NSURL(string: allArticles![indexPath.row].imageUrl)
+            let data = NSData(contentsOfURL: url!)
         
-        let url = NSURL(string: readingList.articles[indexPath.row].imageUrl)
-        let data = NSData(contentsOfURL: url!)
-        cell.backgroundImage.image = UIImage(data: data!)
+            cell.backgroundImage.image = UIImage(data: data!)
+            
+        }
         
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedArticle = readingList.articles[indexPath.row]
+        selectedArticle = allArticles![indexPath.row]
         performSegueWithIdentifier("showArticle", sender: self)
     }
     
