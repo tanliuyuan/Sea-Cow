@@ -23,7 +23,7 @@ class OverlayView: UIView {
         mode = OverlayViewMode.OverlayViewLeft
         //imageView = UIImageView()
         super.init(frame:frame)
-        
+        self.layer.cornerRadius = 10
         self.backgroundColor = UIColor.redColor()
         //imageView = UIImageView(image: UIImage(named: "noButton"))
         //self.addSubview(imageView)
