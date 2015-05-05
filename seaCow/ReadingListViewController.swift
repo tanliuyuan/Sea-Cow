@@ -70,8 +70,12 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier == "showArticle"){
         let destinationViewController = segue.destinationViewController as! ArticleViewController
         destinationViewController.article = selectedArticle
+        }
+        
     }
     
     @IBAction func back(sender: AnyObject) {
