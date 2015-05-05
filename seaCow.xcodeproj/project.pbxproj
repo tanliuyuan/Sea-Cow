@@ -119,10 +119,9 @@
 				210031521ADD966000E1DD6D /* Images.xcassets */,
 				210031541ADD966000E1DD6D /* LaunchScreen.xib */,
 				210031491ADD965F00E1DD6D /* Supporting Files */,
-				2100316B1ADD968400E1DD6D /* CardViewController.swift */,
 				2100316D1ADD975700E1DD6D /* gear.png */,
+				2100316B1ADD968400E1DD6D /* CardViewController.swift */,
 				2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */,
-				540331AA1AF9308200B96818 /* CustomCell.swift */,
 				2148088C1AE01792008EB6C0 /* ArticleViewController.swift */,
 				2148088E1AE017C1008EB6C0 /* SettingsViewController.swift */,
 				549639E41AE0305C00BF5866 /* SwipeCardsView.swift */,
@@ -130,6 +129,7 @@
 				5431260B1AEFED9C007BE36E /* SwipeCardsViewBackground.swift */,
 				5431260D1AEFEDD7007BE36E /* NYTArticles.swift */,
 				5431260F1AEFEE04007BE36E /* ArticleData.swift */,
+				540331AA1AF9308200B96818 /* CustomCell.swift */,
 				2110FDCA1AF93E300072B21A /* seaCow.xcdatamodeld */,
 			);
 			path = seaCow;

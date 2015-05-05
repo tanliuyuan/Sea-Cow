@@ -41,6 +41,7 @@ class SwipeCardsViewBackground: UIView {
     var articleRequest: NSURLRequest?
     var selectedArticle: ArticleData?
     var toReadingList: [ArticleData] = []
+    var done = false
     
     override init(frame: CGRect) {
         
@@ -135,7 +136,7 @@ class SwipeCardsViewBackground: UIView {
             println("Last card has been swiped")
             println(toReadingList.count)
             //try to segue to the reading list here.
-            
+            done = true
         }
     }
     
@@ -164,4 +165,9 @@ class SwipeCardsViewBackground: UIView {
         swipeCardsView.backgroundColor = allCards[index].backgroundColor
         return swipeCardsView
     }
+    
+    func test() {
+        println("allo")
+    }
+    
 }

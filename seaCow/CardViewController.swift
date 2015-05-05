@@ -14,7 +14,8 @@ class CardViewController: UIViewController {
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var readingListButton: UIBarButtonItem!
-    
+    var allArticles: [ArticleData]?
+    var swipeCardsViewBackground: SwipeCardsViewBackground?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,9 +24,17 @@ class CardViewController: UIViewController {
         subView.alpha = 1
         self.view.addSubview(subView)*/
         
-        var swipeCardsViewBackground = SwipeCardsViewBackground(frame: subViewFrame)
-        self.view.addSubview(swipeCardsViewBackground)
+        swipeCardsViewBackground = SwipeCardsViewBackground(frame: subViewFrame)
+        self.view.addSubview(swipeCardsViewBackground!)
+
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        println("preparing for segue")
         
+        let destViewController = segue.destinationViewController as! ReadingListViewController
+        
+        destViewController.allArticles = swipeCardsViewBackground!.toReadingList
     }
 
        @IBAction func returnToCards(segue: UIStoryboardSegue) {

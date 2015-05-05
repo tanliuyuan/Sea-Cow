@@ -16,6 +16,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var myTableView: UITableView!
     
     var readingList = NYTArticles()
+    var allArticles: [ArticleData]?
     var selectedArticle: ArticleData?
     // A set of constant and variable strings for making up the URL for article searching using NYT's API
     let articleSearchBaseUrl = "http://api.nytimes.com/svc/mostpopular/v2"
@@ -44,7 +45,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
                 
             }
         })
-        
+        println(allArticles![0].title)
         
     }
     
@@ -86,5 +87,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func returnToReadingList(segue: UIStoryboardSegue) {
         
     }
+    
+    
 
 }
