@@ -24,7 +24,6 @@ class SwipeCardsView: UIView {
     var originalPoint: CGPoint
     var overlayView: OverlayView
     var label: UILabel
-    var image: UIImage
     var articleData: ArticleData
     
     required init(coder aDecoder: NSCoder) {
@@ -34,9 +33,12 @@ class SwipeCardsView: UIView {
         originalPoint = CGPoint()
         overlayView = OverlayView(coder: aDecoder)
         label = UILabel()
-        image = UIImage()
         articleData = ArticleData()
+        
         super.init(coder: aDecoder)
+        
+        label.text = articleData.title
+        
     }
     
     override init(frame: CGRect){
@@ -46,25 +48,16 @@ class SwipeCardsView: UIView {
         originalPoint = CGPoint()
         overlayView = OverlayView(coder: NSCoder())
         label = UILabel()
-        image = UIImage()
         articleData = ArticleData()
         
         super.init(frame: frame)
-        
-        setupView()
-        
         label = UILabel(frame: CGRectMake(0, 50, self.frame.size.width, 100))
-        label.text = "There's nothing here"
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor.blackColor()
         
-        if let imageUrl = NSURL(string: articleData.imageUrl) {
-            if let imageData = NSData(contentsOfURL: imageUrl) {
-                image = UIImage(data: imageData)!
-            }
-        }
+        setupView()
         
-        self.backgroundColor = UIColor(red: 72/255, green: 145/255, blue: 206/255, alpha: 1)
+        //self.backgroundColor = UIColor(red: 72/255, green: 145/255, blue: 206/255, alpha: 1)
         
         
         panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "beingDragged:")

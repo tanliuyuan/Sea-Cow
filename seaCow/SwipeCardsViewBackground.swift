@@ -35,8 +35,7 @@ class SwipeCardsViewBackground: UIView {
     var yesButton: UIButton
     var noButton: UIButton*/
     
-    var exampleCardLabels = [String]() // temp
-    var allCards = [SwipeCardsView]() // temp
+    var allCards = [SwipeCardsView]() // array of all cards
     
     var nytArticles = NYTArticles()
     var articleRequest: NSURLRequest?
@@ -67,18 +66,18 @@ class SwipeCardsViewBackground: UIView {
                     var card = SwipeCardsView()
                     card.label.text = article.title
                     card.articleData = article
+                    if let imageUrl = NSURL(string: card.articleData.imageUrl) {
+                        if let imageData = NSData(contentsOfURL: imageUrl){
+                            card.backgroundColor = UIColor(patternImage: UIImage(data: imageData)!)
+                        }
+                    }
                     self.allCards.append(card)
-                    self.exampleCardLabels.append(card.label.text!)
-                    
                 }
-                println(nytArticles.articles.count)
+                println("Total number of cards:\(self.allCards.count)")
                 self.loaded = 0
                 self.loadCards()
             }
         })
-        
-        //exampleCardLabels = ["first news", "second news", "third news", "fourth news", "fifth news"]
-        
     }
     
     func setupView() {
@@ -108,12 +107,12 @@ class SwipeCardsViewBackground: UIView {
     
     func loadCards() {
         
-        if exampleCardLabels.count > 0 {
+        if allCards.count > 0 {
             // make sure max card load is smaller than actual deck size
-            var numLoadedCardsCap = exampleCardLabels.count > MAX_CARD_NUM ? MAX_CARD_NUM : exampleCardLabels.count
+            var numLoadedCardsCap = allCards.count > MAX_CARD_NUM ? MAX_CARD_NUM : allCards.count
             
             // loop through the exampleCardsLabels array to create a card for each label. This should be customerized by removing "exampleCardLabels" with another array of data
-            for var i = 0 ; i < exampleCardLabels.count; i++ {
+            for var i = 0 ; i < allCards.count; i++ {
                 var newCard: SwipeCardsView = self.createSwipeCardsViewWithDataAtIndex(i)
                 
                 if i < numLoadedCardsCap {
@@ -168,7 +167,9 @@ class SwipeCardsViewBackground: UIView {
     
     func createSwipeCardsViewWithDataAtIndex(index: Int) -> SwipeCardsView {
         var swipeCardsView: SwipeCardsView = SwipeCardsView(frame: CGRectMake((self.frame.size.width - CARD_WIDTH) / 2, (self.frame.size.height - CARD_HEIGHT) / 2, CARD_WIDTH, CARD_HEIGHT))
-        swipeCardsView.label.text = exampleCardLabels[index]
+        swipeCardsView.articleData = allCards[index].articleData
+        swipeCardsView.label.text = allCards[index].label.text
+        swipeCardsView.backgroundColor = allCards[index].backgroundColor
         return swipeCardsView
     }
 }

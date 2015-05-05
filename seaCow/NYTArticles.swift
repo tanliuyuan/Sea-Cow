@@ -55,7 +55,7 @@ class NYTArticles: NSObject {
                                                             for data in metadata {
                                                                 if let dataFormat = data["format"] as? NSString {
                                                                     // for image on swipe card, look for normal sized image only
-                                                                    if dataFormat == "Normal" {
+                                                                    if dataFormat == "Large" {
                                                                         if let imageUrl = data["url"] as? NSString {
                                                                             articles.append(ArticleData(forTitle: resultTitle as String, forUrl: resultUrl as String, forImageUrl: imageUrl as String, forSection: resultSection as String))
                                                                                 break
