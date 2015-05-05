@@ -57,8 +57,7 @@ class SwipeCardsView: UIView {
         
         setupView()
         
-        //self.backgroundColor = UIColor(red: 72/255, green: 145/255, blue: 206/255, alpha: 1)
-        
+        self.backgroundColor = UIColor(patternImage: UIImage(named: "cardbackground.png")!)
         
         panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "beingDragged:")
         
