@@ -44,6 +44,7 @@ class NYTArticles: NSObject {
                         if let results = jsonResult["results"] as? [NSDictionary] {
                             for result in results {
                                 if let resultUrl = result["url"] as? NSString {
+                                    if let resultSection = result["section"] as? NSString {
                                     if let resultTitle = result["title"] as? NSString {
                                         if let media = result["media"] as? [NSDictionary] {
                                             for medium in media {
@@ -56,7 +57,7 @@ class NYTArticles: NSObject {
                                                                     // for image on swipe card, look for normal sized image only
                                                                     if dataFormat == "Large" {
                                                                         if let imageUrl = data["url"] as? NSString {
-                                                                            articles.append(ArticleData(forTitle: resultTitle as String, forUrl: resultUrl as String, forImageUrl: imageUrl as String))
+                                                                            articles.append(ArticleData(forTitle: resultTitle as String, forUrl: resultUrl as String, forImageUrl: imageUrl as String, forSection: resultSection as String))
                                                                                 break
                                                                         }
                                                                     } else {
@@ -73,6 +74,7 @@ class NYTArticles: NSObject {
                                         }
                                     }
                                 }
+                            }
                             }
                         }
                         dispatch_async(dispatch_get_main_queue(), {
