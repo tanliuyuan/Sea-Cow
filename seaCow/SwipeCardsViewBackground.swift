@@ -160,7 +160,7 @@ class SwipeCardsViewBackground: UIView {
     func createSwipeCardsViewWithDataAtIndex(index: Int) -> SwipeCardsView {
         var swipeCardsView: SwipeCardsView = SwipeCardsView(frame: CGRectMake((self.frame.size.width - CARD_WIDTH) / 2, (self.frame.size.height - CARD_HEIGHT) / 2, CARD_WIDTH, CARD_HEIGHT))
         swipeCardsView.articleData = allCards[index].articleData
-        swipeCardsView.backgroundView = allCards[index].backgroundView
+        swipeCardsView.backgroundView.image = allCards[index].backgroundView.image
         swipeCardsView.backgroundView.contentMode = UIViewContentMode.ScaleAspectFill
         swipeCardsView.label.text = allCards[index].label.text
         return swipeCardsView
