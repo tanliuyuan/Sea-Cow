@@ -61,7 +61,9 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
             //let url = NSURL(string: readingList.articles[indexPath.row].imageUrl)
             let url = NSURL(string: allArticles![indexPath.row].imageUrl)
             let data = NSData(contentsOfURL: url!)
-        
+            
+            
+            
             cell.backgroundImage.image = UIImage(data: data!)
             
         }
@@ -72,6 +74,14 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedArticle = allArticles![indexPath.row]
         performSegueWithIdentifier("showArticle", sender: self)
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

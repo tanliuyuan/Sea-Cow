@@ -65,6 +65,7 @@ class SwipeCardsView: UIView {
         label = UILabel(frame: CGRectMake(0, self.frame.size.height - 100, self.frame.size.width, 100))
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor.whiteColor()
+        label.numberOfLines = 0
         
         let backgroundImage = UIImage(named: "cardbackground.png")
         backgroundView = UIImageView(frame: CGRectMake(0, 0, self.frame.size.width , self.frame.size.height))

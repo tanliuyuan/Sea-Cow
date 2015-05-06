@@ -108,15 +108,12 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hWR-Tk-73B" id="mGf-H7-KBa">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u2r-6x-cLf">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u2r-6x-cLf">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="168"/>
+                                                    <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dha-Vz-v8p">
-                                                    <rect key="frame" x="0.0" y="108" width="600" height="60"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="60" id="bna-s3-hfd"/>
-                                                    </constraints>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="mNh-qZ-DgK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="168"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWj-DD-x6E">
                                                     <rect key="frame" x="20" y="141" width="560" height="17"/>
@@ -126,21 +123,33 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Dha-Vz-v8p" firstAttribute="leading" secondItem="mGf-H7-KBa" secondAttribute="leading" id="1mC-hw-bWo"/>
                                                 <constraint firstAttribute="trailing" secondItem="u2r-6x-cLf" secondAttribute="trailing" id="1yk-Ep-Jpo"/>
+                                                <constraint firstItem="mNh-qZ-DgK" firstAttribute="top" secondItem="mGf-H7-KBa" secondAttribute="top" id="7Em-ZT-QD6"/>
                                                 <constraint firstItem="u2r-6x-cLf" firstAttribute="leading" secondItem="mGf-H7-KBa" secondAttribute="leading" id="H5d-JE-BmQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="mNh-qZ-DgK" secondAttribute="bottom" id="HSL-8D-qjN"/>
                                                 <constraint firstItem="cWj-DD-x6E" firstAttribute="leading" secondItem="mGf-H7-KBa" secondAttribute="leading" constant="20" id="LHl-Ep-UfI"/>
+                                                <constraint firstAttribute="trailing" secondItem="mNh-qZ-DgK" secondAttribute="trailing" id="MKv-aV-fkM"/>
+                                                <constraint firstItem="mNh-qZ-DgK" firstAttribute="leading" secondItem="mGf-H7-KBa" secondAttribute="leading" id="Rtd-DG-SeV"/>
+                                                <constraint firstAttribute="trailing" secondItem="cWj-DD-x6E" secondAttribute="trailing" constant="20" id="Twp-9N-zzU"/>
+                                                <constraint firstAttribute="bottom" secondItem="u2r-6x-cLf" secondAttribute="bottom" id="Zy5-0q-ydj"/>
                                                 <constraint firstAttribute="bottom" secondItem="cWj-DD-x6E" secondAttribute="bottom" constant="10" id="aAE-5h-JYH"/>
-                                                <constraint firstAttribute="bottom" secondItem="Dha-Vz-v8p" secondAttribute="bottom" id="c9K-Qf-ZLW"/>
-                                                <constraint firstAttribute="trailing" secondItem="Dha-Vz-v8p" secondAttribute="trailing" id="ds3-aG-KsD"/>
+                                                <constraint firstItem="cWj-DD-x6E" firstAttribute="leading" secondItem="mGf-H7-KBa" secondAttribute="leading" constant="20" id="aCu-Dn-NF6"/>
                                                 <constraint firstAttribute="trailing" secondItem="cWj-DD-x6E" secondAttribute="trailing" constant="20" id="fg8-1i-YLC"/>
+                                                <constraint firstAttribute="bottom" secondItem="cWj-DD-x6E" secondAttribute="bottom" constant="10" id="luA-vq-oeO"/>
                                                 <constraint firstAttribute="bottom" secondItem="u2r-6x-cLf" secondAttribute="bottom" id="xJp-co-gWX"/>
                                                 <constraint firstItem="u2r-6x-cLf" firstAttribute="top" secondItem="mGf-H7-KBa" secondAttribute="top" id="xw6-yR-Ber"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="xJp-co-gWX"/>
+                                                    <exclude reference="LHl-Ep-UfI"/>
+                                                    <exclude reference="aAE-5h-JYH"/>
+                                                    <exclude reference="fg8-1i-YLC"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="backgroundImage" destination="u2r-6x-cLf" id="PUE-Lg-atQ"/>
-                                            <outlet property="gradient" destination="Dha-Vz-v8p" id="4uL-bU-N9E"/>
                                             <outlet property="title" destination="cWj-DD-x6E" id="CyZ-AO-U43"/>
                                         </connections>
                                     </tableViewCell>
@@ -270,9 +279,10 @@
     </scenes>
     <resources>
         <image name="gear.png" width="32" height="32"/>
+        <image name="gradient.png" width="1" height="800"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cxC-a2-ufn"/>
         <segue reference="4N3-x2-SX2"/>
+        <segue reference="cxC-a2-ufn"/>
     </inferredMetricsTieBreakers>
 </document>
