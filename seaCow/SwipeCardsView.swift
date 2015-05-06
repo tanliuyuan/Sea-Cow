@@ -23,6 +23,8 @@ class SwipeCardsView: UIView {
     var panGestureRecognizer: UIPanGestureRecognizer
     var originalPoint: CGPoint
     var overlayView: OverlayView
+    var backgroundView: UIImageView
+    var gradientView: UIImageView
     var label: UILabel
     var articleData: ArticleData
     
@@ -32,12 +34,18 @@ class SwipeCardsView: UIView {
         panGestureRecognizer = UIPanGestureRecognizer()
         originalPoint = CGPoint()
         overlayView = OverlayView(coder: aDecoder)
+        backgroundView = UIImageView()
+        gradientView = UIImageView()
         label = UILabel()
         articleData = ArticleData()
         
         super.init(coder: aDecoder)
         
-        label.text = articleData.title
+        let gradientImage = UIImage(named: "gradient.png")
+        gradientView = UIImageView(image: gradientImage)
+        gradientView.contentMode = UIViewContentMode.ScaleAspectFill
+        
+        label.text = "No Data"
         
     }
     
@@ -47,28 +55,36 @@ class SwipeCardsView: UIView {
         panGestureRecognizer = UIPanGestureRecognizer()
         originalPoint = CGPoint()
         overlayView = OverlayView(coder: NSCoder())
+        backgroundView = UIImageView()
+        gradientView = UIImageView()
         label = UILabel()
         articleData = ArticleData()
         
         super.init(frame: frame)
-        label = UILabel(frame: CGRectMake(0, 50, self.frame.size.width, 100))
+        
+        label = UILabel(frame: CGRectMake(0, self.frame.size.height - 100, self.frame.size.width, 100))
         label.textAlignment = NSTextAlignment.Center
-        label.textColor = UIColor.blackColor()
+        label.textColor = UIColor.whiteColor()
+        
+        let backgroundImage = UIImage(named: "cardbackground.png")
+        backgroundView = UIImageView(frame: CGRectMake(0, 0, self.frame.size.width , self.frame.size.height))
+        backgroundView.image = backgroundImage
+        
+        let gradientImage = UIImage(named: "gradient.png")
+        gradientView = UIImageView(frame: CGRectMake(0, 0, self.frame.size.width , self.frame.size.height))
+        gradientView.image = gradientImage
         
         setupView()
-        
-        self.backgroundColor = UIColor(patternImage: UIImage(named: "cardbackground.png")!)
-        
+
         panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "beingDragged:")
         
         self.addGestureRecognizer(panGestureRecognizer)
-        self.addSubview(label)
         
         overlayView = OverlayView(frame: CGRectMake(0, 0, self.frame.size.width, self.frame.size.height))
-            overlayView.alpha = 0
-            self.addSubview(overlayView)
+        overlayView.alpha = 0
+        self.addSubview(overlayView)
             
-            self.superview
+        self.superview
     }
     
     func setupView() {
@@ -76,6 +92,17 @@ class SwipeCardsView: UIView {
         self.layer.shadowRadius = 1
         self.layer.shadowOpacity = 0.2
         self.layer.shadowOffset = CGSizeMake(1, 1)
+        
+        self.addSubview(backgroundView)
+        backgroundView.contentMode = UIViewContentMode.ScaleAspectFill
+        self.addSubview(gradientView)
+        gradientView.contentMode = UIViewContentMode.ScaleToFill
+        self.addSubview(label)
+        
+        self.backgroundView.layer.cornerRadius = 10
+        self.backgroundView.layer.masksToBounds = true
+        self.gradientView.layer.cornerRadius = 10
+        self.gradientView.layer.masksToBounds = true
     }
     
     // This function is called when the user's finger touches and pans over the screen

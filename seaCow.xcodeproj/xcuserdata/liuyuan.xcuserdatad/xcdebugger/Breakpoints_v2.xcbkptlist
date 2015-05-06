@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "seaCow/SwipeCardsViewBackground.swift"
-            timestampString = "452491700.184791"
+            timestampString = "452567436.125403"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "init(frame:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -448,6 +448,22 @@
             startingLineNumber = "19"
             endingLineNumber = "19"
             landmarkName = "load(_:loadCompletionHandler:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "seaCow/SwipeCardsViewBackground.swift"
+            timestampString = "452566869.932848"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "init(frame:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
