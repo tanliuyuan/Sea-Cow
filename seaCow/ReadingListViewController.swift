@@ -82,6 +82,27 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
+        
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        
+        var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal , title: "Share", handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
+            
+            
+            return
+        })
+        
+        shareAction.backgroundColor = UIColor.blueColor()
+       
+        var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default , title: "Delete", handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
+            println("test")
+            
+            return
+        })
+        
+        return [deleteAction, shareAction]
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
