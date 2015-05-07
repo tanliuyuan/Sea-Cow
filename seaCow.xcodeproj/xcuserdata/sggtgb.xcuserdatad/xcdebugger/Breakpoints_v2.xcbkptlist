@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "seaCow/SwipeCardsViewBackground.swift"
-            timestampString = "452715229.466594"
+            timestampString = "452717115.245695"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "cardSwipedAway(_:direction:)"
             landmarkType = "5">
          </BreakpointContent>

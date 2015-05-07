@@ -117,6 +117,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default , title: "Delete", handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
             
             self.allArticles?.removeAtIndex(indexPath.row)
+            self.testArticles?.removeArticle(indexPath.row)
             self.myTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
             return

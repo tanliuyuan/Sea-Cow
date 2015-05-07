@@ -14,6 +14,7 @@ class ReadingList: NSObject , NSCoding {
     func addArticle(article: ArticleData) {
         println("Adding article")
         articles.append(article)
+        
     }
     
     func removeArticle(index: Int) {
@@ -36,5 +37,10 @@ class ReadingList: NSObject , NSCoding {
     func encodeWithCoder(coder: NSCoder) {
         coder.encodeObject(self.articles, forKey: "articles")
 
+    }
+    
+    func save() {
+        //let data = NSKeyedArchiver.archivedDataWithRootObject(self)
+        //NSUserDefaults.standardUserDefaults().setObject(data, forKey: "readingList")
     }
 }

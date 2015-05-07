@@ -123,6 +123,7 @@ class SwipeCardsViewBackground: UIView {
             println("Saving to reading list array")
             toReadingList.append(article)
             testArticles.addArticle(article)
+            testArticles.save()
         }
         // if all cards haven't been gone through, load another card into the deck
         if loaded < allCards.count {
