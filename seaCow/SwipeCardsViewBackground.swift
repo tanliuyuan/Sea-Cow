@@ -161,7 +161,6 @@ class SwipeCardsViewBackground: UIView {
         var swipeCardsView: SwipeCardsView = SwipeCardsView(frame: CGRectMake((self.frame.size.width - CARD_WIDTH) / 2, (self.frame.size.height - CARD_HEIGHT) / 2, CARD_WIDTH, CARD_HEIGHT))
         swipeCardsView.articleData = allCards[index].articleData
         swipeCardsView.backgroundView.image = allCards[index].backgroundView.image
-        swipeCardsView.backgroundView.contentMode = UIViewContentMode.ScaleAspectFill
         swipeCardsView.label.text = allCards[index].label.text
         return swipeCardsView
     }

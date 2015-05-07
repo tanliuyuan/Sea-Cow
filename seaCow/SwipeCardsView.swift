@@ -63,7 +63,7 @@ class SwipeCardsView: UIView {
         super.init(frame: frame)
         
         label = UILabel(frame: CGRectMake(0, self.frame.size.height - 100, self.frame.size.width, 100))
-        label.textAlignment = NSTextAlignment.Center
+        label.textAlignment = NSTextAlignment.Natural
         label.textColor = UIColor.whiteColor()
         label.numberOfLines = 0
         
