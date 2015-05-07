@@ -64,7 +64,11 @@ class SwipeCardsViewBackground: UIView {
             } else {
                 for article in nytArticles.articles {
                     var card = SwipeCardsView()
-                    card.label.text = article.title
+                    var labelTextStyle = NSMutableParagraphStyle()
+                    labelTextStyle.lineSpacing = 10
+                    labelTextStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+                    let attributes = [NSParagraphStyleAttributeName : labelTextStyle]
+                    card.label.attributedText = NSAttributedString(string: article.title, attributes:attributes)
                     card.articleData = article
                     if let imageUrl = NSURL(string: card.articleData.imageUrl) {
                         if let imageData = NSData(contentsOfURL: imageUrl){
@@ -163,7 +167,7 @@ class SwipeCardsViewBackground: UIView {
         var swipeCardsView: SwipeCardsView = SwipeCardsView(frame: CGRectMake((self.frame.size.width - CARD_WIDTH) / 2, (self.frame.size.height - CARD_HEIGHT) / 2.5, CARD_WIDTH, CARD_HEIGHT))
         swipeCardsView.articleData = allCards[index].articleData
         swipeCardsView.backgroundView.image = allCards[index].backgroundView.image
-        swipeCardsView.label.text = allCards[index].label.text
+        swipeCardsView.label.attributedText = allCards[index].label.attributedText
         return swipeCardsView
     }
     

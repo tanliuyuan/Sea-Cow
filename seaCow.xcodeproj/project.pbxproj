@@ -30,6 +30,7 @@
 		5431260E1AEFEDD7007BE36E /* NYTArticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5431260D1AEFEDD7007BE36E /* NYTArticles.swift */; };
 		543126101AEFEE04007BE36E /* ArticleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5431260F1AEFEE04007BE36E /* ArticleData.swift */; };
 		549639E51AE0305C00BF5866 /* SwipeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549639E41AE0305C00BF5866 /* SwipeCardsView.swift */; };
+		54CB925E1AFC027500BC63C3 /* GothamBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54CB925D1AFC027500BC63C3 /* GothamBold.ttf */; };
 		54DAD1641AF98C25000444F0 /* cardbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 54DAD1631AF98C25000444F0 /* cardbackground.png */; };
 		54DAD1661AF98E44000444F0 /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 54DAD1651AF98E44000444F0 /* gradient.png */; };
 		54DAD1681AFBDE80000444F0 /* GothamBook.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54DAD1671AFBDE80000444F0 /* GothamBook.ttf */; };
@@ -72,7 +73,8 @@
 		5431260B1AEFED9C007BE36E /* SwipeCardsViewBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardsViewBackground.swift; sourceTree = "<group>"; };
 		5431260D1AEFEDD7007BE36E /* NYTArticles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYTArticles.swift; sourceTree = "<group>"; };
 		5431260F1AEFEE04007BE36E /* ArticleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleData.swift; sourceTree = "<group>"; };
-		549639E41AE0305C00BF5866 /* SwipeCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardsView.swift; sourceTree = "<group>"; };
+		549639E41AE0305C00BF5866 /* SwipeCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardsView.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		54CB925D1AFC027500BC63C3 /* GothamBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBold.ttf; sourceTree = "<group>"; };
 		54DAD1631AF98C25000444F0 /* cardbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardbackground.png; sourceTree = "<group>"; };
 		54DAD1651AF98E44000444F0 /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
 		54DAD1671AFBDE80000444F0 /* GothamBook.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBook.ttf; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				2100314B1ADD965F00E1DD6D /* AppDelegate.swift */,
 				2100314F1ADD966000E1DD6D /* Main.storyboard */,
 				54DAD1671AFBDE80000444F0 /* GothamBook.ttf */,
+				54CB925D1AFC027500BC63C3 /* GothamBold.ttf */,
 				210031521ADD966000E1DD6D /* Images.xcassets */,
 				210031541ADD966000E1DD6D /* LaunchScreen.xib */,
 				210031491ADD965F00E1DD6D /* Supporting Files */,
@@ -264,6 +267,7 @@
 				54DAD1681AFBDE80000444F0 /* GothamBook.ttf in Resources */,
 				210031531ADD966000E1DD6D /* Images.xcassets in Resources */,
 				212974CF1AE6C9F700E3597C /* TwitterKitResources.bundle in Resources */,
+				54CB925E1AFC027500BC63C3 /* GothamBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

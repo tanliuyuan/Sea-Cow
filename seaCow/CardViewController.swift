@@ -16,6 +16,7 @@ class CardViewController: UIViewController {
     var allArticles: [ArticleData]?
     var swipeCardsViewBackground: SwipeCardsViewBackground?
     var testArticles: ReadingList?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
