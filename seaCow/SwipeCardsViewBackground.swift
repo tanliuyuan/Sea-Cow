@@ -24,7 +24,7 @@ class SwipeCardsViewBackground: UIView {
     }
     
     let MAX_CARD_NUM = 2 // maximum number of cards loaded at any given time, must be greater than 1
-    let CARD_HEIGHT: CGFloat = UIScreen.mainScreen().bounds.size.height * 0.8
+    let CARD_HEIGHT: CGFloat = UIScreen.mainScreen().bounds.size.height * 0.75
     let CARD_WIDTH: CGFloat = UIScreen.mainScreen().bounds.size.width * 0.85
     
     var loaded: Int = 0 // number of cards loaded
@@ -68,7 +68,6 @@ class SwipeCardsViewBackground: UIView {
                     if let imageUrl = NSURL(string: card.articleData.imageUrl) {
                         if let imageData = NSData(contentsOfURL: imageUrl){
                             card.backgroundView = UIImageView(image: UIImage(data: imageData)!)
-                            println("Background view done")
                         }
                     }
                     self.allCards.append(card)
@@ -158,7 +157,7 @@ class SwipeCardsViewBackground: UIView {
     }
     
     func createSwipeCardsViewWithDataAtIndex(index: Int) -> SwipeCardsView {
-        var swipeCardsView: SwipeCardsView = SwipeCardsView(frame: CGRectMake((self.frame.size.width - CARD_WIDTH) / 2, (self.frame.size.height - CARD_HEIGHT) / 2, CARD_WIDTH, CARD_HEIGHT))
+        var swipeCardsView: SwipeCardsView = SwipeCardsView(frame: CGRectMake((self.frame.size.width - CARD_WIDTH) / 2, (self.frame.size.height - CARD_HEIGHT) / 2.5, CARD_WIDTH, CARD_HEIGHT))
         swipeCardsView.articleData = allCards[index].articleData
         swipeCardsView.backgroundView.image = allCards[index].backgroundView.image
         swipeCardsView.label.text = allCards[index].label.text

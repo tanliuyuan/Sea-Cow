@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "seaCow/SwipeCardsViewBackground.swift"
-            timestampString = "452567436.125403"
+            timestampString = "452711815.358431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "init(frame:)"
             landmarkType = "5">
          </BreakpointContent>
