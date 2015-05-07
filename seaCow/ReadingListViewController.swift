@@ -96,7 +96,9 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         shareAction.backgroundColor = UIColor.blueColor()
        
         var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default , title: "Delete", handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
-            println("test")
+            
+            self.allArticles?.removeAtIndex(indexPath.row)
+            self.myTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
             return
         })
