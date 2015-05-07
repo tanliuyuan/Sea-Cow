@@ -122,8 +122,6 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
-    func test() -> String {
-        return "readingList"
-    }
+    
 
 }

@@ -166,4 +166,8 @@ class SwipeCardsViewBackground: UIView {
         return swipeCardsView
     }
     
+    func test() {
+        println("allo")
+    }
+    
 }
