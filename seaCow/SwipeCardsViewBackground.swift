@@ -81,8 +81,8 @@ class SwipeCardsViewBackground: UIView {
     }
     
     func setupView() {
-        
-        self.backgroundColor = UIColor.whiteColor()
+        let backgroundImage = UIImage(named: "cardbackground.png")
+        self.backgroundColor = UIColor(patternImage: backgroundImage!)
     }
     
     func loadCards() {
