@@ -19,21 +19,26 @@ class CardViewController: UIViewController {
         super.viewDidLoad()
         
         let subViewFrame: CGRect = CGRectMake(0, self.navBar.frame.height+UIApplication.sharedApplication().statusBarFrame.height, self.view.frame.width, self.view.frame.height-self.navBar.frame.height)
-        /*var subView: UIView = UIView(frame: subViewFrame)
-        subView.alpha = 1
-        self.view.addSubview(subView)*/
-        
         swipeCardsViewBackground = SwipeCardsViewBackground(frame: subViewFrame)
         self.view.addSubview(swipeCardsViewBackground!)
 
     }
     
+    
+    @IBAction func test(sender: AnyObject) {
+        println("hello")
+        performSegueWithIdentifier("CowToList", sender: CardViewController())
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         println("preparing for segue")
+        let comp: String? = "CowToList"
+        if(segue.identifier == comp) {
+            let destViewController = segue.destinationViewController as! ReadingListViewController
+            
+            destViewController.allArticles = swipeCardsViewBackground!.toReadingList
+        }
         
-        let destViewController = segue.destinationViewController as! ReadingListViewController
-        
-        destViewController.allArticles = swipeCardsViewBackground!.toReadingList
     }
 
        @IBAction func returnToCards(segue: UIStoryboardSegue) {
