@@ -26,6 +26,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
     let articlesSearchNumOfDays = 1 // 1 | 7 | 30
     let articleSearchReturnFormat = ".json"
     let articleSearchAPIKey = "b772e34fc2a53d05fe60d6c63d0c0e4c:9:71573042"
+    var testArticles: ReadingList?
     
     override func viewDidLoad() {
     
@@ -46,6 +47,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
                 
             }
         })
+        allArticles = testArticles?.getArticles()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

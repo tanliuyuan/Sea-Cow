@@ -42,6 +42,7 @@ class SwipeCardsViewBackground: UIView {
     var selectedArticle: ArticleData?
     var toReadingList: [ArticleData] = []
     var done = false
+    var testArticles: ReadingList = ReadingList()
     
     override init(frame: CGRect) {
         
@@ -121,6 +122,7 @@ class SwipeCardsViewBackground: UIView {
         if(direction == "right") {
             println("Saving to reading list array")
             toReadingList.append(article)
+            testArticles.addArticle(article)
         }
         // if all cards haven't been gone through, load another card into the deck
         if loaded < allCards.count {
@@ -162,10 +164,6 @@ class SwipeCardsViewBackground: UIView {
         swipeCardsView.backgroundView.image = allCards[index].backgroundView.image
         swipeCardsView.label.text = allCards[index].label.text
         return swipeCardsView
-    }
-    
-    func test() {
-        println("allo")
     }
     
 }

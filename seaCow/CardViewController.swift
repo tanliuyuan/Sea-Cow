@@ -15,36 +15,40 @@ class CardViewController: UIViewController {
     @IBOutlet weak var readingListButton: UIBarButtonItem!
     var allArticles: [ArticleData]?
     var swipeCardsViewBackground: SwipeCardsViewBackground?
+    var testArticles: ReadingList?
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let subViewFrame: CGRect = CGRectMake(0, self.navBar.frame.height+UIApplication.sharedApplication().statusBarFrame.height, self.view.frame.width, self.view.frame.height-self.navBar.frame.height)
-        /*var subView: UIView = UIView(frame: subViewFrame)
-        subView.alpha = 1
-        self.view.addSubview(subView)*/
+        loadCards()
         
-        swipeCardsViewBackground = SwipeCardsViewBackground(frame: subViewFrame)
-        self.view.addSubview(swipeCardsViewBackground!)
-
     }
     
     @IBAction func gotoReadingList(sender: AnyObject) {
         println("Going to reading list")
         performSegueWithIdentifier("CowToList", sender: CardViewController())
     }
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         println("preparing for segue")
         let comp: String? = "CowToList"
         if(segue.identifier == comp) {
             let destViewController = segue.destinationViewController as! ReadingListViewController
             
-            destViewController.allArticles = swipeCardsViewBackground!.toReadingList
+           // destViewController.allArticles = swipeCardsViewBackground!.toReadingList
+            destViewController.testArticles = swipeCardsViewBackground!.testArticles
         }
         
     }
 
-       @IBAction func returnToCards(segue: UIStoryboardSegue) {
+    @IBAction func returnToCards(segue: UIStoryboardSegue) {
         
+    }
+    
+    func loadCards() {
+        let subViewFrame: CGRect = CGRectMake(0, self.navBar.frame.height+UIApplication.sharedApplication().statusBarFrame.height, self.view.frame.width, self.view.frame.height-self.navBar.frame.height)
+        swipeCardsViewBackground = SwipeCardsViewBackground(frame: subViewFrame)
+        self.view.addSubview(swipeCardsViewBackground!)
     }
 
 }
