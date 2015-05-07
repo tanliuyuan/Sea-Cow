@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import TwitterKit
+import Fabric
 
 class ReadingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -89,6 +91,21 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         
         var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal , title: "Share", handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
             
+            let composer = TWTRComposer()
+            
+            composer.setText("Check out this awesome article!\n\n" + self.allArticles![indexPath.row].url + "\n\n#seaCow #articleTags? #whatever")
+            composer.setImage(UIImage(named: "fabric"))
+            
+            composer.showWithCompletion { (result) -> Void in
+                if (result == TWTRComposerResult.Cancelled) {
+                    println("Tweet composition cancelled")
+                }
+                else {
+                    println("Sending tweet!")
+                }
+            }
+            
+            self.myTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
             return
         })
