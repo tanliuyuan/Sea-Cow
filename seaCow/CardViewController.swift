@@ -28,12 +28,19 @@ class CardViewController: UIViewController {
 
     }
     
+    @IBAction func gotoReadingList(sender: AnyObject) {
+        println("Going to reading list")
+        performSegueWithIdentifier("CowToList", sender: CardViewController())
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         println("preparing for segue")
+        let comp: String? = "CowToList"
+        if(segue.identifier == comp) {
+            let destViewController = segue.destinationViewController as! ReadingListViewController
+            
+            destViewController.allArticles = swipeCardsViewBackground!.toReadingList
+        }
         
-        let destViewController = segue.destinationViewController as! ReadingListViewController
-        
-        destViewController.allArticles = swipeCardsViewBackground!.toReadingList
     }
 
        @IBAction func returnToCards(segue: UIStoryboardSegue) {
