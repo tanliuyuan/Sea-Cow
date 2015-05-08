@@ -46,12 +46,25 @@ class SwipeCardsViewBackground: UIView {
     
     override init(frame: CGRect) {
         
-        /*settingsButton = UIButton()
-        readingListButton = UIButton()
-        yesButton = UIButton()
-        noButton = UIButton()*/
+        /*var settingsButton: UIButton
+        var readingListButton: UIButton
+        var yesButton: UIButton
+        var noButton: UIButton*/
+        
         super.init(frame:frame)
+        
+        // prepare a loading indicator
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+        indicator.frame = CGRectMake(self.frame.width * 19/40, (self.frame.height - self.frame.width / 20) / 2, self.frame.width / 20, self.frame.width / 20)
+        self.addSubview(indicator)
+        indicator.bringSubviewToFront(self)
+        
+        // start loading indicator before loading cards
+        indicator.startAnimating()
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
         self.setupView()
+        
         var stringTitles: [String] = []
         // Make up search url
         var articleSearchUrl = articleSearchBaseUrl + "/" + articleSearchResourceType + "/" + articleSearchSections + "/" + "\(articlesSearchNumOfDays)" + articleSearchReturnFormat + "?" + "&API-Key=" + articleSearchAPIKey
@@ -80,8 +93,13 @@ class SwipeCardsViewBackground: UIView {
                 println("Total number of cards:\(self.allCards.count)")
                 self.loaded = 0
                 self.loadCards()
+                
+                // stop loading indicator after cards are loaded
+                indicator.stopAnimating()
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             }
         })
+        
     }
     
     func setupView() {
@@ -116,6 +134,7 @@ class SwipeCardsViewBackground: UIView {
             loaded++
         }
         println("Number of cards loaded: \(loaded)")
+        
     }
     var swiped: Int = 0
     func cardSwipedAway(card: UIView, direction: String) {

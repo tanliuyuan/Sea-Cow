@@ -22,28 +22,7 @@ class CardViewController: UIViewController {
         
         super.viewDidLoad()
         
-        let dateString1 = "2000-01-01 8:00"
-        let dateString2 = "2000-01-01 18:00"
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        formatter.timeZone = NSTimeZone.systemTimeZone()
-        let fireDate1 = formatter.dateFromString(dateString1)
-        let fireDate2 = formatter.dateFromString(dateString2)
-        
-        var localNotification = UILocalNotification()
-        localNotification.alertAction = "Sea Cow"
-        localNotification.alertBody = "Hey! Sea Cow's got you some news!"
-        localNotification.soundName = UILocalNotificationDefaultSoundName
-        // set first notification time
-        localNotification.fireDate = fireDate1
-        // repeat notification daily
-        localNotification.repeatInterval = NSCalendarUnit.CalendarUnitDay
-        // schedule first notification
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-        // set second notification time
-        localNotification.fireDate = fireDate2
-        // schedule second notification
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        scheduleLocalNotifications()
         
         loadCards()
         
@@ -71,8 +50,33 @@ class CardViewController: UIViewController {
         
     }
     
+    func scheduleLocalNotifications() {
+        let dateString1 = "2000-01-01 8:00"
+        let dateString2 = "2000-01-01 18:00"
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        formatter.timeZone = NSTimeZone.systemTimeZone()
+        let fireDate1 = formatter.dateFromString(dateString1)
+        let fireDate2 = formatter.dateFromString(dateString2)
+        
+        var localNotification = UILocalNotification()
+        localNotification.alertAction = "Sea Cow"
+        localNotification.alertBody = "Hey! Sea Cow's got you some news!"
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        // set first notification time
+        localNotification.fireDate = fireDate1
+        // repeat notification daily
+        localNotification.repeatInterval = NSCalendarUnit.CalendarUnitDay
+        // schedule first notification
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        // set second notification time
+        localNotification.fireDate = fireDate2
+        // schedule second notification
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+    }
+    
     func loadCards() {
-        let subViewFrame: CGRect = CGRectMake(0, self.navBar.frame.height+UIApplication.sharedApplication().statusBarFrame.height, self.view.frame.width, self.view.frame.height-self.navBar.frame.height)
+        let subViewFrame: CGRect = CGRectMake(0, self.navBar.frame.height+UIApplication.sharedApplication().statusBarFrame.height, self.view.frame.width, self.view.frame.height-UIApplication.sharedApplication().statusBarFrame.height-self.navBar.frame.height)
         swipeCardsViewBackground = SwipeCardsViewBackground(frame: subViewFrame)
         self.view.addSubview(swipeCardsViewBackground!)
     }
