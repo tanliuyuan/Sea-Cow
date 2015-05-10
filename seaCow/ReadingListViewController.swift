@@ -119,7 +119,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
             self.allArticles?.removeAtIndex(indexPath.row)
             self.testArticles?.removeArticle(indexPath.row)
             self.myTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-            
+            self.testArticles!.save()
             return
         })
         

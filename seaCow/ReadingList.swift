@@ -12,9 +12,8 @@ import Foundation
 class ReadingList: NSObject , NSCoding {
     var articles: [ArticleData]! = []
     override init() {
-        println(test)
+        println("Initalizing Reading List")
     }
-    var test: String = "hello world"
     
     func addArticle(article: ArticleData) {
         println("Adding article")
@@ -54,7 +53,6 @@ class ReadingList: NSObject , NSCoding {
     }
     
     func save() {
-        test = "world hello"
         println("trying to save")
         let data = NSKeyedArchiver.archivedDataWithRootObject(self)
         println("data created, trying to write")
@@ -70,15 +68,5 @@ class ReadingList: NSObject , NSCoding {
         }
         return false
     }
-    
-    //returns title, imageURL, URL, section
-    /*func stupidity(articlesArray: [ArticleData]) -> [(String, String, String, String)] {
-        var i = 0
-        var retVal: [(String, String, String, String)] = []
-        for(i = 0; i < articlesArray.count; i++) {
-            retVal[i] = (articlesArray[i].title, articlesArray[i].imageUrl,articlesArray[i].url,articlesArray[i].section)
-        }
-        println(retVal)
-        return retVal
-    }*/
+
 }

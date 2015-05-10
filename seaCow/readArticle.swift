@@ -14,9 +14,14 @@ class readArticle: NSObject, NSCoding {
     var url: String!
     // MARK: NSCoding
     
+    override init() {}
     
-    required convenience init(coder decoder: NSCoder) {
-        self.init()
+    required init(title2: String, url2: String) {
+        self.title = title2
+        self.url = url2
+    }
+    
+    required init(coder decoder: NSCoder) {
         self.title = decoder.decodeObjectForKey("title") as! String?
         self.url = decoder.decodeObjectForKey("url") as! String?
     }
@@ -25,4 +30,7 @@ class readArticle: NSObject, NSCoding {
         coder.encodeObject(self.title, forKey: "title")
         coder.encodeObject(self.url, forKey: "url")
     }
+    
+
+
 }

@@ -17,11 +17,13 @@ class CardViewController: UIViewController {
     var allArticles: [ArticleData]?
     var swipeCardsViewBackground: SwipeCardsViewBackground?
     var testArticles: ReadingList?
+    var history: History = History()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        //I think we only really need this in the NYTarticles
+        //history.load()
         scheduleLocalNotifications()
         
         loadCards()
@@ -78,6 +80,7 @@ class CardViewController: UIViewController {
     func loadCards() {
         let subViewFrame: CGRect = CGRectMake(0, self.navBar.frame.height+UIApplication.sharedApplication().statusBarFrame.height, self.view.frame.width, self.view.frame.height-UIApplication.sharedApplication().statusBarFrame.height-self.navBar.frame.height)
         swipeCardsViewBackground = SwipeCardsViewBackground(frame: subViewFrame)
+        swipeCardsViewBackground!.history = self.history
         self.view.addSubview(swipeCardsViewBackground!)
     }
 

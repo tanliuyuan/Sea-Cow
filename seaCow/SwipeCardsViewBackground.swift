@@ -43,6 +43,7 @@ class SwipeCardsViewBackground: UIView {
     var toReadingList: [ArticleData] = []
     var done = false
     var testArticles: ReadingList = ReadingList()
+    var history: History = History()
     
     override init(frame: CGRect) {
         
@@ -54,8 +55,7 @@ class SwipeCardsViewBackground: UIView {
         super.init(frame:frame)
         
         if(testArticles.load() == true) {
-            println("we loaded the cards")
-            println(testArticles.test)
+            println("Reading List successfully loaded")
         }
         
         // prepare a loading indicator
