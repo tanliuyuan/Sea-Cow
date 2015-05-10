@@ -53,6 +53,11 @@ class SwipeCardsViewBackground: UIView {
         
         super.init(frame:frame)
         
+        if(testArticles.load() == true) {
+            println("we loaded the cards")
+            println(testArticles.test)
+        }
+        
         // prepare a loading indicator
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
         indicator.frame = CGRectMake(self.frame.width * 19/40, (self.frame.height - self.frame.width / 20) / 2, self.frame.width / 20, self.frame.width / 20)

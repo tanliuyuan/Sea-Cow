@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import TwitterKit
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
