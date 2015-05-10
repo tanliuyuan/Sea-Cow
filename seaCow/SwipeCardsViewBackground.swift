@@ -43,7 +43,6 @@ class SwipeCardsViewBackground: UIView {
     var toReadingList: [ArticleData] = []
     var done = false
     var testArticles: ReadingList = ReadingList()
-    var history: History = History()
     
     override init(frame: CGRect) {
         
@@ -143,10 +142,16 @@ class SwipeCardsViewBackground: UIView {
     }
     var swiped: Int = 0
     func cardSwipedAway(card: UIView, direction: String) {
+        var history: History = History()
+        history.load()
         swiped++
         let article: ArticleData = deck[0].articleData
         deck.removeAtIndex(0)
         println("Card swiped away")
+        if(history.checkIfExists(article.title)) == false {
+            history.addArticle(article)
+            history.save()
+        }
         if(direction == "right") {
             println("Saving to reading list array")
             toReadingList.append(article)

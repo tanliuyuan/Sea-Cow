@@ -10,8 +10,10 @@ import UIKit
 
 class NYTArticles: NSObject {
     var articles = Array<ArticleData>()
+    var history: History = History()
     
     func load(fromURLString:String, loadCompletionHandler: (NYTArticles, String?) -> Void) {
+        history.load()
         if let url = NSURL(string: fromURLString) {
             let urlRequest = NSMutableURLRequest(URL: url)
             let session = NSURLSession.sharedSession()
@@ -56,9 +58,23 @@ class NYTArticles: NSObject {
                                                                 if let dataFormat = data["format"] as? NSString {
                                                                     // for image on swipe card, look for normal sized image only
                                                                     if dataFormat == "Jumbo" {
+                                                                        //im going through this very methodically
                                                                         if let imageUrl = data["url"] as? NSString {
-                                                                            articles.append(ArticleData(forTitle: resultTitle as String, forUrl: resultUrl as String, forImageUrl: imageUrl as String, forSection: resultSection as String))
-                                                                                break
+                                                                            println(resultTitle)
+                                                                            var art = ArticleData(forTitle: resultTitle as String, forUrl: resultUrl as String, forImageUrl: imageUrl as String, forSection: resultSection as String)
+                                                                            var test = history.checkIfExists(art.title)
+                                                                            println(test)
+                                                                            
+                                                                            
+                                                                            //################################################
+                                                                            //comment out the ifs to disable to load blocking
+                                                                            if(test == false) {
+                                                                                articles.append(art)
+                                                                            }
+                                                                            
+                                                                            //################################################
+                                                                            
+                                                                            break
                                                                         }
                                                                     } else {
                                                                         continue
