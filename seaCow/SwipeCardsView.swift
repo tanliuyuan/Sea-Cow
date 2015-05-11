@@ -68,7 +68,7 @@ class SwipeCardsView: UIView {
         label.font = UIFont(name: "Gotham Bold", size: self.frame.size.width / 13.5)
         label.numberOfLines = 0
         
-        let backgroundImage = UIImage(named: "cardbackground.png")
+        let backgroundImage = UIImage(named: "backgroundp.png")
         backgroundView = UIImageView(frame: CGRectMake(0, 0, self.frame.size.width , self.frame.size.height))
         backgroundView.image = backgroundImage
         
@@ -91,9 +91,9 @@ class SwipeCardsView: UIView {
     
     func setupView() {
         self.layer.cornerRadius = 10
-        self.layer.shadowRadius = 1
-        self.layer.shadowOpacity = 0.2
-        self.layer.shadowOffset = CGSizeMake(1, 1)
+        self.layer.shadowRadius = 3
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowOffset = CGSizeMake(0.5, 1.5)
         
         self.addSubview(backgroundView)
         backgroundView.contentMode = UIViewContentMode.ScaleAspectFill

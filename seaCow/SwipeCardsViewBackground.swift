@@ -13,7 +13,7 @@ import UIKit
 let articleSearchBaseUrl = "http://api.nytimes.com/svc/mostpopular/v2"
 let articleSearchResourceType = "mostviewed" // mostemailed | mostshared | mostviewed
 let articleSearchSections = "all-sections"
-let articlesSearchNumOfDays = 1 // 1 | 7 | 30
+let articlesSearchNumOfDays = 7 // 1 | 7 | 30
 let articleSearchReturnFormat = ".json"
 let articleSearchAPIKey = "b772e34fc2a53d05fe60d6c63d0c0e4c:9:71573042"
 
@@ -23,7 +23,7 @@ class SwipeCardsViewBackground: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let MAX_CARD_NUM = 2 // maximum number of cards loaded at any given time, must be greater than 1
+    let MAX_CARD_NUM: Int = 3 // maximum number of cards loaded at any given time, must be greater than 1
     let CARD_HEIGHT: CGFloat = UIScreen.mainScreen().bounds.size.height * 0.75
     let CARD_WIDTH: CGFloat = UIScreen.mainScreen().bounds.size.width * 0.85
     
@@ -171,6 +171,7 @@ class SwipeCardsViewBackground: UIView {
             println(toReadingList.count)
             //try to segue to the reading list here.
             done = true
+            self.window?.rootViewController?.performSegueWithIdentifier("CowToList", sender: self)
         }
     }
     

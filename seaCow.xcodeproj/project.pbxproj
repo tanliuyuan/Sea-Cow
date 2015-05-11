@@ -30,6 +30,7 @@
 		5431260C1AEFED9C007BE36E /* SwipeCardsViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5431260B1AEFED9C007BE36E /* SwipeCardsViewBackground.swift */; };
 		5431260E1AEFEDD7007BE36E /* NYTArticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5431260D1AEFEDD7007BE36E /* NYTArticles.swift */; };
 		543126101AEFEE04007BE36E /* ArticleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5431260F1AEFEE04007BE36E /* ArticleData.swift */; };
+		5495BAA21B011DAD00091B5A /* backgroundp.png in Resources */ = {isa = PBXBuildFile; fileRef = 5495BA9D1B011DAD00091B5A /* backgroundp.png */; };
 		549639E51AE0305C00BF5866 /* SwipeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549639E41AE0305C00BF5866 /* SwipeCardsView.swift */; };
 		54CB925E1AFC027500BC63C3 /* GothamBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54CB925D1AFC027500BC63C3 /* GothamBold.ttf */; };
 		54DAD1641AF98C25000444F0 /* cardbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 54DAD1631AF98C25000444F0 /* cardbackground.png */; };
@@ -75,6 +76,7 @@
 		5431260B1AEFED9C007BE36E /* SwipeCardsViewBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardsViewBackground.swift; sourceTree = "<group>"; };
 		5431260D1AEFEDD7007BE36E /* NYTArticles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYTArticles.swift; sourceTree = "<group>"; };
 		5431260F1AEFEE04007BE36E /* ArticleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleData.swift; sourceTree = "<group>"; };
+		5495BA9D1B011DAD00091B5A /* backgroundp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundp.png; sourceTree = "<group>"; };
 		549639E41AE0305C00BF5866 /* SwipeCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardsView.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		54CB925D1AFC027500BC63C3 /* GothamBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBold.ttf; sourceTree = "<group>"; };
 		54DAD1631AF98C25000444F0 /* cardbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardbackground.png; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				2100316D1ADD975700E1DD6D /* gear.png */,
 				54DAD1651AF98E44000444F0 /* gradient.png */,
 				54DAD1631AF98C25000444F0 /* cardbackground.png */,
+				5495BA9D1B011DAD00091B5A /* backgroundp.png */,
 				2100316B1ADD968400E1DD6D /* CardViewController.swift */,
 				2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */,
 				2148088C1AE01792008EB6C0 /* ArticleViewController.swift */,
@@ -262,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5495BAA21B011DAD00091B5A /* backgroundp.png in Resources */,
 				210031511ADD966000E1DD6D /* Main.storyboard in Resources */,
 				210031561ADD966000E1DD6D /* LaunchScreen.xib in Resources */,
 				2100316E1ADD975700E1DD6D /* gear.png in Resources */,

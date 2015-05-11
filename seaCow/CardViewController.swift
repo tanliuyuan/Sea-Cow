@@ -22,6 +22,8 @@ class CardViewController: UIViewController {
         
         super.viewDidLoad()
         
+        navBar.barTintColor = UIColor.whiteColor()
+
         scheduleLocalNotifications()
         
         loadCards()
