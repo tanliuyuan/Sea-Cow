@@ -25,10 +25,10 @@ class CardViewController: UIViewController {
         navBar.barTintColor = UIColor.whiteColor()
         settingsButton.image = UIImage(named: "settingsno.png")
         settingsButton.tintColor = UIColor.grayColor()
-        //readingListButton.image = UIImage(named: <#String#>)
 
         scheduleLocalNotifications()
         
+        //create the time and repeat every 12 hours
         let test: NSTimer = NSTimer(fireDate: checkWhichDate(), interval: 5, target: self, selector: "loadCards", userInfo: nil, repeats: true)
         NSRunLoop.currentRunLoop().addTimer(test, forMode: NSRunLoopCommonModes)
         

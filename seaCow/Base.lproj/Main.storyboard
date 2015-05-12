@@ -202,7 +202,7 @@
                                                 <segue destination="m7U-dj-GYl" kind="unwind" unwindAction="returnToCards:" id="976-3j-VA5"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Reading List" id="dGb-Ua-xiH">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="dGb-Ua-xiH">
                                             <connections>
                                                 <segue destination="m7U-dj-GYl" kind="unwind" unwindAction="returnToReadingList:" id="xPy-yn-dJ3"/>
                                             </connections>
