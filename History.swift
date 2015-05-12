@@ -48,11 +48,10 @@ class History: NSObject {
     //returns true if it exists
     func checkIfExists(articleName: String) -> Bool {
         var i = 0
-        println(allArticles.count)
         for(i=0; i < allArticles.count; i++) {
           //  println(articleName)
             if(articleName == allArticles[i].title) {
-                println("Returning true")
+                //println("Article already read")
                 return true
             }
         }

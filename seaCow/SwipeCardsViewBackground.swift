@@ -13,7 +13,7 @@ import UIKit
 let articleSearchBaseUrl = "http://api.nytimes.com/svc/mostpopular/v2"
 let articleSearchResourceType = "mostviewed" // mostemailed | mostshared | mostviewed
 let articleSearchSections = "all-sections"
-let articlesSearchNumOfDays = 7 // 1 | 7 | 30
+let articlesSearchNumOfDays = 1 // 1 | 7 | 30
 let articleSearchReturnFormat = ".json"
 let articleSearchAPIKey = "b772e34fc2a53d05fe60d6c63d0c0e4c:9:71573042"
 
@@ -74,6 +74,7 @@ class SwipeCardsViewBackground: UIView {
         var articleSearchUrl = articleSearchBaseUrl + "/" + articleSearchResourceType + "/" + articleSearchSections + "/" + "\(articlesSearchNumOfDays)" + articleSearchReturnFormat + "?" + "&API-Key=" + articleSearchAPIKey
         
         // load articles from the NYT API
+        //println(articleSearchUrl)
         nytArticles.load(articleSearchUrl, loadCompletionHandler: {
             (nytArticles, errorString) -> Void in
             if let unwrappedErrorString = errorString {

@@ -17,12 +17,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
+   /* func checkWhichDate() -> NSDate{
+        
+        let dateString1 = "2000-01-01 8:00"
+        let dateString2 = "2000-01-01 16:20"
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        formatter.timeZone = NSTimeZone.systemTimeZone()
+        let fireDate1 = formatter.dateFromString(dateString1)
+        let fireDate2 = formatter.dateFromString(dateString2)
+        
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
+        let hour = components.hour
+        println(fireDate1!)
+        
+        if(hour > 8 && hour < 20) {
+            //return 20:00
+            return fireDate2!
+            
+        } else {
+            //return 8:00
+            return fireDate1!
+        }
+    }
+    
+    func test() {
+        println("hello world")
+    }*/
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         Fabric.with([Twitter()])
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, categories: nil))
-
+        //NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "test", userInfo: nil, repeats: true)
+       // println(checkWhichDate())
+        //let test: NSTimer = NSTimer(fireDate: checkWhichDate(), interval: 43200, target: self, selector: "test", userInfo: nil, repeats: true)
+        //NSRunLoop.currentRunLoop().addTimer(test, forMode: NSRunLoopCommonModes)
         return true
     }
 

@@ -3,7 +3,7 @@
 //  seaCow
 //
 //  Created by Liuyuan Tan on 4/21/15.
-//  Copyright (c) 2015 Liuyuan Tan. All rights reserved.
+//  Copyright (c) 2015 Sea Cow. All rights reserved.
 //
 
 import UIKit
@@ -44,6 +44,8 @@ class NYTArticles: NSObject {
                 if let status = jsonResult["status"] as? NSString {
                     if status == "OK" {
                         if let results = jsonResult["results"] as? [NSDictionary] {
+                            //println("Num Results")
+                            //println(results.count)
                             for result in results {
                                 if let resultUrl = result["url"] as? NSString {
                                     if let resultSection = result["section"] as? NSString {
@@ -60,10 +62,10 @@ class NYTArticles: NSObject {
                                                                     if dataFormat == "Jumbo" {
                                                                         //im going through this very methodically
                                                                         if let imageUrl = data["url"] as? NSString {
-                                                                            println(resultTitle)
+                                                                            //println(resultTitle)
                                                                             var art = ArticleData(forTitle: resultTitle as String, forUrl: resultUrl as String, forImageUrl: imageUrl as String, forSection: resultSection as String)
                                                                             var test = history.checkIfExists(art.title)
-                                                                            println(test)
+                                                                            //println(test)
                                                                             
                                                                             
                                                                             //################################################

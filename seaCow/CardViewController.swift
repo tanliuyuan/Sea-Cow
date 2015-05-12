@@ -21,13 +21,16 @@ class CardViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+
         navBar.barTintColor = UIColor.whiteColor()
         settingsButton.image = UIImage(named: "settingsno.png")
         settingsButton.tintColor = UIColor.grayColor()
         //readingListButton.image = UIImage(named: <#String#>)
 
         scheduleLocalNotifications()
+        
+        let test: NSTimer = NSTimer(fireDate: checkWhichDate(), interval: 5, target: self, selector: "loadCards", userInfo: nil, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(test, forMode: NSRunLoopCommonModes)
         
         loadCards()
         
@@ -57,7 +60,7 @@ class CardViewController: UIViewController {
     
     func scheduleLocalNotifications() {
         let dateString1 = "2000-01-01 8:00"
-        let dateString2 = "2000-01-01 18:00"
+        let dateString2 = "2000-01-01 20:00"
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         formatter.timeZone = NSTimeZone.systemTimeZone()
@@ -80,10 +83,60 @@ class CardViewController: UIViewController {
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     
+    
+    
     func loadCards() {
         let subViewFrame: CGRect = CGRectMake(0, self.navBar.frame.height+UIApplication.sharedApplication().statusBarFrame.height, self.view.frame.width, self.view.frame.height-UIApplication.sharedApplication().statusBarFrame.height-self.navBar.frame.height)
         swipeCardsViewBackground = SwipeCardsViewBackground(frame: subViewFrame)
         self.view.addSubview(swipeCardsViewBackground!)
     }
+    
+    func test() {
+        println("test")
+    }
+    
+    func checkWhichDate() -> NSDate{
+        
+        var dateString1 = "2000-01-01 8:00"
+        var dateString2 = "2015-05-12 20:00"
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        formatter.timeZone = NSTimeZone.systemTimeZone()
+        
+        
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitDay | .CalendarUnitYear | .CalendarUnitMonth, fromDate: date)
+        let year = components.year as NSNumber
+        let month = components.month as NSNumber
+        let day = components.day as NSNumber
+        let hour = components.hour
+        let hour1 = 8 as NSNumber
+        let hour2 = 20 as NSNumber
+        let day1 = (day as Int + 1) as NSNumber
+        
+        if(hour > 8) {
+            dateString1 = year.stringValue + "-" + month.stringValue + "-" + day1.stringValue + " " + hour1.stringValue + ":00"
+        } else {
+            dateString1 = year.stringValue + "-" + month.stringValue + "-" + day.stringValue + " " + hour1.stringValue + ":00"
+        }
+        dateString2 = year.stringValue + "-" + month.stringValue + "-" + day.stringValue + " " + hour2.stringValue + ":00"
+        
+        println(dateString1)
+        println(dateString2)
+        
+        let fireDate1 = formatter.dateFromString(dateString1)
+        let fireDate2 = formatter.dateFromString(dateString2)
+        if(hour > 8 && hour < 20) {
+            //return 20:00
+            return fireDate2!
+            
+        } else {
+            //return 8:00
+            return fireDate1!
+        }
+    }
+
+
 
 }
