@@ -23,7 +23,6 @@ class CardViewController: UIViewController {
         super.viewDidLoad()
 
         navBar.barTintColor = UIColor.whiteColor()
-        settingsButton.tintColor = UIColor.grayColor()
 
         scheduleLocalNotifications()
         
