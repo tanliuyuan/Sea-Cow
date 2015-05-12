@@ -26,7 +26,7 @@ class ArticleViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         if(article != nil){
-            navBar.title = article!.section
+            navBar.title = article!.section.uppercaseString
             let url = NSURL(string: article!.url)
             let request = NSURLRequest(URL: url!)
             webView.loadRequest(request)

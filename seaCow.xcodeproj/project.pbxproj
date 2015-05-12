@@ -13,7 +13,6 @@
 		210031561ADD966000E1DD6D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 210031541ADD966000E1DD6D /* LaunchScreen.xib */; };
 		210031621ADD966000E1DD6D /* seaCowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210031611ADD966000E1DD6D /* seaCowTests.swift */; };
 		2100316C1ADD968400E1DD6D /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2100316B1ADD968400E1DD6D /* CardViewController.swift */; };
-		2100316E1ADD975700E1DD6D /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 2100316D1ADD975700E1DD6D /* gear.png */; };
 		2110FD981AF93D990072B21A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2110FD971AF93D990072B21A /* CoreData.framework */; };
 		2110FDCC1AF93E300072B21A /* seaCow.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2110FDCA1AF93E300072B21A /* seaCow.xcdatamodeld */; };
 		212974CE1AE6C9F600E3597C /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974CB1AE6C9F600E3597C /* TwitterKit.framework */; };
@@ -31,13 +30,14 @@
 		5431260E1AEFEDD7007BE36E /* NYTArticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5431260D1AEFEDD7007BE36E /* NYTArticles.swift */; };
 		543126101AEFEE04007BE36E /* ArticleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5431260F1AEFEE04007BE36E /* ArticleData.swift */; };
 		5495BAA21B011DAD00091B5A /* backgroundp.png in Resources */ = {isa = PBXBuildFile; fileRef = 5495BA9D1B011DAD00091B5A /* backgroundp.png */; };
-		5495BAAC1B029D5C00091B5A /* settingsno.png in Resources */ = {isa = PBXBuildFile; fileRef = 5495BAAB1B029D5C00091B5A /* settingsno.png */; };
+		5495BAAC1B029D5C00091B5A /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 5495BAAB1B029D5C00091B5A /* settings.png */; };
 		5495BAAE1B029DD600091B5A /* image1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 5495BAAD1B029DD600091B5A /* image1.PNG */; };
+		5495BAB71B02AE8600091B5A /* settings2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5495BAB51B02AE8600091B5A /* settings2.png */; };
+		5495BAB81B02AE8600091B5A /* settings3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5495BAB61B02AE8600091B5A /* settings3.png */; };
 		549639E51AE0305C00BF5866 /* SwipeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549639E41AE0305C00BF5866 /* SwipeCardsView.swift */; };
 		54CB925E1AFC027500BC63C3 /* GothamBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54CB925D1AFC027500BC63C3 /* GothamBold.ttf */; };
 		54DAD1641AF98C25000444F0 /* cardbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 54DAD1631AF98C25000444F0 /* cardbackground.png */; };
 		54DAD1661AF98E44000444F0 /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 54DAD1651AF98E44000444F0 /* gradient.png */; };
-		54DAD1681AFBDE80000444F0 /* GothamBook.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54DAD1671AFBDE80000444F0 /* GothamBook.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +61,6 @@
 		210031601ADD966000E1DD6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		210031611ADD966000E1DD6D /* seaCowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seaCowTests.swift; sourceTree = "<group>"; };
 		2100316B1ADD968400E1DD6D /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
-		2100316D1ADD975700E1DD6D /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		2110FD971AF93D990072B21A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2110FDCB1AF93E300072B21A /* seaCow.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = seaCow.xcdatamodel; sourceTree = "<group>"; };
 		212974CB1AE6C9F600E3597C /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
@@ -79,13 +78,15 @@
 		5431260D1AEFEDD7007BE36E /* NYTArticles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYTArticles.swift; sourceTree = "<group>"; };
 		5431260F1AEFEE04007BE36E /* ArticleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleData.swift; sourceTree = "<group>"; };
 		5495BA9D1B011DAD00091B5A /* backgroundp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundp.png; sourceTree = "<group>"; };
-		5495BAAB1B029D5C00091B5A /* settingsno.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsno.png; sourceTree = "<group>"; };
+		5495BAAB1B029D5C00091B5A /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		5495BAAD1B029DD600091B5A /* image1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.PNG; sourceTree = "<group>"; };
+		5495BAB41B02AE1400091B5A /* Gotham-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Light.ttf"; sourceTree = "<group>"; };
+		5495BAB51B02AE8600091B5A /* settings2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings2.png; sourceTree = "<group>"; };
+		5495BAB61B02AE8600091B5A /* settings3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings3.png; sourceTree = "<group>"; };
 		549639E41AE0305C00BF5866 /* SwipeCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardsView.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		54CB925D1AFC027500BC63C3 /* GothamBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBold.ttf; sourceTree = "<group>"; };
 		54DAD1631AF98C25000444F0 /* cardbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardbackground.png; sourceTree = "<group>"; };
 		54DAD1651AF98E44000444F0 /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
-		54DAD1671AFBDE80000444F0 /* GothamBook.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBook.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,16 +137,17 @@
 				212974CD1AE6C9F600E3597C /* Fabric.framework */,
 				2100314B1ADD965F00E1DD6D /* AppDelegate.swift */,
 				2100314F1ADD966000E1DD6D /* Main.storyboard */,
-				54DAD1671AFBDE80000444F0 /* GothamBook.ttf */,
 				54CB925D1AFC027500BC63C3 /* GothamBold.ttf */,
+				5495BAB41B02AE1400091B5A /* Gotham-Light.ttf */,
 				210031521ADD966000E1DD6D /* Images.xcassets */,
 				210031541ADD966000E1DD6D /* LaunchScreen.xib */,
 				210031491ADD965F00E1DD6D /* Supporting Files */,
-				2100316D1ADD975700E1DD6D /* gear.png */,
 				54DAD1651AF98E44000444F0 /* gradient.png */,
 				54DAD1631AF98C25000444F0 /* cardbackground.png */,
 				5495BA9D1B011DAD00091B5A /* backgroundp.png */,
-				5495BAAB1B029D5C00091B5A /* settingsno.png */,
+				5495BAAB1B029D5C00091B5A /* settings.png */,
+				5495BAB51B02AE8600091B5A /* settings2.png */,
+				5495BAB61B02AE8600091B5A /* settings3.png */,
 				5495BAAD1B029DD600091B5A /* image1.PNG */,
 				2100316B1ADD968400E1DD6D /* CardViewController.swift */,
 				2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */,
@@ -271,15 +273,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5495BAB81B02AE8600091B5A /* settings3.png in Resources */,
 				5495BAA21B011DAD00091B5A /* backgroundp.png in Resources */,
 				210031511ADD966000E1DD6D /* Main.storyboard in Resources */,
 				210031561ADD966000E1DD6D /* LaunchScreen.xib in Resources */,
-				2100316E1ADD975700E1DD6D /* gear.png in Resources */,
 				54DAD1661AF98E44000444F0 /* gradient.png in Resources */,
 				5495BAAE1B029DD600091B5A /* image1.PNG in Resources */,
-				5495BAAC1B029D5C00091B5A /* settingsno.png in Resources */,
+				5495BAAC1B029D5C00091B5A /* settings.png in Resources */,
+				5495BAB71B02AE8600091B5A /* settings2.png in Resources */,
 				54DAD1641AF98C25000444F0 /* cardbackground.png in Resources */,
-				54DAD1681AFBDE80000444F0 /* GothamBook.ttf in Resources */,
 				210031531ADD966000E1DD6D /* Images.xcassets in Resources */,
 				212974CF1AE6C9F700E3597C /* TwitterKitResources.bundle in Resources */,
 				54CB925E1AFC027500BC63C3 /* GothamBold.ttf in Resources */,

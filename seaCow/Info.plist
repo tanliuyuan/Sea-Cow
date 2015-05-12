@@ -43,7 +43,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>GothamBook.ttf</string>
+		<string>Gotham-Light.ttf</string>
 		<string>GothamBold.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

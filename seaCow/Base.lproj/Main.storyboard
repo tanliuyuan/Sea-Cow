@@ -18,9 +18,12 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5o8-d2-2B5">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="0.0"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem title="Sea Cow" id="BzO-uv-Ozw">
-                                        <barButtonItem key="leftBarButtonItem" image="gear.png" id="D7X-qd-ZrB">
+                                    <navigationItem title="SEA COW" id="BzO-uv-Ozw">
+                                        <barButtonItem key="leftBarButtonItem" image="settings" id="D7X-qd-ZrB">
                                             <connections>
                                                 <segue destination="ETm-xq-A4K" kind="show" id="qIQ-Qg-oeD"/>
                                             </connections>
@@ -44,6 +47,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5o8-d2-2B5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="7rx-5P-8ou"/>
                             <constraint firstItem="5o8-d2-2B5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OQf-8g-aUA"/>
@@ -82,15 +86,20 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGJ-aG-Q6S">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="0.0"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem title="Reading List" id="8BK-12-h2P">
+                                    <navigationItem title="READING LIST" id="8BK-12-h2P">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="e0J-98-WnA">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="back:" destination="4iN-nl-xPa" id="zYf-Uv-KIJ"/>
                                                 <segue destination="RJ5-kr-WoY" kind="unwind" unwindAction="returnToCards:" id="mnE-xv-MR5"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="gear.png" id="6iZ-Rb-Wsn">
+                                        <barButtonItem key="rightBarButtonItem" image="settings" id="6iZ-Rb-Wsn">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <segue destination="ETm-xq-A4K" kind="show" id="4N3-x2-SX2"/>
                                             </connections>
@@ -195,14 +204,19 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QhJ-i7-PaA">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="0.0"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem title="Settings" id="yfc-dg-7z3">
+                                    <navigationItem title="SETTINGS" id="yfc-dg-7z3">
                                         <barButtonItem key="leftBarButtonItem" title="Home" id="yZa-7a-PhR">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <segue destination="m7U-dj-GYl" kind="unwind" unwindAction="returnToCards:" id="976-3j-VA5"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="dGb-Ua-xiH">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <segue destination="m7U-dj-GYl" kind="unwind" unwindAction="returnToReadingList:" id="xPy-yn-dJ3"/>
                                             </connections>
@@ -238,15 +252,21 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LE4-6z-dUv">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="0.0"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Title" id="y9e-rn-0jJ">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="JZd-eT-aVt">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="back:" destination="dD6-Gj-7mF" id="vtR-sT-ZfN"/>
                                                 <segue destination="4iQ-bc-QBA" kind="unwind" unwindAction="returnToReadingList:" id="MYn-vV-dq3"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Share" id="e37-TB-7nB"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Share" id="e37-TB-7nB">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -279,8 +299,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gear.png" width="32" height="32"/>
         <image name="gradient.png" width="1" height="800"/>
+        <image name="settings" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qIQ-Qg-oeD"/>
