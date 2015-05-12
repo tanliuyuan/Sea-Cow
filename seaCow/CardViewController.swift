@@ -23,6 +23,9 @@ class CardViewController: UIViewController {
         super.viewDidLoad()
         
         navBar.barTintColor = UIColor.whiteColor()
+        settingsButton.image = UIImage(named: "settingsno.png")
+        settingsButton.tintColor = UIColor.grayColor()
+        //readingListButton.image = UIImage(named: <#String#>)
 
         scheduleLocalNotifications()
         
