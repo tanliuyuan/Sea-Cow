@@ -9,10 +9,24 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="load.png" translatesAutoresizingMaskIntoConstraints="NO" id="LvG-gp-kqw">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="LvG-gp-kqw" secondAttribute="bottom" id="0Cu-fe-ntK"/>
+                <constraint firstItem="LvG-gp-kqw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DXy-gA-uxA"/>
+                <constraint firstAttribute="trailing" secondItem="LvG-gp-kqw" secondAttribute="trailing" id="lNd-dL-8Qc"/>
+                <constraint firstItem="LvG-gp-kqw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qYu-Cy-2vg"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="load.png" width="1080" height="1920"/>
+    </resources>
 </document>
