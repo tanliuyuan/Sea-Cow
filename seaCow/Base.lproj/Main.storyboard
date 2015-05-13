@@ -15,8 +15,21 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="q2S-KM-qML">
+                                <rect key="frame" x="-7" y="7" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="q2S-KM-qML" secondAttribute="centerY" id="3gv-E1-67v"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="q2S-KM-qML" secondAttribute="bottom" id="3vS-mb-2xL"/>
+                            <constraint firstAttribute="trailing" secondItem="q2S-KM-qML" secondAttribute="trailing" id="86a-Sn-DZy"/>
+                            <constraint firstAttribute="centerX" secondItem="q2S-KM-qML" secondAttribute="centerX" id="P8W-lM-OHg"/>
+                            <constraint firstAttribute="centerX" secondItem="q2S-KM-qML" secondAttribute="centerX" id="RMe-sg-MK1"/>
+                            <constraint firstItem="q2S-KM-qML" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sj9-AC-faY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SEA COW" id="Btz-Uk-sqv">
                         <barButtonItem key="backBarButtonItem" title="Back" id="2Xc-yg-9dS"/>
@@ -225,6 +238,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="320" height="480"/>
         <image name="gradient.png" width="1" height="800"/>
         <image name="readinglist" width="28" height="28"/>
         <image name="settings" width="28" height="28"/>

@@ -25,7 +25,7 @@ class SwipeCardsViewBackground: UIView {
     
     let MAX_CARD_NUM: Int = 2 // maximum number of cards loaded at any given time, must be greater than 1
     let CARD_HEIGHT: CGFloat = UIScreen.mainScreen().bounds.size.height * 0.75
-    let CARD_WIDTH: CGFloat = UIScreen.mainScreen().bounds.size.width * 0.85
+    let CARD_WIDTH: CGFloat = UIScreen.mainScreen().bounds.size.width * 0.9
     
     var loaded: Int = 0 // number of cards loaded
     var deck = [SwipeCardsView]() // array of loaded cards
@@ -67,7 +67,7 @@ class SwipeCardsViewBackground: UIView {
         indicator.startAnimating()
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
-        self.setupView()
+        //self.setupView()
         
         var stringTitles: [String] = []
         // Make up search url
@@ -107,10 +107,12 @@ class SwipeCardsViewBackground: UIView {
         
     }
     
-    func setupView() {
-        let backgroundImage = UIImage(named: "cardbackground.png")
-        self.backgroundColor = UIColor(patternImage: backgroundImage!)
-    }
+    /*func setupView() {
+        let backgroundImage = UIImage(named: "background")
+        let backgroundImageView = UIImageView(image: backgroundImage)
+        self.addSubview(backgroundImageView)
+        backgroundImageView.contentMode = UIViewContentMode.ScaleAspectFill
+    }*/
     
     func loadCards() {
         

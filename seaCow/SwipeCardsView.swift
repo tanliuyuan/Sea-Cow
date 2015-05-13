@@ -68,7 +68,7 @@ class SwipeCardsView: UIView {
         label.font = UIFont(name: "Gotham Bold", size: 24)
         label.numberOfLines = 0
         
-        let backgroundImage = UIImage(named: "backgroundp.png")
+        let backgroundImage = UIImage(named: "cardbackground.png")
         backgroundView = UIImageView(frame: CGRectMake(0, 0, self.frame.size.width , self.frame.size.height))
         backgroundView.image = backgroundImage
         
