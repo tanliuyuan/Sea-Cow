@@ -28,7 +28,7 @@
                                                 <segue destination="ETm-xq-A4K" kind="show" id="qIQ-Qg-oeD"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="readinglist" id="4mm-7U-E9x">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="4mm-7U-E9x">
                                             <connections>
                                                 <action selector="gotoReadingList:" destination="BYZ-38-t0r" id="7DI-9a-hdY"/>
                                             </connections>
@@ -181,7 +181,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="e0J-98-WnA" id="53t-F3-JLQ"/>
                         <outlet property="myTableView" destination="kno-Se-pze" id="Ort-FO-SrM"/>
                         <segue destination="dD6-Gj-7mF" kind="show" identifier="showArticle" id="mFG-yn-Rw6"/>
                     </connections>
@@ -210,13 +209,13 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="SETTINGS" id="yfc-dg-7z3">
-                                        <barButtonItem key="leftBarButtonItem" image="home" id="yZa-7a-PhR">
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="yZa-7a-PhR">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <segue destination="m7U-dj-GYl" kind="unwind" unwindAction="returnToCards:" id="976-3j-VA5"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="readinglist" id="dGb-Ua-xiH">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="dGb-Ua-xiH">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <segue destination="m7U-dj-GYl" kind="unwind" unwindAction="returnToReadingList:" id="xPy-yn-dJ3"/>
@@ -265,7 +264,7 @@
                                                 <segue destination="4iQ-bc-QBA" kind="unwind" unwindAction="returnToReadingList:" id="MYn-vV-dq3"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="e37-TB-7nB">
+                                        <barButtonItem key="rightBarButtonItem" title="Share" id="e37-TB-7nB">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </barButtonItem>
                                     </navigationItem>
@@ -301,8 +300,6 @@
     </scenes>
     <resources>
         <image name="gradient.png" width="1" height="800"/>
-        <image name="home" width="28" height="28"/>
-        <image name="readinglist" width="28" height="28"/>
         <image name="settings" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
