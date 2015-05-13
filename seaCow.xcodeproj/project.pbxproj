@@ -38,6 +38,9 @@
 		54CB925E1AFC027500BC63C3 /* GothamBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54CB925D1AFC027500BC63C3 /* GothamBold.ttf */; };
 		54DAD1641AF98C25000444F0 /* cardbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 54DAD1631AF98C25000444F0 /* cardbackground.png */; };
 		54DAD1661AF98E44000444F0 /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 54DAD1651AF98E44000444F0 /* gradient.png */; };
+		54FAE7101B02D8E00013B59A /* readinglist1.png in Resources */ = {isa = PBXBuildFile; fileRef = 54FAE70D1B02D8E00013B59A /* readinglist1.png */; };
+		54FAE7111B02D8E00013B59A /* readinglist2.png in Resources */ = {isa = PBXBuildFile; fileRef = 54FAE70E1B02D8E00013B59A /* readinglist2.png */; };
+		54FAE7121B02D8E00013B59A /* readinglist3.png in Resources */ = {isa = PBXBuildFile; fileRef = 54FAE70F1B02D8E00013B59A /* readinglist3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,9 @@
 		54CB925D1AFC027500BC63C3 /* GothamBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBold.ttf; sourceTree = "<group>"; };
 		54DAD1631AF98C25000444F0 /* cardbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardbackground.png; sourceTree = "<group>"; };
 		54DAD1651AF98E44000444F0 /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
+		54FAE70D1B02D8E00013B59A /* readinglist1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readinglist1.png; sourceTree = "<group>"; };
+		54FAE70E1B02D8E00013B59A /* readinglist2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readinglist2.png; sourceTree = "<group>"; };
+		54FAE70F1B02D8E00013B59A /* readinglist3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readinglist3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,9 @@
 				5495BAAB1B029D5C00091B5A /* settings.png */,
 				5495BAB51B02AE8600091B5A /* settings2.png */,
 				5495BAB61B02AE8600091B5A /* settings3.png */,
+				54FAE70D1B02D8E00013B59A /* readinglist1.png */,
+				54FAE70E1B02D8E00013B59A /* readinglist2.png */,
+				54FAE70F1B02D8E00013B59A /* readinglist3.png */,
 				5495BAAD1B029DD600091B5A /* image1.PNG */,
 				2100316B1ADD968400E1DD6D /* CardViewController.swift */,
 				2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */,
@@ -274,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5495BAB81B02AE8600091B5A /* settings3.png in Resources */,
+				54FAE7101B02D8E00013B59A /* readinglist1.png in Resources */,
 				5495BAA21B011DAD00091B5A /* backgroundp.png in Resources */,
 				210031511ADD966000E1DD6D /* Main.storyboard in Resources */,
 				210031561ADD966000E1DD6D /* LaunchScreen.xib in Resources */,
@@ -284,7 +294,9 @@
 				54DAD1641AF98C25000444F0 /* cardbackground.png in Resources */,
 				210031531ADD966000E1DD6D /* Images.xcassets in Resources */,
 				212974CF1AE6C9F700E3597C /* TwitterKitResources.bundle in Resources */,
+				54FAE7121B02D8E00013B59A /* readinglist3.png in Resources */,
 				54CB925E1AFC027500BC63C3 /* GothamBold.ttf in Resources */,
+				54FAE7111B02D8E00013B59A /* readinglist2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
