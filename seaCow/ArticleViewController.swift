@@ -12,7 +12,6 @@ import Fabric
 
 class ArticleViewController: UIViewController {
 
-    @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var share: UIBarButtonItem!
     
@@ -26,7 +25,7 @@ class ArticleViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         if(article != nil){
-            navBar.title = article!.section.uppercaseString
+            self.navigationItem.title = article!.section.uppercaseString
             let url = NSURL(string: article!.url)
             let request = NSURLRequest(URL: url!)
             webView.loadRequest(request)

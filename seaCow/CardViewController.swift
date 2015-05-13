@@ -9,10 +9,6 @@
 import UIKit
 
 class CardViewController: UIViewController {
-
-    @IBOutlet weak var navBar: UINavigationBar!
-    @IBOutlet weak var settingsButton: UIBarButtonItem!
-    @IBOutlet weak var readingListButton: UIBarButtonItem!
     
     var allArticles: [ArticleData]?
     var swipeCardsViewBackground: SwipeCardsViewBackground?
@@ -21,9 +17,7 @@ class CardViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
-        navBar.barTintColor = UIColor.whiteColor()
-
+        
         scheduleLocalNotifications()
         
         //create the time and repeat every 12 hours
@@ -84,7 +78,7 @@ class CardViewController: UIViewController {
     
     
     func loadCards() {
-        let subViewFrame: CGRect = CGRectMake(0, self.navBar.frame.height+UIApplication.sharedApplication().statusBarFrame.height, self.view.frame.width, self.view.frame.height-UIApplication.sharedApplication().statusBarFrame.height-self.navBar.frame.height)
+        let subViewFrame: CGRect = CGRectMake(0, self.navigationController!.navigationBar.frame.size.height+UIApplication.sharedApplication().statusBarFrame.height, self.view.frame.width, self.view.frame.height-UIApplication.sharedApplication().statusBarFrame.height-self.navigationController!.navigationBar.frame.size.height)
         swipeCardsViewBackground = SwipeCardsViewBackground(frame: subViewFrame)
         self.view.addSubview(swipeCardsViewBackground!)
     }

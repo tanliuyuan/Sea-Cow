@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uEL-1X-dmY">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Card View Controller-->
+        <!--SEA COW-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CardViewController" customModule="seaCow" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,65 +15,31 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5o8-d2-2B5">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="0.0"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="SEA COW" id="BzO-uv-Ozw">
-                                        <barButtonItem key="leftBarButtonItem" image="settings" id="D7X-qd-ZrB">
-                                            <connections>
-                                                <segue destination="ETm-xq-A4K" kind="show" id="qIQ-Qg-oeD"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="readinglist" id="4mm-7U-E9x">
-                                            <connections>
-                                                <action selector="gotoReadingList:" destination="BYZ-38-t0r" id="7DI-9a-hdY"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44d-Fm-aSy">
-                                <rect key="frame" x="214" y="285" width="172" height="30"/>
-                                <state key="normal" title="Continue To Reading List">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="4iN-nl-xPa" kind="show" identifier="CowToList" id="UrR-SK-XBP"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="5o8-d2-2B5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="7rx-5P-8ou"/>
-                            <constraint firstItem="5o8-d2-2B5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OQf-8g-aUA"/>
-                            <constraint firstItem="5o8-d2-2B5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PIO-kg-i3G"/>
-                            <constraint firstAttribute="trailing" secondItem="5o8-d2-2B5" secondAttribute="trailing" id="bTr-ak-C6Y"/>
-                            <constraint firstAttribute="centerX" secondItem="44d-Fm-aSy" secondAttribute="centerX" id="cmt-88-dPr"/>
-                            <constraint firstAttribute="centerY" secondItem="44d-Fm-aSy" secondAttribute="centerY" id="uJK-UI-MsH"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="OQf-8g-aUA"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <connections>
-                        <outlet property="navBar" destination="5o8-d2-2B5" id="Myw-hK-XMg"/>
-                        <outlet property="readingListButton" destination="4mm-7U-E9x" id="fkf-i9-jrl"/>
-                        <outlet property="settingsButton" destination="D7X-qd-ZrB" id="fjP-H5-kQ7"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="SEA COW" id="Btz-Uk-sqv">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="2Xc-yg-9dS"/>
+                        <barButtonItem key="leftBarButtonItem" image="settings" id="4rq-mw-gv7">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="ETm-xq-A4K" kind="show" id="Pzx-cN-ypT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="readinglist" id="BzW-tv-gS4">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="gotoReadingList:" destination="BYZ-38-t0r" id="BrV-jO-AVi"/>
+                                <segue destination="4iN-nl-xPa" kind="show" identifier="CowToList" id="Hnn-wC-bJ7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="360" y="277"/>
+            <point key="canvasLocation" x="1172" y="277"/>
         </scene>
-        <!--Reading List View Controller-->
+        <!--READING LIST-->
         <scene sceneID="WYX-aj-3gA">
             <objects>
                 <viewController id="4iN-nl-xPa" customClass="ReadingListViewController" customModule="seaCow" customModuleProvider="target" sceneMemberID="viewController">
@@ -85,32 +51,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGJ-aG-Q6S">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="0.0"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="READING LIST" id="8BK-12-h2P">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="e0J-98-WnA">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="back:" destination="4iN-nl-xPa" id="zYf-Uv-KIJ"/>
-                                                <segue destination="RJ5-kr-WoY" kind="unwind" unwindAction="returnToCards:" id="mnE-xv-MR5"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="settings" id="6iZ-Rb-Wsn">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <segue destination="ETm-xq-A4K" kind="show" id="4N3-x2-SX2"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="156" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kno-Se-pze">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="156" id="hWR-Tk-73B" customClass="CustomCell" customModule="seaCow" customModuleProvider="target">
@@ -173,26 +115,31 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="cGJ-aG-Q6S" secondAttribute="trailing" id="FBw-Tj-9RD"/>
+                            <constraint firstItem="kno-Se-pze" firstAttribute="top" secondItem="lXT-hM-oek" secondAttribute="top" id="11W-Xr-5Dd"/>
                             <constraint firstAttribute="trailing" secondItem="kno-Se-pze" secondAttribute="trailing" id="Qz3-SM-Bss"/>
                             <constraint firstAttribute="bottom" secondItem="kno-Se-pze" secondAttribute="bottom" id="XII-Uy-a4S"/>
-                            <constraint firstItem="cGJ-aG-Q6S" firstAttribute="top" secondItem="EgA-G3-sii" secondAttribute="bottom" id="XZx-cu-fd9"/>
                             <constraint firstItem="kno-Se-pze" firstAttribute="leading" secondItem="lXT-hM-oek" secondAttribute="leading" id="Zk8-rI-NWr"/>
-                            <constraint firstItem="cGJ-aG-Q6S" firstAttribute="leading" secondItem="lXT-hM-oek" secondAttribute="leading" id="hUx-nY-xdq"/>
-                            <constraint firstItem="kno-Se-pze" firstAttribute="top" secondItem="cGJ-aG-Q6S" secondAttribute="bottom" id="pGc-uf-UUD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="READING LIST" id="aPs-HD-FU2">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="w97-XM-x1y"/>
+                        <barButtonItem key="rightBarButtonItem" image="settings" id="b7Q-Ch-g9M">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="ETm-xq-A4K" kind="show" id="D4F-Du-4Mf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="myTableView" destination="kno-Se-pze" id="Ort-FO-SrM"/>
                         <segue destination="dD6-Gj-7mF" kind="show" identifier="showArticle" id="mFG-yn-Rw6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3s-UU-l2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="RJ5-kr-WoY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1086" y="277"/>
+            <point key="canvasLocation" x="1898" y="277"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--SETTINGS-->
         <scene sceneID="biE-sg-aZy">
             <objects>
                 <viewController id="ETm-xq-A4K" customClass="SettingsViewController" customModule="seaCow" customModuleProvider="target" sceneMemberID="viewController">
@@ -203,45 +150,17 @@
                     <view key="view" contentMode="scaleToFill" id="6Mr-uQ-J85">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QhJ-i7-PaA">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="0.0"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="SETTINGS" id="yfc-dg-7z3">
-                                        <barButtonItem key="leftBarButtonItem" title="Home" id="yZa-7a-PhR">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <segue destination="m7U-dj-GYl" kind="unwind" unwindAction="returnToCards:" id="976-3j-VA5"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="readinglist" id="dGb-Ua-xiH">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <segue destination="m7U-dj-GYl" kind="unwind" unwindAction="returnToReadingList:" id="xPy-yn-dJ3"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="QhJ-i7-PaA" firstAttribute="top" secondItem="eEj-Zk-cqf" secondAttribute="bottom" id="5vl-OV-A8R"/>
-                            <constraint firstItem="QhJ-i7-PaA" firstAttribute="leading" secondItem="6Mr-uQ-J85" secondAttribute="leading" id="Y4t-8p-6db"/>
-                            <constraint firstAttribute="trailing" secondItem="QhJ-i7-PaA" secondAttribute="trailing" id="bNn-vs-rh6"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="SETTINGS" id="E4e-oU-P3b">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="crP-x6-zWo"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kj2-me-cKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="m7U-dj-GYl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="713" y="1124"/>
+            <point key="canvasLocation" x="1490" y="1138"/>
         </scene>
-        <!--Article View Controller-->
+        <!--ARTICLE VIEW-->
         <scene sceneID="Ofk-Ql-Jjp">
             <objects>
                 <viewController id="dD6-Gj-7mF" customClass="ArticleViewController" customModule="seaCow" customModuleProvider="target" sceneMemberID="viewController">
@@ -253,53 +172,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LE4-6z-dUv">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="0.0"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="Title" id="y9e-rn-0jJ">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="JZd-eT-aVt">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="back:" destination="dD6-Gj-7mF" id="vtR-sT-ZfN"/>
-                                                <segue destination="4iQ-bc-QBA" kind="unwind" unwindAction="returnToReadingList:" id="MYn-vV-dq3"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Share" id="e37-TB-7nB">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mCi-9z-Kqp">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LE4-6z-dUv" firstAttribute="leading" secondItem="N6M-gO-Bcq" secondAttribute="leading" id="497-9Y-pbp"/>
-                            <constraint firstAttribute="trailing" secondItem="LE4-6z-dUv" secondAttribute="trailing" id="A3W-lF-sVY"/>
+                            <constraint firstItem="mCi-9z-Kqp" firstAttribute="top" secondItem="N6M-gO-Bcq" secondAttribute="top" id="1Lj-7Z-tG7"/>
                             <constraint firstItem="mCi-9z-Kqp" firstAttribute="leading" secondItem="N6M-gO-Bcq" secondAttribute="leading" id="DIB-dP-RQ4"/>
                             <constraint firstAttribute="bottom" secondItem="mCi-9z-Kqp" secondAttribute="bottom" id="Qdd-DH-Kgj"/>
-                            <constraint firstItem="mCi-9z-Kqp" firstAttribute="top" secondItem="LE4-6z-dUv" secondAttribute="bottom" id="n7K-jW-naF"/>
                             <constraint firstAttribute="trailing" secondItem="mCi-9z-Kqp" secondAttribute="trailing" id="oGB-5a-Dgi"/>
-                            <constraint firstItem="LE4-6z-dUv" firstAttribute="top" secondItem="WDl-ov-hus" secondAttribute="bottom" id="qtu-zb-DwD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="ARTICLE VIEW" id="cxS-a2-2Ju">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="d6F-Ur-Vu6"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="1un-Gs-d0J">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="navBar" destination="y9e-rn-0jJ" id="L7p-sl-gTk"/>
-                        <outlet property="share" destination="e37-TB-7nB" id="Sps-NJ-hUp"/>
+                        <outlet property="share" destination="1un-Gs-d0J" id="Cbt-wp-8bB"/>
                         <outlet property="webView" destination="mCi-9z-Kqp" id="d2D-05-i4n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOi-L9-qlg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="4iQ-bc-QBA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1824" y="277"/>
+            <point key="canvasLocation" x="2636" y="277"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gKS-Dg-BBH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uEL-1X-dmY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="h2q-R2-wjQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="0.0"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="b46-nt-Lzg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B1s-Fh-l27" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="360" y="277"/>
         </scene>
     </scenes>
     <resources>
@@ -308,6 +230,6 @@
         <image name="settings" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qIQ-Qg-oeD"/>
+        <segue reference="Pzx-cN-ypT"/>
     </inferredMetricsTieBreakers>
 </document>

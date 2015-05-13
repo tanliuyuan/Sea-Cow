@@ -29,10 +29,9 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
     var testArticles: ReadingList?
     
     override func viewDidLoad() {
-    
         
         super.viewDidLoad()
-        
+                
         var articleSearchUrl = articleSearchBaseUrl + "/" + articleSearchResourceType + "/" + articleSearchSections + "/" + "\(articlesSearchNumOfDays)" + articleSearchReturnFormat + "?" + "&API-Key=" + articleSearchAPIKey
         
         // load articles from the NYT API
@@ -51,7 +50,11 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allArticles!.count
+        if allArticles != nil {
+            return allArticles!.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -62,6 +65,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         
             //cell.title?.text = readingList.articles[indexPath.row].title
             cell.title?.text = allArticles![indexPath.row].title
+            cell.title?.font = UIFont(name: "Gotham Light", size: 18)
             //let url = NSURL(string: readingList.articles[indexPath.row].imageUrl)
             let url = NSURL(string: allArticles![indexPath.row].imageUrl)
             let data = NSData(contentsOfURL: url!)
