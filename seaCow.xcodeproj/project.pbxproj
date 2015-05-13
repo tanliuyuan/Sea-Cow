@@ -41,6 +41,7 @@
 		54FAE7111B02D8E00013B59A /* readinglist2.png in Resources */ = {isa = PBXBuildFile; fileRef = 54FAE70E1B02D8E00013B59A /* readinglist2.png */; };
 		54FAE7121B02D8E00013B59A /* readinglist3.png in Resources */ = {isa = PBXBuildFile; fileRef = 54FAE70F1B02D8E00013B59A /* readinglist3.png */; };
 		54FAE7141B02F6670013B59A /* load.png in Resources */ = {isa = PBXBuildFile; fileRef = 54FAE7131B02F6670013B59A /* load.png */; };
+		54FAE7161B02F9B20013B59A /* load2.png in Resources */ = {isa = PBXBuildFile; fileRef = 54FAE7151B02F9B20013B59A /* load2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		54FAE70E1B02D8E00013B59A /* readinglist2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readinglist2.png; sourceTree = "<group>"; };
 		54FAE70F1B02D8E00013B59A /* readinglist3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readinglist3.png; sourceTree = "<group>"; };
 		54FAE7131B02F6670013B59A /* load.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = load.png; sourceTree = "<group>"; };
+		54FAE7151B02F9B20013B59A /* load2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = load2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				54FAE70E1B02D8E00013B59A /* readinglist2.png */,
 				54FAE70F1B02D8E00013B59A /* readinglist3.png */,
 				54FAE7131B02F6670013B59A /* load.png */,
+				54FAE7151B02F9B20013B59A /* load2.png */,
 				2100316B1ADD968400E1DD6D /* CardViewController.swift */,
 				2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */,
 				2148088C1AE01792008EB6C0 /* ArticleViewController.swift */,
@@ -296,6 +299,7 @@
 				54FAE7141B02F6670013B59A /* load.png in Resources */,
 				54FAE7121B02D8E00013B59A /* readinglist3.png in Resources */,
 				54CB925E1AFC027500BC63C3 /* GothamBold.ttf in Resources */,
+				54FAE7161B02F9B20013B59A /* load2.png in Resources */,
 				54FAE7111B02D8E00013B59A /* readinglist2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

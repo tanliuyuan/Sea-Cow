@@ -10,7 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="load.png" translatesAutoresizingMaskIntoConstraints="NO" id="LvG-gp-kqw">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="load2.png" translatesAutoresizingMaskIntoConstraints="NO" id="LvG-gp-kqw">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
             </subviews>
@@ -27,6 +27,6 @@
         </view>
     </objects>
     <resources>
-        <image name="load.png" width="1080" height="1920"/>
+        <image name="load2.png" width="1080" height="1920"/>
     </resources>
 </document>
