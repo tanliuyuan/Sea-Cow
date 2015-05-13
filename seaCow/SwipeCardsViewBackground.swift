@@ -172,7 +172,7 @@ class SwipeCardsViewBackground: UIView {
             println(toReadingList.count)
             //try to segue to the reading list here.
             done = true
-            self.window?.rootViewController?.performSegueWithIdentifier("CowToList", sender: self)
+            self.window?.rootViewController?.childViewControllers[0].performSegueWithIdentifier("CowToList", sender: self)
         }
     }
     
