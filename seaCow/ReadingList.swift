@@ -41,7 +41,7 @@ class ReadingList: NSObject , NSCoding {
     }
     
     required init(coder aDecoder: NSCoder) {
-        var temp: AnyObject? = aDecoder.decodeObject(forKey: "article") as AnyObject?
+        let temp: AnyObject? = aDecoder.decodeObject(forKey: "article") as AnyObject?
         print("trying to load reading list in init...")
         if (temp != nil) {
             print("reading list loaded")

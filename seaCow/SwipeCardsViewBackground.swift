@@ -71,7 +71,7 @@ class SwipeCardsViewBackground: UIView {
         
         var stringTitles: [String] = []
         // Make up search url
-        var articleSearchUrl = articleSearchBaseUrl + "/" + articleSearchResourceType + "/" + articleSearchSections + "/" + "\(articlesSearchNumOfDays)" + articleSearchReturnFormat + "?" + "&API-Key=" + articleSearchAPIKey
+        let articleSearchUrl = articleSearchBaseUrl + "/" + articleSearchResourceType + "/" + articleSearchSections + "/" + "\(articlesSearchNumOfDays)" + articleSearchReturnFormat + "?" + "&API-Key=" + articleSearchAPIKey
         
         // load articles from the NYT API
         //println(articleSearchUrl)
@@ -81,8 +81,8 @@ class SwipeCardsViewBackground: UIView {
                 print(unwrappedErrorString)
             } else {
                 for article in nytArticles.articles {
-                    var card = SwipeCardsView()
-                    var labelTextStyle = NSMutableParagraphStyle()
+                    let card = SwipeCardsView()
+                    let labelTextStyle = NSMutableParagraphStyle()
                     labelTextStyle.lineSpacing = 10
                     labelTextStyle.lineBreakMode = NSLineBreakMode.byWordWrapping
                     let attributes = [NSParagraphStyleAttributeName : labelTextStyle]
@@ -118,11 +118,11 @@ class SwipeCardsViewBackground: UIView {
         
         if allCards.count > 0 {
             // make sure max card load is smaller than actual deck size
-            var numLoadedCardsCap = allCards.count > MAX_CARD_NUM ? MAX_CARD_NUM : allCards.count
+            let numLoadedCardsCap = allCards.count > MAX_CARD_NUM ? MAX_CARD_NUM : allCards.count
             
             // loop through the exampleCardsLabels array to create a card for each label. This should be customerized by removing "exampleCardLabels" with another array of data
             for i in 0  ..< allCards.count {
-                var newCard: SwipeCardsView = self.createSwipeCardsViewWithDataAtIndex(i)
+                let newCard: SwipeCardsView = self.createSwipeCardsViewWithDataAtIndex(i)
                 
                 if i < numLoadedCardsCap {
                     // add some extra cards to be loaded
@@ -145,7 +145,7 @@ class SwipeCardsViewBackground: UIView {
     }
     var swiped: Int = 0
     func cardSwipedAway(_ card: UIView, direction: String) {
-        var history: History = History()
+        let history: History = History()
         history.load()
         swiped += 1
         let article: ArticleData = deck[0].articleData
@@ -163,7 +163,7 @@ class SwipeCardsViewBackground: UIView {
         }
         // if all cards haven't been gone through, load another card into the deck
         if loaded < allCards.count {
-            var newCard: SwipeCardsView = createSwipeCardsViewWithDataAtIndex(loaded)
+            let newCard: SwipeCardsView = createSwipeCardsViewWithDataAtIndex(loaded)
             deck.append(newCard)
             //deck.append(allCards[loaded])
             loaded += 1
@@ -179,7 +179,7 @@ class SwipeCardsViewBackground: UIView {
     }
     
     func swipeRight() {
-        var cardView: SwipeCardsView = deck.first!
+        let cardView: SwipeCardsView = deck.first!
         cardView.overlayView.mode = OverlayViewMode.overlayViewRight
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
             cardView.overlayView.alpha = 1
@@ -188,7 +188,7 @@ class SwipeCardsViewBackground: UIView {
     }
     
     func swipeLeft() {
-        var cardView: SwipeCardsView = deck.first!
+        let cardView: SwipeCardsView = deck.first!
         cardView.overlayView.mode = OverlayViewMode.overlayViewLeft
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
             cardView.overlayView.alpha = 1

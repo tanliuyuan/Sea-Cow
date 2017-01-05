@@ -17,7 +17,7 @@ class NYTArticles: NSObject {
         if let url = URL(string: fromURLString) {
             let urlRequest = NSMutableURLRequest(url: url)
             let session = URLSession.shared
-            let task = session.dataTask(with: urlRequest, completionHandler: {
+            let task = session.dataTask(urlRequest, completionHandler: {
                 (data, response, error) -> Void in
                 if error != nil {
                     DispatchQueue.main.async(execute: {

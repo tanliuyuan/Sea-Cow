@@ -28,7 +28,7 @@ class SwipeCardsView: UIView {
     var label: UILabel
     var articleData: ArticleData
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         xFromCenter = 0.0
         yFromCenter = 0.0
         panGestureRecognizer = UIPanGestureRecognizer()
@@ -170,7 +170,7 @@ class SwipeCardsView: UIView {
     
     // Called when user swipes right
     func rightAction(_ background: SwipeCardsViewBackground) {
-        var finishPoint: CGPoint = CGPoint(x: 500, y: 2 * yFromCenter + self.originalPoint.y)
+        let finishPoint: CGPoint = CGPoint(x: 500, y: 2 * yFromCenter + self.originalPoint.y)
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             self.center = finishPoint
             }, completion: { (complete) -> Void in
@@ -182,7 +182,7 @@ class SwipeCardsView: UIView {
     
     // Called when user swipes left
     func leftAction(_ background: SwipeCardsViewBackground) {
-        var finishPoint: CGPoint = CGPoint(x: -500, y: 2 * yFromCenter + self.originalPoint.y)
+        let finishPoint: CGPoint = CGPoint(x: -500, y: 2 * yFromCenter + self.originalPoint.y)
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             self.center = finishPoint
             }, completion: { (complete) -> Void in

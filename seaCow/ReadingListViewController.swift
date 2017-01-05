@@ -32,7 +32,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         
         super.viewDidLoad()
                 
-        var articleSearchUrl = articleSearchBaseUrl + "/" + articleSearchResourceType + "/" + articleSearchSections + "/" + "\(articlesSearchNumOfDays)" + articleSearchReturnFormat + "?" + "&API-Key=" + articleSearchAPIKey
+        let articleSearchUrl = articleSearchBaseUrl + "/" + articleSearchResourceType + "/" + articleSearchSections + "/" + "\(articlesSearchNumOfDays)" + articleSearchReturnFormat + "?" + "&API-Key=" + articleSearchAPIKey
         
         // load articles from the NYT API
         readingList.load(articleSearchUrl, loadCompletionHandler: {
@@ -93,9 +93,9 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAtIndexPath indexPath: IndexPath) -> [AnyObject]? {
+    private func tableView(_ tableView: UITableView, editActionsForRowAtIndexPath indexPath: IndexPath) -> [AnyObject]? {
         
-        var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal , title: "Share", handler: { (action: UITableViewRowAction!, indexPath: IndexPath!) in
+        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal , title: "Share", handler: { (action: UITableViewRowAction!, indexPath: IndexPath!) in
             
             let composer = TWTRComposer()
             
@@ -118,7 +118,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         
         shareAction.backgroundColor = UIColor.blue
        
-        var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default , title: "Delete", handler: { (action: UITableViewRowAction!, indexPath: IndexPath!) in
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default , title: "Delete", handler: { (action: UITableViewRowAction!, indexPath: IndexPath!) in
             
             self.allArticles?.remove(at: indexPath.row)
             self.testArticles?.removeArticle(indexPath.row)
