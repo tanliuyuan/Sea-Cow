@@ -12,57 +12,57 @@ import Foundation
 class ReadingList: NSObject , NSCoding {
     var articles: [ArticleData]! = []
     override init() {
-        println("Initalizing Reading List")
+        print("Initalizing Reading List")
     }
     
-    func addArticle(article: ArticleData) {
-        println("Adding article")
+    func addArticle(_ article: ArticleData) {
+        print("Adding article")
         articles.append(article)
         
     }
     
-    func removeArticle(index: Int) {
-        println("Removing article")
-        articles.removeAtIndex(index)
+    func removeArticle(_ index: Int) {
+        print("Removing article")
+        articles.remove(at: index)
     }
     
     func getArticles() -> [ArticleData] {
-        println("Returning list")
+        print("Returning list")
         return articles!
     }
     
     
     // MARK: NSCoding
-    func encodeWithCoder(coder: NSCoder) {
-        println("trying to encode articles, value: ")
-        println(articles)
-        coder.encodeObject(articles, forKey: "article")
+    func encode(with coder: NSCoder) {
+        print("trying to encode articles, value: ")
+        print(articles)
+        coder.encode(articles, forKey: "article")
 
     }
     
     required init(coder aDecoder: NSCoder) {
-        var temp: AnyObject? = aDecoder.decodeObjectForKey("article")
-        println("trying to load reading list in init...")
+        var temp: AnyObject? = aDecoder.decodeObject(forKey: "article") as AnyObject?
+        print("trying to load reading list in init...")
         if (temp != nil) {
-            println("reading list loaded")
+            print("reading list loaded")
             //test = (temp  as! ReadingList).test
             articles = temp as! [ArticleData]
         } else {
-            println("failed")
+            print("failed")
         }
     }
     
     func save() {
-        println("trying to save")
-        let data = NSKeyedArchiver.archivedDataWithRootObject(self)
-        println("data created, trying to write")
-        NSUserDefaults.standardUserDefaults().setObject(data, forKey: "readingList")
-        println("success")
+        print("trying to save")
+        let data = NSKeyedArchiver.archivedData(withRootObject: self)
+        print("data created, trying to write")
+        UserDefaults.standard.set(data, forKey: "readingList")
+        print("success")
     }
     
     func load() -> Bool {
-        if let data = NSUserDefaults.standardUserDefaults().objectForKey("readingList") as? NSData {
-            let temp = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! ReadingList
+        if let data = UserDefaults.standard.object(forKey: "readingList") as? Data {
+            let temp = NSKeyedUnarchiver.unarchiveObject(with: data) as! ReadingList
             articles = temp.articles
             return true
         }

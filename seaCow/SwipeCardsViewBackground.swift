@@ -24,8 +24,8 @@ class SwipeCardsViewBackground: UIView {
     }
     
     let MAX_CARD_NUM: Int = 2 // maximum number of cards loaded at any given time, must be greater than 1
-    let CARD_HEIGHT: CGFloat = UIScreen.mainScreen().bounds.size.height * 0.75
-    let CARD_WIDTH: CGFloat = UIScreen.mainScreen().bounds.size.width * 0.9
+    let CARD_HEIGHT: CGFloat = UIScreen.main.bounds.size.height * 0.75
+    let CARD_WIDTH: CGFloat = UIScreen.main.bounds.size.width * 0.9
     
     var loaded: Int = 0 // number of cards loaded
     var deck = [SwipeCardsView]() // array of loaded cards
@@ -38,7 +38,7 @@ class SwipeCardsViewBackground: UIView {
     var allCards = [SwipeCardsView]() // array of all cards
     
     var nytArticles = NYTArticles()
-    var articleRequest: NSURLRequest?
+    var articleRequest: URLRequest?
     var selectedArticle: ArticleData?
     var toReadingList: [ArticleData] = []
     var done = false
@@ -54,18 +54,18 @@ class SwipeCardsViewBackground: UIView {
         super.init(frame:frame)
         
         if(testArticles.load() == true) {
-            println("Reading List successfully loaded")
+            print("Reading List successfully loaded")
         }
         
         // prepare a loading indicator
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
-        indicator.frame = CGRectMake(self.frame.width * 19/40, (self.frame.height - self.frame.width / 20) / 2, self.frame.width / 20, self.frame.width / 20)
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        indicator.frame = CGRect(x: self.frame.width * 19/40, y: (self.frame.height - self.frame.width / 20) / 2, width: self.frame.width / 20, height: self.frame.width / 20)
         self.addSubview(indicator)
-        indicator.bringSubviewToFront(self)
+        indicator.bringSubview(toFront: self)
         
         // start loading indicator before loading cards
         indicator.startAnimating()
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         //self.setupView()
         
@@ -78,30 +78,30 @@ class SwipeCardsViewBackground: UIView {
         nytArticles.load(articleSearchUrl, loadCompletionHandler: {
             (nytArticles, errorString) -> Void in
             if let unwrappedErrorString = errorString {
-                println(unwrappedErrorString)
+                print(unwrappedErrorString)
             } else {
                 for article in nytArticles.articles {
                     var card = SwipeCardsView()
                     var labelTextStyle = NSMutableParagraphStyle()
                     labelTextStyle.lineSpacing = 10
-                    labelTextStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+                    labelTextStyle.lineBreakMode = NSLineBreakMode.byWordWrapping
                     let attributes = [NSParagraphStyleAttributeName : labelTextStyle]
                     card.label.attributedText = NSAttributedString(string: article.title, attributes:attributes)
                     card.articleData = article
-                    if let imageUrl = NSURL(string: card.articleData.imageUrl) {
-                        if let imageData = NSData(contentsOfURL: imageUrl){
+                    if let imageUrl = URL(string: card.articleData.imageUrl) {
+                        if let imageData = try? Data(contentsOf: imageUrl){
                             card.backgroundView = UIImageView(image: UIImage(data: imageData)!)
                         }
                     }
                     self.allCards.append(card)
                 }
-                println("Total number of cards:\(self.allCards.count)")
+                print("Total number of cards:\(self.allCards.count)")
                 self.loaded = 0
                 self.loadCards()
                 
                 // stop loading indicator after cards are loaded
                 indicator.stopAnimating()
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         })
         
@@ -121,7 +121,7 @@ class SwipeCardsViewBackground: UIView {
             var numLoadedCardsCap = allCards.count > MAX_CARD_NUM ? MAX_CARD_NUM : allCards.count
             
             // loop through the exampleCardsLabels array to create a card for each label. This should be customerized by removing "exampleCardLabels" with another array of data
-            for var i = 0 ; i < allCards.count; i++ {
+            for i in 0  ..< allCards.count {
                 var newCard: SwipeCardsView = self.createSwipeCardsViewWithDataAtIndex(i)
                 
                 if i < numLoadedCardsCap {
@@ -132,31 +132,31 @@ class SwipeCardsViewBackground: UIView {
         }
         
         // display extra loaded cards
-        for var i = 0; i < deck.count; i++ {
+        for i in 0 ..< deck.count {
             if i > 0 {
                 self.insertSubview(deck[i] as UIView, belowSubview: deck[i-1] as UIView)
             } else {
                 self.addSubview(deck[i] as UIView)
             }
-            loaded++
+            loaded += 1
         }
-        println("Number of cards loaded: \(loaded)")
+        print("Number of cards loaded: \(loaded)")
         
     }
     var swiped: Int = 0
-    func cardSwipedAway(card: UIView, direction: String) {
+    func cardSwipedAway(_ card: UIView, direction: String) {
         var history: History = History()
         history.load()
-        swiped++
+        swiped += 1
         let article: ArticleData = deck[0].articleData
-        deck.removeAtIndex(0)
-        println("Card swiped away")
+        deck.remove(at: 0)
+        print("Card swiped away")
         if(history.checkIfExists(article.title)) == false {
             history.addArticle(article)
             history.save()
         }
         if(direction == "right") {
-            println("Saving to reading list array")
+            print("Saving to reading list array")
             toReadingList.append(article)
             testArticles.addArticle(article)
             testArticles.save()
@@ -166,22 +166,22 @@ class SwipeCardsViewBackground: UIView {
             var newCard: SwipeCardsView = createSwipeCardsViewWithDataAtIndex(loaded)
             deck.append(newCard)
             //deck.append(allCards[loaded])
-            loaded++
+            loaded += 1
             self.insertSubview(deck[MAX_CARD_NUM-1] as UIView, belowSubview: deck[MAX_CARD_NUM-2] as UIView)
         }
         if(swiped == allCards.count) {
-            println("Last card has been swiped")
-            println(toReadingList.count)
+            print("Last card has been swiped")
+            print(toReadingList.count)
             //try to segue to the reading list here.
             done = true
-            self.window?.rootViewController?.childViewControllers[0].performSegueWithIdentifier("CowToList", sender: self)
+            self.window?.rootViewController?.childViewControllers[0].performSegue(withIdentifier: "CowToList", sender: self)
         }
     }
     
     func swipeRight() {
         var cardView: SwipeCardsView = deck.first!
-        cardView.overlayView.mode = OverlayViewMode.OverlayViewRight
-        UIView.animateWithDuration(0.2, animations: { () -> Void in
+        cardView.overlayView.mode = OverlayViewMode.overlayViewRight
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
             cardView.overlayView.alpha = 1
         })
         cardSwipedAway(cardView, direction: "right")
@@ -189,15 +189,15 @@ class SwipeCardsViewBackground: UIView {
     
     func swipeLeft() {
         var cardView: SwipeCardsView = deck.first!
-        cardView.overlayView.mode = OverlayViewMode.OverlayViewLeft
-        UIView.animateWithDuration(0.2, animations: { () -> Void in
+        cardView.overlayView.mode = OverlayViewMode.overlayViewLeft
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
             cardView.overlayView.alpha = 1
         })
         cardSwipedAway(cardView, direction: "left")
     }
     
-    func createSwipeCardsViewWithDataAtIndex(index: Int) -> SwipeCardsView {
-        var swipeCardsView: SwipeCardsView = SwipeCardsView(frame: CGRectMake((self.frame.size.width - CARD_WIDTH) / 2, (self.frame.size.height - CARD_HEIGHT) / 2.5, CARD_WIDTH, CARD_HEIGHT))
+    func createSwipeCardsViewWithDataAtIndex(_ index: Int) -> SwipeCardsView {
+        let swipeCardsView: SwipeCardsView = SwipeCardsView(frame: CGRect(x: (self.frame.size.width - CARD_WIDTH) / 2, y: (self.frame.size.height - CARD_HEIGHT) / 2.5, width: CARD_WIDTH, height: CARD_HEIGHT))
         swipeCardsView.articleData = allCards[index].articleData
         swipeCardsView.backgroundView.image = allCards[index].backgroundView.image
         swipeCardsView.label.attributedText = allCards[index].label.attributedText

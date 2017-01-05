@@ -12,15 +12,15 @@ class NYTArticles: NSObject {
     var articles = Array<ArticleData>()
     var history: History = History()
     
-    func load(fromURLString:String, loadCompletionHandler: (NYTArticles, String?) -> Void) {
+    func load(_ fromURLString: String, loadCompletionHandler: @escaping (NYTArticles, String?) -> Void) {
         history.load()
-        if let url = NSURL(string: fromURLString) {
-            let urlRequest = NSMutableURLRequest(URL: url)
-            let session = NSURLSession.sharedSession()
-            let task = session.dataTaskWithRequest(urlRequest, completionHandler: {
+        if let url = URL(string: fromURLString) {
+            let urlRequest = NSMutableURLRequest(url: url)
+            let session = URLSession.shared
+            let task = session.dataTask(with: urlRequest, completionHandler: {
                 (data, response, error) -> Void in
                 if error != nil {
-                    dispatch_async(dispatch_get_main_queue(), {
+                    DispatchQueue.main.async(execute: {
                         loadCompletionHandler(self, error.localizedDescription)
                     })
                 } else {
@@ -30,16 +30,16 @@ class NYTArticles: NSObject {
             
             task.resume()
         } else {
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 loadCompletionHandler(self, "Invalid URL")
             })
         }
     }
     
-    func parse(jsonData: NSData, parseCompletionHandler: (NYTArticles, String?) -> Void) {
+    func parse(_ jsonData: Data, parseCompletionHandler: @escaping (NYTArticles, String?) -> Void) {
         var jsonError: NSError?
         
-        if let jsonResult = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as? NSDictionary {
+        if let jsonResult = JSONSerialization.JSONObjectWithData(jsonData, options: JSONSerialization.ReadingOptions.MutableContainers, error: &jsonError) as? NSDictionary {
             if (jsonResult.count > 0) {
                 if let status = jsonResult["status"] as? NSString {
                     if status == "OK" {
@@ -95,14 +95,14 @@ class NYTArticles: NSObject {
                             }
                             }
                         }
-                        dispatch_async(dispatch_get_main_queue(), {
+                        DispatchQueue.main.async(execute: {
                             parseCompletionHandler(self, nil)
                         })
                     }
                 }
             } else {
                 if let unwrappedError = jsonError {
-                    dispatch_async(dispatch_get_main_queue(), {
+                    DispatchQueue.main.async(execute: {
                         parseCompletionHandler(self, "\(unwrappedError)")
                     })
                 }

@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 enum OverlayViewMode : Int {
-    case OverlayViewLeft
-    case OverlayViewRight
+    case overlayViewLeft
+    case overlayViewRight
 }
 
 class OverlayView: UIView {
@@ -20,11 +20,11 @@ class OverlayView: UIView {
     //var imageView: UIImageView
     
     override init(frame:CGRect) {
-        mode = OverlayViewMode.OverlayViewLeft
+        mode = OverlayViewMode.overlayViewLeft
         //imageView = UIImageView()
         super.init(frame:frame)
         self.layer.cornerRadius = 10
-        self.backgroundColor = UIColor.redColor()
+        self.backgroundColor = UIColor.red
         //imageView = UIImageView(image: UIImage(named: "noButton"))
         //self.addSubview(imageView)
     }
@@ -33,12 +33,12 @@ class OverlayView: UIView {
         self.init()
     }
     
-    func setMode(mode: OverlayViewMode) {
-        if mode == OverlayViewMode.OverlayViewLeft {
-            self.backgroundColor = UIColor.redColor()
+    func setMode(_ mode: OverlayViewMode) {
+        if mode == OverlayViewMode.overlayViewLeft {
+            self.backgroundColor = UIColor.red
             //imageView.image = UIImage(named: "noButton")
         } else {
-            self.backgroundColor = UIColor.greenColor()
+            self.backgroundColor = UIColor.green
            //imageView.image = UIImage(named: "yesButton")
         }
     }

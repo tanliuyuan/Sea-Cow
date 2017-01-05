@@ -38,10 +38,10 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         readingList.load(articleSearchUrl, loadCompletionHandler: {
             (nytArticles, errorString) -> Void in
             if let unwrappedErrorString = errorString {
-                println(unwrappedErrorString)
+                print(unwrappedErrorString)
             } else {
              
-                println(self.readingList.articles.count)
+                print(self.readingList.articles.count)
                 self.myTableView.reloadData()
                 
             }
@@ -49,7 +49,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         allArticles = testArticles?.getArticles()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if allArticles != nil {
             return allArticles!.count
         } else {
@@ -57,9 +57,9 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: CustomCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
+        let cell: CustomCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
         if(allArticles!.count > 0) {
             
         
@@ -67,8 +67,8 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
             cell.title?.text = allArticles![indexPath.row].title
             cell.title?.font = UIFont(name: "Gotham Light", size: 18)
             //let url = NSURL(string: readingList.articles[indexPath.row].imageUrl)
-            let url = NSURL(string: allArticles![indexPath.row].imageUrl)
-            let data = NSData(contentsOfURL: url!)
+            let url = URL(string: allArticles![indexPath.row].imageUrl)
+            let data = try? Data(contentsOf: url!)
             
             
             
@@ -79,50 +79,50 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedArticle = allArticles![indexPath.row]
-        performSegueWithIdentifier("showArticle", sender: self)
+        performSegue(withIdentifier: "showArticle", sender: self)
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         
     }
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+    func tableView(_ tableView: UITableView, editActionsForRowAtIndexPath indexPath: IndexPath) -> [AnyObject]? {
         
-        var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal , title: "Share", handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
+        var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal , title: "Share", handler: { (action: UITableViewRowAction!, indexPath: IndexPath!) in
             
             let composer = TWTRComposer()
             
             composer.setText("Check out this awesome article!\n\n" + self.allArticles![indexPath.row].url + "\n\n#seaCow #articleTags? #whatever")
             composer.setImage(UIImage(named: "fabric"))
             
-            composer.showWithCompletion { (result) -> Void in
-                if (result == TWTRComposerResult.Cancelled) {
-                    println("Tweet composition cancelled")
+            composer.show { (result) -> Void in
+                if (result == TWTRComposerResult.cancelled) {
+                    print("Tweet composition cancelled")
                 }
                 else {
-                    println("Sending tweet!")
+                    print("Sending tweet!")
                 }
             }
             
-            self.myTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            self.myTableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
             
             return
         })
         
-        shareAction.backgroundColor = UIColor.blueColor()
+        shareAction.backgroundColor = UIColor.blue
        
-        var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default , title: "Delete", handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
+        var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default , title: "Delete", handler: { (action: UITableViewRowAction!, indexPath: IndexPath!) in
             
-            self.allArticles?.removeAtIndex(indexPath.row)
+            self.allArticles?.remove(at: indexPath.row)
             self.testArticles?.removeArticle(indexPath.row)
-            self.myTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            self.myTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
             self.testArticles!.save()
             return
         })
@@ -131,20 +131,20 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "showArticle"){
-        let destinationViewController = segue.destinationViewController as! ArticleViewController
+        let destinationViewController = segue.destination as! ArticleViewController
         destinationViewController.article = selectedArticle
         }
         
     }
     
-    @IBAction func back(sender: AnyObject) {
-        performSegueWithIdentifier("returnToCards", sender: self)
+    @IBAction func back(_ sender: AnyObject) {
+        performSegue(withIdentifier: "returnToCards", sender: self)
     }
     
-    @IBAction func returnToReadingList(segue: UIStoryboardSegue) {
+    @IBAction func returnToReadingList(_ segue: UIStoryboardSegue) {
         
     }
     

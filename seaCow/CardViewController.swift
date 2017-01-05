@@ -21,24 +21,24 @@ class CardViewController: UIViewController {
         scheduleLocalNotifications()
         
         //create the time and repeat every 12 hours
-        let test: NSTimer = NSTimer(fireDate: checkWhichDate(), interval: 5, target: self, selector: "loadCards", userInfo: nil, repeats: true)
-        NSRunLoop.currentRunLoop().addTimer(test, forMode: NSRunLoopCommonModes)
+        let test: Timer = Timer(fireAt: checkWhichDate(), interval: 5, target: self, selector: #selector(CardViewController.loadCards), userInfo: nil, repeats: true)
+        RunLoop.current.add(test, forMode: RunLoopMode.commonModes)
         
         loadCards()
         
     }
     
-    @IBAction func gotoReadingList(sender: AnyObject) {
-        println("Going to reading list")
-        performSegueWithIdentifier("CowToList", sender: CardViewController())
+    @IBAction func gotoReadingList(_ sender: AnyObject) {
+        print("Going to reading list")
+        performSegue(withIdentifier: "CowToList", sender: CardViewController())
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println("preparing for segue")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("preparing for segue")
         let comp: String? = "CowToList"
         if(segue.identifier == comp) {
-            let destViewController = segue.destinationViewController as! ReadingListViewController
+            let destViewController = segue.destination as! ReadingListViewController
             
            // destViewController.allArticles = swipeCardsViewBackground!.toReadingList
             destViewController.testArticles = swipeCardsViewBackground!.testArticles
@@ -46,18 +46,18 @@ class CardViewController: UIViewController {
         
     }
 
-    @IBAction func returnToCards(segue: UIStoryboardSegue) {
+    @IBAction func returnToCards(_ segue: UIStoryboardSegue) {
         
     }
     
     func scheduleLocalNotifications() {
         let dateString1 = "2000-01-01 8:00"
         let dateString2 = "2000-01-01 20:00"
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        formatter.timeZone = NSTimeZone.systemTimeZone()
-        let fireDate1 = formatter.dateFromString(dateString1)
-        let fireDate2 = formatter.dateFromString(dateString2)
+        formatter.timeZone = TimeZone.current
+        let fireDate1 = formatter.date(from: dateString1)
+        let fireDate2 = formatter.date(from: dateString2)
         
         var localNotification = UILocalNotification()
         localNotification.alertAction = "Sea Cow"
@@ -66,38 +66,38 @@ class CardViewController: UIViewController {
         // set first notification time
         localNotification.fireDate = fireDate1
         // repeat notification daily
-        localNotification.repeatInterval = NSCalendarUnit.CalendarUnitDay
+        localNotification.repeatInterval = NSCalendar.Unit.CalendarUnitDay
         // schedule first notification
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        UIApplication.shared.scheduleLocalNotification(localNotification)
         // set second notification time
         localNotification.fireDate = fireDate2
         // schedule second notification
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        UIApplication.shared.scheduleLocalNotification(localNotification)
     }
     
     
     
     func loadCards() {
-        let subViewFrame: CGRect = CGRectMake(0, self.navigationController!.navigationBar.frame.size.height+UIApplication.sharedApplication().statusBarFrame.height, self.view.frame.width, self.view.frame.height-UIApplication.sharedApplication().statusBarFrame.height-self.navigationController!.navigationBar.frame.size.height)
+        let subViewFrame: CGRect = CGRect(x: 0, y: self.navigationController!.navigationBar.frame.size.height+UIApplication.shared.statusBarFrame.height, width: self.view.frame.width, height: self.view.frame.height-UIApplication.shared.statusBarFrame.height-self.navigationController!.navigationBar.frame.size.height)
         swipeCardsViewBackground = SwipeCardsViewBackground(frame: subViewFrame)
         self.view.addSubview(swipeCardsViewBackground!)
     }
     
     func test() {
-        println("test")
+        print("test")
     }
     
-    func checkWhichDate() -> NSDate{
+    func checkWhichDate() -> Date{
         
         var dateString1 = "2000-01-01 8:00"
         var dateString2 = "2015-05-12 20:00"
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        formatter.timeZone = NSTimeZone.systemTimeZone()
+        formatter.timeZone = TimeZone.current
         
         
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
+        let date = Date()
+        let calendar = Calendar.current
         let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitDay | .CalendarUnitYear | .CalendarUnitMonth, fromDate: date)
         let year = components.year as NSNumber
         let month = components.month as NSNumber
@@ -114,11 +114,11 @@ class CardViewController: UIViewController {
         }
         dateString2 = year.stringValue + "-" + month.stringValue + "-" + day.stringValue + " " + hour2.stringValue + ":00"
         
-        println(dateString1)
-        println(dateString2)
+        print(dateString1)
+        print(dateString2)
         
-        let fireDate1 = formatter.dateFromString(dateString1)
-        let fireDate2 = formatter.dateFromString(dateString2)
+        let fireDate1 = formatter.date(from: dateString1)
+        let fireDate2 = formatter.date(from: dateString2)
         if(hour > 8 && hour < 20) {
             //return 20:00
             return fireDate2!

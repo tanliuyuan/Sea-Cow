@@ -22,13 +22,13 @@ class readArticle: NSObject, NSCoding {
     }
     
     required init(coder decoder: NSCoder) {
-        self.title = decoder.decodeObjectForKey("title") as! String?
-        self.url = decoder.decodeObjectForKey("url") as! String?
+        self.title = decoder.decodeObject(forKey: "title") as! String?
+        self.url = decoder.decodeObject(forKey: "url") as! String?
     }
     
-    func encodeWithCoder(coder: NSCoder) {
-        coder.encodeObject(self.title, forKey: "title")
-        coder.encodeObject(self.url, forKey: "url")
+    func encode(with coder: NSCoder) {
+        coder.encode(self.title, forKey: "title")
+        coder.encode(self.url, forKey: "url")
     }
     
 

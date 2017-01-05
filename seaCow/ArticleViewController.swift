@@ -21,13 +21,13 @@ class ArticleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.share.target = self
-        self.share.action = "shareIt"
+        self.share.action = #selector(ArticleViewController.shareIt)
         // Do any additional setup after loading the view.
         
         if(article != nil){
-            self.navigationItem.title = article!.section.uppercaseString
-            let url = NSURL(string: article!.url)
-            let request = NSURLRequest(URL: url!)
+            self.navigationItem.title = article!.section.uppercased()
+            let url = URL(string: article!.url)
+            let request = URLRequest(url: url!)
             webView.loadRequest(request)
             articleURL = article?.url
         }
@@ -36,8 +36,8 @@ class ArticleViewController: UIViewController {
     
 
     
-    @IBAction func back(sender: AnyObject) {
-        performSegueWithIdentifier("returnToReadingList", sender: self)
+    @IBAction func back(_ sender: AnyObject) {
+        performSegue(withIdentifier: "returnToReadingList", sender: self)
     }
     
     func shareIt() {
@@ -47,12 +47,12 @@ class ArticleViewController: UIViewController {
         composer.setText("Check out this awesome article!\n\n" + articleURL! + "\n\n#seaCow #articleTags? #whatever")
         composer.setImage(UIImage(named: "fabric"))
         
-        composer.showWithCompletion { (result) -> Void in
-            if (result == TWTRComposerResult.Cancelled) {
-                println("Tweet composition cancelled")
+        composer.show { (result) -> Void in
+            if (result == TWTRComposerResult.cancelled) {
+                print("Tweet composition cancelled")
             }
             else {
-                println("Sending tweet!")
+                print("Sending tweet!")
             }
         }
 

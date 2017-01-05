@@ -43,7 +43,7 @@ class SwipeCardsView: UIView {
         
         let gradientImage = UIImage(named: "gradient.png")
         gradientView = UIImageView(image: gradientImage)
-        gradientView.contentMode = UIViewContentMode.ScaleAspectFill
+        gradientView.contentMode = UIViewContentMode.scaleAspectFill
         
         label.text = "No Data"
         
@@ -62,27 +62,27 @@ class SwipeCardsView: UIView {
         
         super.init(frame: frame)
         
-        label = UILabel(frame: CGRectMake(self.frame.size.width * 0.05, self.frame.size.height * 0.6, self.frame.size.width * 0.85, self.frame.size.height * 0.4))
-        label.textAlignment = NSTextAlignment.Natural
-        label.textColor = UIColor.whiteColor()
+        label = UILabel(frame: CGRect(x: self.frame.size.width * 0.05, y: self.frame.size.height * 0.6, width: self.frame.size.width * 0.85, height: self.frame.size.height * 0.4))
+        label.textAlignment = NSTextAlignment.natural
+        label.textColor = UIColor.white
         label.font = UIFont(name: "Gotham Bold", size: 24)
         label.numberOfLines = 0
         
         let backgroundImage = UIImage(named: "cardbackground.png")
-        backgroundView = UIImageView(frame: CGRectMake(0, 0, self.frame.size.width , self.frame.size.height))
+        backgroundView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width , height: self.frame.size.height))
         backgroundView.image = backgroundImage
         
         let gradientImage = UIImage(named: "gradient.png")
-        gradientView = UIImageView(frame: CGRectMake(0, 0, self.frame.size.width , self.frame.size.height))
+        gradientView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width , height: self.frame.size.height))
         gradientView.image = gradientImage
         
         setupView()
 
-        panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "beingDragged:")
+        panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(SwipeCardsView.beingDragged(_:)))
         
         self.addGestureRecognizer(panGestureRecognizer)
         
-        overlayView = OverlayView(frame: CGRectMake(0, 0, self.frame.size.width, self.frame.size.height))
+        overlayView = OverlayView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
         overlayView.alpha = 0
         self.addSubview(overlayView)
             
@@ -93,12 +93,12 @@ class SwipeCardsView: UIView {
         self.layer.cornerRadius = 10
         self.layer.shadowRadius = 3
         self.layer.shadowOpacity = 0.3
-        self.layer.shadowOffset = CGSizeMake(0.5, 1.5)
+        self.layer.shadowOffset = CGSize(width: 0.5, height: 1.5)
         
         self.addSubview(backgroundView)
-        backgroundView.contentMode = UIViewContentMode.ScaleAspectFill
+        backgroundView.contentMode = UIViewContentMode.scaleAspectFill
         self.addSubview(gradientView)
-        gradientView.contentMode = UIViewContentMode.ScaleToFill
+        gradientView.contentMode = UIViewContentMode.scaleToFill
         self.addSubview(label)
         
         self.backgroundView.layer.cornerRadius = 10
@@ -108,44 +108,44 @@ class SwipeCardsView: UIView {
     }
     
     // This function is called when the user's finger touches and pans over the screen
-    func beingDragged(gestureRecognizer: UIPanGestureRecognizer) {
+    func beingDragged(_ gestureRecognizer: UIPanGestureRecognizer) {
         
         // .translationInView extracts the coordinate data from the swipe movement
-        xFromCenter = gestureRecognizer.translationInView(self).x
-        yFromCenter = gestureRecognizer.translationInView(self).y
+        xFromCenter = gestureRecognizer.translation(in: self).x
+        yFromCenter = gestureRecognizer.translation(in: self).y
         
         // .state checks whether user is starting, panning, or letting go of the card
         switch (gestureRecognizer.state) {
             
-        case UIGestureRecognizerState.Began:
+        case UIGestureRecognizerState.began:
             self.originalPoint = self.center
             
-        case UIGestureRecognizerState.Changed:
-            var rotationStrength = min(CGFloat(xFromCenter) / CGFloat(ROTATION_STRENGTH), CGFloat(ROTATION_MAX)) as CGFloat
-            var rotationAngle: CGFloat = (CGFloat(ROTATION_ANGLE) * rotationStrength)
-            var scale = max((CGFloat(1) - CGFloat(rotationStrength) / CGFloat(SCALE_STRENGTH)), SCALE_MAX) as CGFloat
-            self.center = CGPointMake(self.originalPoint.x + xFromCenter, self.originalPoint.y + yFromCenter)
-            var transform: CGAffineTransform = CGAffineTransformMakeRotation(rotationAngle)
-            var scaleTransform: CGAffineTransform = CGAffineTransformScale(transform, scale, scale)
+        case UIGestureRecognizerState.changed:
+            let rotationStrength = min(CGFloat(xFromCenter) / CGFloat(ROTATION_STRENGTH), CGFloat(ROTATION_MAX)) as CGFloat
+            let rotationAngle: CGFloat = (CGFloat(ROTATION_ANGLE) * rotationStrength)
+            let scale = max((CGFloat(1) - CGFloat(rotationStrength) / CGFloat(SCALE_STRENGTH)), SCALE_MAX) as CGFloat
+            self.center = CGPoint(x: self.originalPoint.x + xFromCenter, y: self.originalPoint.y + yFromCenter)
+            let transform: CGAffineTransform = CGAffineTransform(rotationAngle: rotationAngle)
+            let scaleTransform: CGAffineTransform = transform.scaledBy(x: scale, y: scale)
             self.transform = scaleTransform
             self.updateOverlay(xFromCenter)
             
-        case UIGestureRecognizerState.Ended:
+        case UIGestureRecognizerState.ended:
             self.afterSwipeAction()
             
-        case UIGestureRecognizerState.Possible:break
-        case UIGestureRecognizerState.Cancelled:break
-        case UIGestureRecognizerState.Failed:break
+        case UIGestureRecognizerState.possible:break
+        case UIGestureRecognizerState.cancelled:break
+        case UIGestureRecognizerState.failed:break
         }
     }
     
     // Checks to see if user's moving right or left and applies the corresponding overlay image
-    func updateOverlay(distance: CGFloat) {
+    func updateOverlay(_ distance: CGFloat) {
         // If card is being dragged to the right
         if distance > 0 {
-            overlayView.setMode(OverlayViewMode.OverlayViewRight)
+            overlayView.setMode(OverlayViewMode.overlayViewRight)
         } else if distance < 0 { // If card is being dragged to the left
-            overlayView.setMode(OverlayViewMode.OverlayViewLeft)
+            overlayView.setMode(OverlayViewMode.overlayViewLeft)
         }
         
         overlayView.alpha = min(CGFloat(abs(distance))/100, 0.4)
@@ -160,36 +160,36 @@ class SwipeCardsView: UIView {
             self.leftAction(self.superview as! SwipeCardsViewBackground)
         }
         else {
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
+            UIView.animate(withDuration: 0.3, animations: { () -> Void in
                 self.center = self.originalPoint
-                self.transform = CGAffineTransformMakeRotation(0)
+                self.transform = CGAffineTransform(rotationAngle: 0)
                 self.overlayView.alpha = 0
             })
         }
     }
     
     // Called when user swipes right
-    func rightAction(background: SwipeCardsViewBackground) {
-        var finishPoint: CGPoint = CGPointMake(500, 2 * yFromCenter + self.originalPoint.y)
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+    func rightAction(_ background: SwipeCardsViewBackground) {
+        var finishPoint: CGPoint = CGPoint(x: 500, y: 2 * yFromCenter + self.originalPoint.y)
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
             self.center = finishPoint
-            }) { (complete) -> Void in
+            }, completion: { (complete) -> Void in
                 self.removeFromSuperview()
-            }
+            }) 
         background.swipeRight()
-        println("YES")
+        print("YES")
     }
     
     // Called when user swipes left
-    func leftAction(background: SwipeCardsViewBackground) {
-        var finishPoint: CGPoint = CGPointMake(-500, 2 * yFromCenter + self.originalPoint.y)
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+    func leftAction(_ background: SwipeCardsViewBackground) {
+        var finishPoint: CGPoint = CGPoint(x: -500, y: 2 * yFromCenter + self.originalPoint.y)
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
             self.center = finishPoint
-            }) { (complete) -> Void in
+            }, completion: { (complete) -> Void in
                 self.removeFromSuperview()
-        }
+        }) 
         background.swipeLeft()
-        println("NO")
+        print("NO")
     }
     /*
     // Called when user clicks "yes" button

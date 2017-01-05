@@ -12,43 +12,43 @@ class History: NSObject {
     var allArticles: [readArticle] = []
     
     override init() {
-        println("History initialized")
+        print("History initialized")
     }
     
     required init(coder decoder: NSCoder) {
-        self.allArticles = decoder.decodeObjectForKey("allArticles") as! [readArticle]
+        self.allArticles = decoder.decodeObject(forKey: "allArticles") as! [readArticle]
     }
     
-    func encodeWithCoder(coder: NSCoder) {
-        coder.encodeObject(self.allArticles, forKey: "allArticles")
+    func encodeWithCoder(_ coder: NSCoder) {
+        coder.encode(self.allArticles, forKey: "allArticles")
     }
     
-    func addArticle(article: ArticleData) {
+    func addArticle(_ article: ArticleData) {
         allArticles.append(readArticle(title2: article.title, url2: article.url))
     }
     
     func save() {
-        println("trying to save")
-        let data = NSKeyedArchiver.archivedDataWithRootObject(self)
-        println("data created, trying to write")
-        NSUserDefaults.standardUserDefaults().setObject(data, forKey: "history")
-        println("success")
+        print("trying to save")
+        let data = NSKeyedArchiver.archivedData(withRootObject: self)
+        print("data created, trying to write")
+        UserDefaults.standard.set(data, forKey: "history")
+        print("success")
     }
     
     func load() -> Bool {
-        if let data = NSUserDefaults.standardUserDefaults().objectForKey("history") as? NSData {
-            let temp = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! History
+        if let data = UserDefaults.standard.object(forKey: "history") as? Data {
+            let temp = NSKeyedUnarchiver.unarchiveObject(with: data) as! History
             allArticles = temp.allArticles
-            println("History Loaded")
+            print("History Loaded")
             return true
         }
         return false
     }
 
     //returns true if it exists
-    func checkIfExists(articleName: String) -> Bool {
+    func checkIfExists(_ articleName: String) -> Bool {
         var i = 0
-        for(i=0; i < allArticles.count; i++) {
+        for(i=0; i < allArticles.count; i += 1) {
           //  println(articleName)
             if(articleName == allArticles[i].title) {
                 //println("Article already read")
