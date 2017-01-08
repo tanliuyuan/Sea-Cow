@@ -8,7 +8,7 @@
 
 import UIKit
 
-class readArticle: NSObject, NSCoding {
+class ReadArticle: NSObject, NSCoding {
    
     var title: String!
     var url: String!

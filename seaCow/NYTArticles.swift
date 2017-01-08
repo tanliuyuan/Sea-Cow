@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class NYTArticles: NSObject {
     var articles = Array<ArticleData>()
@@ -15,16 +16,18 @@ class NYTArticles: NSObject {
     func load(_ fromURLString: String, loadCompletionHandler: @escaping (NYTArticles, String?) -> Void) {
         history.load()
         if let url = URL(string: fromURLString) {
-            let urlRequest = NSMutableURLRequest(url: url)
+            let urlRequest = URLRequest(url: url)
             let session = URLSession.shared
-            let task = session.dataTask(urlRequest, completionHandler: {
+            let task = session.dataTask(with: urlRequest, completionHandler: {
                 (data, response, error) -> Void in
                 if error != nil {
                     DispatchQueue.main.async(execute: {
-                        loadCompletionHandler(self, error.localizedDescription)
+                        loadCompletionHandler(self, error!.localizedDescription)
                     })
                 } else {
-                    self.parse(data, parseCompletionHandler: loadCompletionHandler)
+                    if data != nil {
+                        self.parse(data!, parseCompletionHandler: loadCompletionHandler)
+                    }
                 }
             })
             
@@ -36,7 +39,11 @@ class NYTArticles: NSObject {
         }
     }
     
-    func parse(_ jsonData: Data, parseCompletionHandler: @escaping (NYTArticles, String?) -> Void) {
+    //#######################################################################################//
+    //###TODO: rewrite the parse function to keep up with the latest NYT API and Swift 3.0###//
+    //#######################################################################################//
+
+    /*func parse(_ jsonData: Data, parseCompletionHandler: @escaping (NYTArticles, String?) -> Void) {
         var jsonError: NSError?
         
         if let jsonResult = JSONSerialization.JSONObjectWithData(jsonData, options: JSONSerialization.ReadingOptions.MutableContainers, error: &jsonError) as? NSDictionary {
@@ -108,5 +115,5 @@ class NYTArticles: NSObject {
                 }
             }
         }
-    }
+    }*/
 }

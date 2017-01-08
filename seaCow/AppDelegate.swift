@@ -20,7 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Fabric.with([Twitter()])
         
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, categories: nil))
+        //#########################################################//
+        //###TODO: Fix notification for UNUserNotificationCenter###//
+        //#########################################################//
+        
+        // UIUserNotificationSettings has been deprecated in iOS10.
+        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
         
         return true
     }

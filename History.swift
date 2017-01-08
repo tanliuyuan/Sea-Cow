@@ -9,14 +9,14 @@
 import UIKit
 
 class History: NSObject {
-    var allArticles: [readArticle] = []
+    var allArticles: [ReadArticle] = []
     
     override init() {
         print("History initialized")
     }
     
     required init(coder decoder: NSCoder) {
-        self.allArticles = decoder.decodeObject(forKey: "allArticles") as! [readArticle]
+        self.allArticles = decoder.decodeObject(forKey: "allArticles") as! [ReadArticle]
     }
     
     func encodeWithCoder(_ coder: NSCoder) {
@@ -24,7 +24,7 @@ class History: NSObject {
     }
     
     func addArticle(_ article: ArticleData) {
-        allArticles.append(readArticle(title2: article.title, url2: article.url))
+        allArticles.append(ReadArticle(title2: article.title, url2: article.url))
     }
     
     func save() {
@@ -47,10 +47,9 @@ class History: NSObject {
 
     //returns true if it exists
     func checkIfExists(_ articleName: String) -> Bool {
-        var i = 0
-        for(i=0; i < allArticles.count; i += 1) {
+        for article in allArticles {
           //  println(articleName)
-            if(articleName == allArticles[i].title) {
+            if(articleName == article.title) {
                 //println("Article already read")
                 return true
             }

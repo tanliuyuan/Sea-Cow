@@ -59,14 +59,14 @@ class CardViewController: UIViewController {
         let fireDate1 = formatter.date(from: dateString1)
         let fireDate2 = formatter.date(from: dateString2)
         
-        var localNotification = UILocalNotification()
+        let localNotification = UILocalNotification()
         localNotification.alertAction = "Sea Cow"
         localNotification.alertBody = "Hey! Sea Cow's got you some news!"
         localNotification.soundName = UILocalNotificationDefaultSoundName
         // set first notification time
         localNotification.fireDate = fireDate1
         // repeat notification daily
-        localNotification.repeatInterval = NSCalendar.Unit.CalendarUnitDay
+        localNotification.repeatInterval = NSCalendar.Unit.day
         // schedule first notification
         UIApplication.shared.scheduleLocalNotification(localNotification)
         // set second notification time
@@ -98,16 +98,16 @@ class CardViewController: UIViewController {
         
         let date = Date()
         let calendar = Calendar.current
-        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitDay | .CalendarUnitYear | .CalendarUnitMonth, fromDate: date)
-        let year = components.year as NSNumber
-        let month = components.month as NSNumber
-        let day = components.day as NSNumber
+        let components = calendar.dateComponents([.hour, .minute, .day, .year, .month], from: date)
+        let year = components.year! as NSNumber
+        let month = components.month! as NSNumber
+        let day = components.day! as NSNumber
         let hour = components.hour
         let hour1 = 8 as NSNumber
         let hour2 = 20 as NSNumber
         let day1 = (day as Int + 1) as NSNumber
         
-        if(hour > 8) {
+        if(hour! > 8) {
             dateString1 = year.stringValue + "-" + month.stringValue + "-" + day1.stringValue + " " + hour1.stringValue + ":00"
         } else {
             dateString1 = year.stringValue + "-" + month.stringValue + "-" + day.stringValue + " " + hour1.stringValue + ":00"
@@ -119,7 +119,7 @@ class CardViewController: UIViewController {
         
         let fireDate1 = formatter.date(from: dateString1)
         let fireDate2 = formatter.date(from: dateString2)
-        if(hour > 8 && hour < 20) {
+        if(hour! > 8 && hour! < 20) {
             //return 20:00
             return fireDate2!
             

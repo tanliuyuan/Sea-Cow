@@ -85,8 +85,6 @@ class SwipeCardsView: UIView {
         overlayView = OverlayView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
         overlayView.alpha = 0
         self.addSubview(overlayView)
-            
-        self.superview
     }
     
     func setupView() {
