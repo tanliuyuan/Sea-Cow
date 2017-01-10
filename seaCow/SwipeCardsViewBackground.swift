@@ -9,13 +9,11 @@
 import Foundation
 import UIKit
 
-// A set of constant and variable strings for making up the URL for article searching using NYT's API
-let articleSearchBaseUrl = "http://api.nytimes.com/svc/mostpopular/v2"
-let articleSearchResourceType = "mostviewed" // mostemailed | mostshared | mostviewed
-let articleSearchSections = "all-sections"
-let articlesSearchNumOfDays = 1 // 1 | 7 | 30
-let articleSearchReturnFormat = ".json"
-let articleSearchAPIKey = "b772e34fc2a53d05fe60d6c63d0c0e4c:9:71573042"
+// A set of constant and variable strings for making up the URL for searching using NYT's Top Stories API
+let topStoriesBaseUrl = "https://api.nytimes.com/svc/topstories/v2"
+let topStoriesSection = "home"  //home | opinion | world | national | politics | upshot | nyregion | business | technology |science | health | sports | arts | books | movies | theater | sundayreview | fashion | tmagazine | food | travel | magazine | realestate | automobiles | obituaries | insider
+let topStoriesReturnFormat = ".json" // .json | .jsonp
+let topStoriesAPIKey = "ebe481192b8e46f1a6d27d20649e572c"
 
 class SwipeCardsViewBackground: UIView {
     
@@ -71,11 +69,11 @@ class SwipeCardsViewBackground: UIView {
         
         var stringTitles: [String] = []
         // Make up search url
-        let articleSearchUrl = articleSearchBaseUrl + "/" + articleSearchResourceType + "/" + articleSearchSections + "/" + "\(articlesSearchNumOfDays)" + articleSearchReturnFormat + "?" + "&API-Key=" + articleSearchAPIKey
+        let topStoriesUrl = topStoriesBaseUrl + "/" + topStoriesSection + topStoriesReturnFormat + "?" + "&api-key=" + topStoriesAPIKey
         
         // load articles from the NYT API
-        //println(articleSearchUrl)
-        nytArticles.load(articleSearchUrl, loadCompletionHandler: {
+        //println(topStoriesUrl)
+        nytArticles.load(topStoriesUrl, loadCompletionHandler: {
             (nytArticles, errorString) -> Void in
             if let unwrappedErrorString = errorString {
                 print(unwrappedErrorString)

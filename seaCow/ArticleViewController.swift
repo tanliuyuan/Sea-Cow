@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import TwitterKit
-import Fabric
+//import TwitterKit
+//import Fabric
 
 class ArticleViewController: UIViewController {
 
@@ -21,7 +21,7 @@ class ArticleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.share.target = self
-        self.share.action = #selector(ArticleViewController.shareIt)
+        //self.share.action = #selector(ArticleViewController.shareIt)
         // Do any additional setup after loading the view.
         
         if(article != nil){
@@ -40,7 +40,7 @@ class ArticleViewController: UIViewController {
         performSegue(withIdentifier: "returnToReadingList", sender: self)
     }
     
-    func shareIt() {
+    /*func shareIt() {
 
         let composer = TWTRComposer()
         
@@ -55,7 +55,6 @@ class ArticleViewController: UIViewController {
                 print("Sending tweet!")
             }
         }
-
-    }
+    }*/
 
 }

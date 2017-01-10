@@ -14,31 +14,44 @@ class NYTArticles: NSObject {
     var history: History = History()
     
     func load(_ fromURLString: String, loadCompletionHandler: @escaping (NYTArticles, String?) -> Void) {
-        history.load()
-        if let url = URL(string: fromURLString) {
-            let urlRequest = URLRequest(url: url)
-            let session = URLSession.shared
-            let task = session.dataTask(with: urlRequest, completionHandler: {
-                (data, response, error) -> Void in
-                if error != nil {
-                    DispatchQueue.main.async(execute: {
-                        loadCompletionHandler(self, error!.localizedDescription)
-                    })
-                } else {
-                    if data != nil {
-                        self.parse(data!, parseCompletionHandler: loadCompletionHandler)
+        if !history.load() {
+            if let url = URL(string: fromURLString) {
+                let urlRequest = URLRequest(url: url)
+                let session = URLSession.shared
+                let task = session.dataTask(with: urlRequest, completionHandler: {
+                    (data, response, error) -> Void in
+                    if error != nil {
+                        DispatchQueue.main.async(execute: {
+                            loadCompletionHandler(self, error!.localizedDescription)
+                        })
+                    } else {
+                        if data != nil {
+                            self.parse(data!, parseCompletionHandler: loadCompletionHandler)
+                        }
                     }
-                }
-            })
-            
-            task.resume()
-        } else {
-            DispatchQueue.main.async(execute: {
-                loadCompletionHandler(self, "Invalid URL")
-            })
+                })
+                
+                task.resume()
+            } else {
+                DispatchQueue.main.async(execute: {
+                    loadCompletionHandler(self, "Invalid URL")
+                })
+            }
         }
     }
     
+    func parse(_ jsonData: Data, parseCompletionHandler: (NYTArticles, String?) -> Void) {
+        let jsonResult = try? JSONSerialization.jsonObject(with: jsonData, options: [])
+        if let jsonDictionary = jsonResult as? [String: Any] {
+            if let status = jsonDictionary["status"] as? String {
+                if status == "OK" {
+                    if let results = jsonDictionary["results"] {
+                        print(results)
+                    }
+                }
+            }
+        }
+    }
     //#######################################################################################//
     //###TODO: rewrite the parse function to keep up with the latest NYT API and Swift 3.0###//
     //#######################################################################################//

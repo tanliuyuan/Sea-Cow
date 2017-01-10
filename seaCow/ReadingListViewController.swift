@@ -93,8 +93,8 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAtIndexPath indexPath: IndexPath) -> [AnyObject]? {
-        
+    /*func tableView(_ tableView: UITableView, editActionsForRowAtIndexPath indexPath: IndexPath) -> [AnyObject]? {
+     
         let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal , title: "Share", handler: { (action: UITableViewRowAction!, indexPath: IndexPath!) in
             
             let composer = TWTRComposer()
@@ -128,8 +128,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         })
         
         return [deleteAction, shareAction]
-        
-    }
+    }*/
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

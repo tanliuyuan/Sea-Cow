@@ -15,9 +15,6 @@
 		2100316C1ADD968400E1DD6D /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2100316B1ADD968400E1DD6D /* CardViewController.swift */; };
 		2110FD981AF93D990072B21A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2110FD971AF93D990072B21A /* CoreData.framework */; };
 		2110FDCC1AF93E300072B21A /* seaCow.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2110FDCA1AF93E300072B21A /* seaCow.xcdatamodeld */; };
-		212974CE1AE6C9F600E3597C /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974CB1AE6C9F600E3597C /* TwitterKit.framework */; };
-		212974CF1AE6C9F700E3597C /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 212974CC1AE6C9F600E3597C /* TwitterKitResources.bundle */; };
-		212974D01AE6C9F700E3597C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212974CD1AE6C9F600E3597C /* Fabric.framework */; };
 		2148088B1AE015EF008EB6C0 /* ReadingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */; };
 		2148088D1AE01792008EB6C0 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088C1AE01792008EB6C0 /* ArticleViewController.swift */; };
 		2148088F1AE017C1008EB6C0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148088E1AE017C1008EB6C0 /* SettingsViewController.swift */; };
@@ -45,6 +42,10 @@
 		54FAE71C1B0310870013B59A /* tiny.png in Resources */ = {isa = PBXBuildFile; fileRef = 54FAE71B1B0310870013B59A /* tiny.png */; };
 		54FAE71E1B031AAA0013B59A /* slightlylarger.png in Resources */ = {isa = PBXBuildFile; fileRef = 54FAE71D1B031AAA0013B59A /* slightlylarger.png */; };
 		54FAE7201B031D310013B59A /* 3X.png in Resources */ = {isa = PBXBuildFile; fileRef = 54FAE71F1B031D310013B59A /* 3X.png */; };
+		6D3613A01E25ABF800A6AD69 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D36139C1E25ABF800A6AD69 /* Fabric.framework */; };
+		6D3613A11E25ABF800A6AD69 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D36139D1E25ABF800A6AD69 /* TwitterKit.framework */; };
+		6D3613A21E25ABF800A6AD69 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6D36139E1E25ABF800A6AD69 /* TwitterKitResources.bundle */; };
+		6D3613A31E25ABF800A6AD69 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D36139F1E25ABF800A6AD69 /* TwitterCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,9 +71,6 @@
 		2100316B1ADD968400E1DD6D /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		2110FD971AF93D990072B21A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2110FDCB1AF93E300072B21A /* seaCow.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = seaCow.xcdatamodel; sourceTree = "<group>"; };
-		212974CB1AE6C9F600E3597C /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
-		212974CC1AE6C9F600E3597C /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
-		212974CD1AE6C9F600E3597C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		2148088A1AE015EF008EB6C0 /* ReadingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListViewController.swift; sourceTree = "<group>"; };
 		2148088C1AE01792008EB6C0 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		2148088E1AE017C1008EB6C0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +99,10 @@
 		54FAE71B1B0310870013B59A /* tiny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiny.png; sourceTree = "<group>"; };
 		54FAE71D1B031AAA0013B59A /* slightlylarger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slightlylarger.png; sourceTree = "<group>"; };
 		54FAE71F1B031D310013B59A /* 3X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3X.png; sourceTree = "<group>"; };
+		6D36139C1E25ABF800A6AD69 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		6D36139D1E25ABF800A6AD69 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		6D36139E1E25ABF800A6AD69 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		6D36139F1E25ABF800A6AD69 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +111,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2110FD981AF93D990072B21A /* CoreData.framework in Frameworks */,
-				212974D01AE6C9F700E3597C /* Fabric.framework in Frameworks */,
-				212974CE1AE6C9F600E3597C /* TwitterKit.framework in Frameworks */,
+				6D3613A31E25ABF800A6AD69 /* TwitterCore.framework in Frameworks */,
+				6D3613A01E25ABF800A6AD69 /* Fabric.framework in Frameworks */,
+				6D3613A11E25ABF800A6AD69 /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +134,10 @@
 				210031481ADD965F00E1DD6D /* seaCow */,
 				2100315E1ADD966000E1DD6D /* seaCowTests */,
 				210031471ADD965F00E1DD6D /* Products */,
+				6D36139C1E25ABF800A6AD69 /* Fabric.framework */,
+				6D36139D1E25ABF800A6AD69 /* TwitterKit.framework */,
+				6D36139E1E25ABF800A6AD69 /* TwitterKitResources.bundle */,
+				6D36139F1E25ABF800A6AD69 /* TwitterCore.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,9 +153,6 @@
 		210031481ADD965F00E1DD6D /* seaCow */ = {
 			isa = PBXGroup;
 			children = (
-				212974CB1AE6C9F600E3597C /* TwitterKit.framework */,
-				212974CC1AE6C9F600E3597C /* TwitterKitResources.bundle */,
-				212974CD1AE6C9F600E3597C /* Fabric.framework */,
 				2100314B1ADD965F00E1DD6D /* AppDelegate.swift */,
 				2100314F1ADD966000E1DD6D /* Main.storyboard */,
 				54CB925D1AFC027500BC63C3 /* GothamBold.ttf */,
@@ -305,10 +309,10 @@
 				5495BAAC1B029D5C00091B5A /* settings.png in Resources */,
 				5495BAB71B02AE8600091B5A /* settings2.png in Resources */,
 				54DAD1641AF98C25000444F0 /* cardbackground.png in Resources */,
+				6D3613A21E25ABF800A6AD69 /* TwitterKitResources.bundle in Resources */,
 				54FAE7201B031D310013B59A /* 3X.png in Resources */,
 				210031531ADD966000E1DD6D /* Images.xcassets in Resources */,
 				54FAE71C1B0310870013B59A /* tiny.png in Resources */,
-				212974CF1AE6C9F700E3597C /* TwitterKitResources.bundle in Resources */,
 				54FAE7141B02F6670013B59A /* load.png in Resources */,
 				54FAE7121B02D8E00013B59A /* readinglist3.png in Resources */,
 				54FAE71E1B031AAA0013B59A /* slightlylarger.png in Resources */,
@@ -339,7 +343,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 2ea6ebf2073d676edccd5402d696356b5b1034f0 a7bad79c6e7375ad2230a35bff92a5d03f928725f97f86f68951ed2210679755";
+			shellScript = "./Fabric.framework/run d5c7d410afb423010a6199c97dda090159779aed 00060dfb093168eb13e969a1878202c07189027bbb57f451f6b5b23ba7b82842";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -501,6 +505,7 @@
 					"$(inherited)",
 					/Users/sggtgb/Documents/FacebookSDK,
 					"$(PROJECT_DIR)/seaCow",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = seaCow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
@@ -520,6 +525,7 @@
 					"$(inherited)",
 					/Users/sggtgb/Documents/FacebookSDK,
 					"$(PROJECT_DIR)/seaCow",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = seaCow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
