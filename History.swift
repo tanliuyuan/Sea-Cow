@@ -16,7 +16,7 @@ class History: NSObject {
     }
     
     func addArticle(_ article: ArticleData) {
-        allArticles.append(ReadArticle(title2: article.title, url2: article.url))
+        allArticles.append(ReadArticle(withTitle: article.title, withUrl: article.url))
     }
     
     func save() {
@@ -29,8 +29,8 @@ class History: NSObject {
     
     func load() -> Bool {
         if let data = UserDefaults.standard.object(forKey: "history") as? Data {
-            let temp = NSKeyedUnarchiver.unarchiveObject(with: data) as! History
-            allArticles = temp.allArticles
+            let history = NSKeyedUnarchiver.unarchiveObject(with: data) as! History
+            allArticles = history.allArticles
             print("History Loaded")
             return true
         }
@@ -38,11 +38,11 @@ class History: NSObject {
     }
 
     //returns true if it exists
-    func checkIfExists(_ articleName: String) -> Bool {
+    func checkIfExists(_ articleTitle: String) -> Bool {
         for article in allArticles {
-          //  println(articleName)
-            if(articleName == article.title) {
-                //println("Article already read")
+          //print(articleTitle)
+            if(articleTitle == article.title) {
+                //print("Article already read")
                 return true
             }
         }

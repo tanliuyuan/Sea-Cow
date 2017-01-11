@@ -6,7 +6,7 @@ class NYTArticles: NSObject {
     var history: History = History()
     
     func load(_ fromURLString: String, loadCompletionHandler: @escaping (NYTArticles, String?) -> Void) {
-        if !history.load() {
+        if history.load() {
             if let url = URL(string: fromURLString) {
                 let urlRequest = URLRequest(url: url)
                 let session = URLSession.shared
@@ -24,20 +24,24 @@ class NYTArticles: NSObject {
                         }
                     }
                 })
-                
                 task.resume()
             } else {
                 DispatchQueue.main.async(execute: {
                     loadCompletionHandler(self, "Invalid URL")
                 })
             }
+        } else {
+            print("Error: unable to load history")
+            //#################################//
+            //###TODO: handle loaded history###//
+            //#################################//
         }
     }
     
     func parse(_ jsonData: Data, parseCompletionHandler: @escaping (NYTArticles, String?) -> Void) {
         do {
             let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: [])
-            print(jsonResult)
+            //print(jsonResult)
             if let jsonDictionary = jsonResult as? [String: Any] {
                 if let status = jsonDictionary["status"] as? String {
                     if status == "OK" {
@@ -58,7 +62,7 @@ class NYTArticles: NSObject {
                                     guard let mediumType = medium["type"] as? String,
                                         mediumType == "image",
                                         let mediumFormat = medium["format"] as? String,
-                                        mediumFormat == "Normal", // Standard Thumbnail | thumbLarge | Normal | superJumbo
+                                        mediumFormat == "thumbLarge", // Standard Thumbnail | thumbLarge | Normal | superJumbo
                                         let mediumUrl = medium["url"] as? String
                                     else {
                                         continue
@@ -71,8 +75,8 @@ class NYTArticles: NSObject {
                                     let exists = history.checkIfExists(article.title)
                                     if !exists {
                                         articles.append(article)
-                                        print(article)
-                                        break
+                                    } else {
+                                        print("Article exists in history")
                                     }
                                 }
                             }

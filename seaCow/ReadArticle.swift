@@ -8,9 +8,9 @@ class ReadArticle: NSObject, NSCoding {
     
     override init() {}
     
-    required init(title2: String, url2: String) {
-        self.title = title2
-        self.url = url2
+    required init(withTitle: String, withUrl: String) {
+        self.title = withTitle
+        self.url = withUrl
     }
     
     required init(coder decoder: NSCoder) {

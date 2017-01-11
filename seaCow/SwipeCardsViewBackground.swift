@@ -135,7 +135,7 @@ class SwipeCardsViewBackground: UIView {
     var swiped: Int = 0
     func cardSwipedAway(_ card: UIView, direction: String) {
         let history: History = History()
-        history.load()
+        let _ = history.load()
         swiped += 1
         let article: ArticleData = deck[0].articleData
         deck.remove(at: 0)
