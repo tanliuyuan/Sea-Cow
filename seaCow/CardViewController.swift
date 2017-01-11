@@ -15,7 +15,7 @@ class CardViewController: UIViewController {
         //create the time and repeat every 12 hours
         let test: Timer = Timer(fireAt: checkWhichDate(), interval: 5, target: self, selector: #selector(CardViewController.loadCards), userInfo: nil, repeats: true)
         RunLoop.current.add(test, forMode: RunLoopMode.commonModes)
-        
+        print("Ready to load cards")
         loadCards()
         
     }

@@ -64,7 +64,6 @@ class SwipeCardsViewBackground: UIView {
         let topStoriesUrl = topStoriesBaseUrl + "/" + topStoriesSection + topStoriesReturnFormat + "?" + "&api-key=" + topStoriesAPIKey
         
         // load articles from the NYT API
-        //println(topStoriesUrl)
         nytArticles.load(topStoriesUrl, loadCompletionHandler: {
             (nytArticles, errorString) -> Void in
             if let unwrappedErrorString = errorString {

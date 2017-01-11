@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "seaCow/CardViewController.swift"
-            timestampString = "505335794.974445"
+            timestampString = "505791853.502821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "checkWhichDate()"
             landmarkType = "7">
          </BreakpointContent>

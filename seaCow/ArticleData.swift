@@ -3,12 +3,10 @@ import Foundation
 
 class ArticleData: NSObject, NSCoding {
     
-    var title: String
-    var imageUrl: String
-    var url: String
-    var section: String
-    
-    
+    let title: String
+    let imageUrl: String
+    let url: String
+    let section: String
     
     override init() {
         self.title = ""

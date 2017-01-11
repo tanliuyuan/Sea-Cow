@@ -19,6 +19,8 @@ class NYTArticles: NSObject {
                     } else {
                         if data != nil {
                             self.parse(data!, parseCompletionHandler: loadCompletionHandler)
+                        } else {
+                            print("Error: API call returns nil")
                         }
                     }
                 })
@@ -32,16 +34,62 @@ class NYTArticles: NSObject {
         }
     }
     
-    func parse(_ jsonData: Data, parseCompletionHandler: (NYTArticles, String?) -> Void) {
-        let jsonResult = try? JSONSerialization.jsonObject(with: jsonData, options: [])
-        if let jsonDictionary = jsonResult as? [String: Any] {
-            if let status = jsonDictionary["status"] as? String {
-                if status == "OK" {
-                    if let results = jsonDictionary["results"] {
-                        print(results)
+    func parse(_ jsonData: Data, parseCompletionHandler: @escaping (NYTArticles, String?) -> Void) {
+        do {
+            let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: [])
+            print(jsonResult)
+            if let jsonDictionary = jsonResult as? [String: Any] {
+                if let status = jsonDictionary["status"] as? String {
+                    if status == "OK" {
+                        if let results = jsonDictionary["results"] as? [NSDictionary]{
+                            for result in results {
+                                guard let resultUrl = result["url"] as? String,
+                                    let resultTitle = result["title"] as? String,
+                                    let resultSection = result["section"] as? String,
+                                    let resultMultimedia = result["multimedia"] as? [NSDictionary]
+                                else {
+                                    print("Error fetching results")
+                                    continue
+                                    //##############################//
+                                    //###TODO: add error handling###//
+                                    //##############################//
+                                }
+                                for medium in resultMultimedia {
+                                    guard let mediumType = medium["type"] as? String,
+                                        mediumType == "image",
+                                        let mediumFormat = medium["format"] as? String,
+                                        mediumFormat == "Normal", // Standard Thumbnail | thumbLarge | Normal | superJumbo
+                                        let mediumUrl = medium["url"] as? String
+                                    else {
+                                        continue
+                                        //##############################//
+                                        //###TODO: add error handling###//
+                                        //##############################//
+                                    }
+                                    let resultImageUrl = mediumUrl
+                                    let article = ArticleData(forTitle: resultTitle, forUrl: resultUrl, forImageUrl: resultImageUrl, forSection: resultSection)
+                                    let exists = history.checkIfExists(article.title)
+                                    if !exists {
+                                        articles.append(article)
+                                        print(article)
+                                        break
+                                    }
+                                }
+                            }
+                        } else {
+                            print("Failed to convert jsonDictionary[\"results\"] as [NSDictionary]")
+                        }
+                    } else {
+                        // What if status != "OK"???
+                        print("Status not OK")
                     }
                 }
             }
+            DispatchQueue.main.async(execute: {
+                parseCompletionHandler(self, nil)
+            })
+        } catch {
+            print("Error deserializing JSON: \(error)")
         }
     }
     //#######################################################################################//
