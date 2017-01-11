@@ -93,7 +93,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
-    /*func tableView(_ tableView: UITableView, editActionsForRowAtIndexPath indexPath: IndexPath) -> [AnyObject]? {
+    func tableView(_ tableView: UITableView, editActionsForRowAtIndexPath indexPath: IndexPath) -> [AnyObject]? {
      
         let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal , title: "Share", handler: { (action: UITableViewRowAction!, indexPath: IndexPath!) in
             
@@ -102,7 +102,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
             composer.setText("Check out this awesome article!\n\n" + self.allArticles![indexPath.row].url + "\n\n#seaCow #articleTags? #whatever")
             composer.setImage(UIImage(named: "fabric"))
             
-            composer.show { (result) -> Void in
+            composer.show(from: self) { (result) -> Void in
                 if (result == TWTRComposerResult.cancelled) {
                     print("Tweet composition cancelled")
                 }
@@ -128,7 +128,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         })
         
         return [deleteAction, shareAction]
-    }*/
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

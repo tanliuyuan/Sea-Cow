@@ -7,7 +7,8 @@
 //
 
 import UIKit
-//import TwitterKit
+import Fabric
+import TwitterKit
 
 
 class SettingsViewController: UIViewController {
@@ -15,7 +16,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        /*let logInButton = TWTRLogInButton { (session, error) in
+        let logInButton = TWTRLogInButton { (session, error) in
             if let unwrappedSession = session {
                 let alert = UIAlertController(title: "Logged In",
                                               message: "User \(unwrappedSession.userName) has logged in",
@@ -29,8 +30,8 @@ class SettingsViewController: UIViewController {
         }
         
         // TODO: Change where the log in button is positioned in your view
-        logInButton?.center = self.view.center
-        self.view.addSubview(logInButton!)*/
+        logInButton.center = self.view.center
+        self.view.addSubview(logInButton)
 
     
         // Do any additional setup after loading the view.
