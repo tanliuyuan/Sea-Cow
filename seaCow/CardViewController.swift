@@ -1,11 +1,3 @@
-//
-//  CardViewController.swift
-//  seaCow
-//
-//  Created by Scott Gavin on 4/14/15.
-//  Copyright (c) 2015 Scott G Gavin. All rights reserved.
-//
-
 import UIKit
 
 class CardViewController: UIViewController {

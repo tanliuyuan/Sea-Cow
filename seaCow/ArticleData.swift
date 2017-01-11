@@ -1,11 +1,3 @@
-//
-//  ArticleData.swift
-//  seaCow
-//
-//  Created by Liuyuan Tan on 4/21/15.
-//  Copyright (c) 2015 Liuyuan Tan. All rights reserved.
-//
-
 import UIKit
 import Foundation
 

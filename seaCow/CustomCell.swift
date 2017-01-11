@@ -1,11 +1,3 @@
-//
-//  CustomCell.swift
-//  seaCow
-//
-//  Created by Tim Van Horn on 5/4/15.
-//  Copyright (c) 2015 Scott G Gavin. All rights reserved.
-//
-
 import UIKit
 
 class CustomCell: UITableViewCell {

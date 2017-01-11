@@ -1,11 +1,3 @@
-//
-//  readArticle.swift
-//  seaCow
-//
-//  Created by Scott Gavin on 5/7/15.
-//  Copyright (c) 2015 Scott G Gavin. All rights reserved.
-//
-
 import UIKit
 
 class ReadArticle: NSObject, NSCoding {

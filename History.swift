@@ -1,11 +1,3 @@
-//
-//  History.swift
-//  seaCow
-//
-//  Created by Scott Gavin on 5/10/15.
-//  Copyright (c) 2015 Sea Cow. All rights reserved.
-//
-
 import UIKit
 
 class History: NSObject {

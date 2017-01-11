@@ -1,11 +1,3 @@
-//
-//  SwipeCardsViewBackground.swift
-//  seaCow
-//
-//  Created by Liuyuan Tan on 4/20/15.
-//  Copyright (c) 2015 Liuyuan Tan. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
