@@ -85,7 +85,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [AnyObject]? {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
      
         let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal , title: "Share", handler: { (action: UITableViewRowAction!, indexPath: IndexPath!) in
             

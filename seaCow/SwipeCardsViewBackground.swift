@@ -59,7 +59,6 @@ class SwipeCardsViewBackground: UIView {
         
         //self.setupView()
         
-        var stringTitles: [String] = []
         // Make up search url
         let topStoriesUrl = topStoriesBaseUrl + "/" + topStoriesSection + topStoriesReturnFormat + "?" + "&api-key=" + topStoriesAPIKey
         
@@ -70,19 +69,21 @@ class SwipeCardsViewBackground: UIView {
                 print(unwrappedErrorString)
             } else {
                 for article in nytArticles.articles {
-                    let card = SwipeCardsView()
-                    let labelTextStyle = NSMutableParagraphStyle()
-                    labelTextStyle.lineSpacing = 10
-                    labelTextStyle.lineBreakMode = NSLineBreakMode.byWordWrapping
-                    let attributes = [NSParagraphStyleAttributeName : labelTextStyle]
-                    card.label.attributedText = NSAttributedString(string: article.title, attributes:attributes)
-                    card.articleData = article
-                    if let imageUrl = URL(string: card.articleData.imageUrl) {
-                        if let imageData = try? Data(contentsOf: imageUrl){
-                            card.backgroundView = UIImageView(image: UIImage(data: imageData)!)
+                    if self.allCards.count < 10 {
+                        let card = SwipeCardsView()
+                        let labelTextStyle = NSMutableParagraphStyle()
+                        labelTextStyle.lineSpacing = 10
+                        labelTextStyle.lineBreakMode = NSLineBreakMode.byWordWrapping
+                        let attributes = [NSParagraphStyleAttributeName : labelTextStyle]
+                        card.label.attributedText = NSAttributedString(string: article.title, attributes:attributes)
+                        card.articleData = article
+                        if let imageUrl = URL(string: card.articleData.imageUrl) {
+                            if let imageData = try? Data(contentsOf: imageUrl){
+                                card.backgroundView = UIImageView(image: UIImage(data: imageData)!)
+                            }
                         }
+                        self.allCards.append(card)
                     }
-                    self.allCards.append(card)
                 }
                 print("Total number of cards:\(self.allCards.count)")
                 self.loaded = 0
@@ -112,7 +113,6 @@ class SwipeCardsViewBackground: UIView {
             // loop through the exampleCardsLabels array to create a card for each label. This should be customerized by removing "exampleCardLabels" with another array of data
             for i in 0  ..< allCards.count {
                 let newCard: SwipeCardsView = self.createSwipeCardsViewWithDataAtIndex(i)
-                
                 if i < numLoadedCardsCap {
                     // add some extra cards to be loaded
                     deck.append(newCard)

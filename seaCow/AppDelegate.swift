@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  seaCow
-//
-//  Created by Scott Gavin on 4/14/15.
-//  Copyright (c) 2015 Scott G Gavin. All rights reserved.
-//
-
 import UIKit
 import Fabric
 import TwitterKit
@@ -20,13 +12,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Fabric.with([Twitter.self])
 
-        //#########################################################//
-        //###TODO: Fix notification for UNUserNotificationCenter###//
-        //#########################################################//
-        
-        // UIUserNotificationSettings has been deprecated in iOS10.
-        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
-        
         return true
     }
 

@@ -61,7 +61,7 @@ class SwipeCardsView: UIView {
         label.numberOfLines = 0
         
         let backgroundImage = UIImage(named: "cardbackground.png")
-        backgroundView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width , height: self.frame.size.height))
+        backgroundView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
         backgroundView.image = backgroundImage
         
         let gradientImage = UIImage(named: "gradient.png")

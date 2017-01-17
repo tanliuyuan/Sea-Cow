@@ -6,35 +6,29 @@ class NYTArticles: NSObject {
     var history: History = History()
     
     func load(_ fromURLString: String, loadCompletionHandler: @escaping (NYTArticles, String?) -> Void) {
-        if history.load() {
-            if let url = URL(string: fromURLString) {
-                let urlRequest = URLRequest(url: url)
-                let session = URLSession.shared
-                let task = session.dataTask(with: urlRequest, completionHandler: {
-                    (data, response, error) -> Void in
-                    if error != nil {
-                        DispatchQueue.main.async(execute: {
-                            loadCompletionHandler(self, error!.localizedDescription)
-                        })
+        _ = history.load()
+        if let url = URL(string: fromURLString) {
+            let urlRequest = URLRequest(url: url)
+            let session = URLSession.shared
+            let task = session.dataTask(with: urlRequest, completionHandler: {
+                (data, response, error) -> Void in
+                if error != nil {
+                    DispatchQueue.main.async(execute: {
+                        loadCompletionHandler(self, error!.localizedDescription)
+                    })
+                } else {
+                    if data != nil {
+                        self.parse(data!, parseCompletionHandler: loadCompletionHandler)
                     } else {
-                        if data != nil {
-                            self.parse(data!, parseCompletionHandler: loadCompletionHandler)
-                        } else {
-                            print("Error: API call returns nil")
-                        }
+                        print("Error: API call returns nil")
                     }
-                })
-                task.resume()
-            } else {
-                DispatchQueue.main.async(execute: {
-                    loadCompletionHandler(self, "Invalid URL")
-                })
-            }
+                }
+            })
+            task.resume()
         } else {
-            print("Error: unable to load history")
-            //#################################//
-            //###TODO: handle loaded history###//
-            //#################################//
+            DispatchQueue.main.async(execute: {
+                loadCompletionHandler(self, "Invalid URL")
+            })
         }
     }
     
@@ -62,7 +56,7 @@ class NYTArticles: NSObject {
                                     guard let mediumType = medium["type"] as? String,
                                         mediumType == "image",
                                         let mediumFormat = medium["format"] as? String,
-                                        mediumFormat == "thumbLarge", // Standard Thumbnail | thumbLarge | Normal | superJumbo
+                                        mediumFormat == "superJumbo", // Standard Thumbnail | thumbLarge | Normal | superJumbo
                                         let mediumUrl = medium["url"] as? String
                                     else {
                                         continue
