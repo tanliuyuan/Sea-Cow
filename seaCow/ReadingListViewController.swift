@@ -10,35 +10,13 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
     var readingList = NYTArticles()
     var allArticles: [ArticleData]?
     var selectedArticle: ArticleData?
-
-    // A set of constant and variable strings for making up the URL for article searching using NYT's API
-    let articleSearchBaseUrl = "http://api.nytimes.com/svc/mostpopular/v2"
-    let articleSearchResourceType = "mostviewed" // mostemailed | mostshared | mostviewed
-    let articleSearchSections = "all-sections"
-    let articlesSearchNumOfDays = 1 // 1 | 7 | 30
-    let articleSearchReturnFormat = ".json"
-    let articleSearchAPIKey = "b772e34fc2a53d05fe60d6c63d0c0e4c:9:71573042"
-    var testArticles: ReadingList?
+    var listArticles: ReadingList?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-                
-        let articleSearchUrl = articleSearchBaseUrl + "/" + articleSearchResourceType + "/" + articleSearchSections + "/" + "\(articlesSearchNumOfDays)" + articleSearchReturnFormat + "?" + "&API-Key=" + articleSearchAPIKey
-        
-        // load articles from the NYT API
-        readingList.load(articleSearchUrl, loadCompletionHandler: {
-            (nytArticles, errorString) -> Void in
-            if let unwrappedErrorString = errorString {
-                print(unwrappedErrorString)
-            } else {
-             
-                print(self.readingList.articles.count)
-                self.myTableView.reloadData()
-                
-            }
-        })
-        allArticles = testArticles?.getArticles()
+        self.myTableView.reloadData()
+        allArticles = listArticles?.getArticles()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,15 +32,12 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         let cell: CustomCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
         if(allArticles!.count > 0) {
             
-        
             //cell.title?.text = readingList.articles[indexPath.row].title
             cell.title?.text = allArticles![indexPath.row].title
             cell.title?.font = UIFont(name: "Gotham Light", size: 18)
             //let url = NSURL(string: readingList.articles[indexPath.row].imageUrl)
             let url = URL(string: allArticles![indexPath.row].imageUrl)
             let data = try? Data(contentsOf: url!)
-            
-            
             
             cell.backgroundImage.image = UIImage(data: data!)
             
@@ -91,7 +66,7 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
             
             let composer = TWTRComposer()
             
-            composer.setText("Check out this awesome article!\n\n" + self.allArticles![indexPath.row].url + "\n\n#seaCow #articleTags? #whatever")
+            composer.setText("Check out this awesome article!\n\n" + self.allArticles![indexPath.row].url + "\n\n#SeaCow")
             composer.setImage(UIImage(named: "fabric"))
             
             composer.show(from: self) { (result) -> Void in
@@ -113,9 +88,9 @@ class ReadingListViewController: UIViewController, UITableViewDataSource, UITabl
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default , title: "Delete", handler: { (action: UITableViewRowAction!, indexPath: IndexPath!) in
             
             self.allArticles?.remove(at: indexPath.row)
-            self.testArticles?.removeArticle(indexPath.row)
+            self.listArticles?.removeArticle(indexPath.row)
             self.myTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-            self.testArticles!.save()
+            self.listArticles!.save()
             return
         })
         

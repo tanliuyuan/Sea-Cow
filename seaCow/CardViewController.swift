@@ -31,7 +31,7 @@ class CardViewController: UIViewController {
             let destViewController = segue.destination as! ReadingListViewController
             
            // destViewController.allArticles = swipeCardsViewBackground!.toReadingList
-            destViewController.testArticles = swipeCardsViewBackground!.testArticles
+            destViewController.listArticles = swipeCardsViewBackground!.testArticles
         }
         
     }
